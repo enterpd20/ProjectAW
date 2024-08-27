@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: c055d3df3c8bcc24ba43665b2e962fef
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4641208822596924254
+    second: Button_AirSupport
+  - first:
+      213: -8182146480139223549
+    second: Button_Torpedoes
+  - first:
+      213: -8512888718204694149
+    second: Button_Calibration
+  - first:
+      213: 4243151247066675258
+    second: Button_Controller
+  - first:
+      213: -33027649569282340
+    second: Button_Sound
+  - first:
+      213: 2228543596064972039
+    second: Button_Setting
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +59,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,7 +131,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Button_AirSupport
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 646
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e537c4f75d2e86040800000000000000
+      internalID: 4641208822596924254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Torpedoes
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 586
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30eb61f802d237e80800000000000000
+      internalID: -8182146480139223549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Calibration
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 493
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b719af260d42cd980800000000000000
+      internalID: -8512888718204694149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Controller
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 853
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a383aa9f393b2ea30800000000000000
+      internalID: 4243151247066675258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Sound
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 13
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd628a71789aa8ff0800000000000000
+      internalID: -33027649569282340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Setting
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 99
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d9ce1e7906dee10800000000000000
+      internalID: 2228543596064972039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

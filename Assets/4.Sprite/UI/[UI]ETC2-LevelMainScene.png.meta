@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 56f0e5c332f4c5342b86b8fee505f0fd
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1322443636250600148
+    second: Battle_OperationSiren
+  - first:
+      213: 5262115699796999097
+    second: Battle_Main
+  - first:
+      213: -9098985063018413280
+    second: Battle_MainCampaign
+  - first:
+      213: -3987794613848660315
+    second: Battle_NoEvent
+  - first:
+      213: 4877786139030349297
+    second: Battle_Attack
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +56,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,7 +128,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Battle_OperationSiren
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 603
+        width: 639
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d9ec9f48cb5ade0800000000000000
+      internalID: -1322443636250600148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Main
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 1023
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bbf76d595ac60940800000000000000
+      internalID: 5262115699796999097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_MainCampaign
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 25
+        width: 509
+        height: 651
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023c33e2b49e9b180800000000000000
+      internalID: -9098985063018413280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_NoEvent
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 726
+        width: 639
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6a55c4de188a8c0800000000000000
+      internalID: -3987794613848660315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Attack
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 1140
+        width: 144
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f56a3b56a061b340800000000000000
+      internalID: 4877786139030349297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
