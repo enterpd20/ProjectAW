@@ -32,6 +32,21 @@ TextureImporter:
   - first:
       213: 8514666067759534318
     second: UI_AzurLane
+  - first:
+      213: 7307954966054834908
+    second: UI_Eye
+  - first:
+      213: -7523942920597542840
+    second: UI_BackToEye
+  - first:
+      213: 2589801000775070822
+    second: UI_DefaultBG
+  - first:
+      213: 6871395868686214488
+    second: UI_BG
+  - first:
+      213: 3326574007628359499
+    second: UI_BlackBG
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -301,7 +316,7 @@ TextureImporter:
         height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 25, w: 7}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -321,7 +336,7 @@ TextureImporter:
         width: 444
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -342,7 +357,7 @@ TextureImporter:
         width: 58
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -350,6 +365,111 @@ TextureImporter:
       bones: []
       spriteID: ee011ed0dab2a2670800000000000000
       internalID: 8514666067759534318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Eye
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1105
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2104a82521b6560800000000000000
+      internalID: 7307954966054834908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_BackToEye
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1614
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848e77bf6c5959790800000000000000
+      internalID: -7523942920597542840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DefaultBG
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1359
+        width: 229
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6643622f942d0f320800000000000000
+      internalID: 2589801000775070822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_BG
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 501
+        width: 58
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 11, z: 11, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855e028e22a1c5f50800000000000000
+      internalID: 6871395868686214488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_BlackBG
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1791
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 15, y: 15, z: 12, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b476cbb5f6d5a2e20800000000000000
+      internalID: 3326574007628359499
       vertices: []
       indices: 
       edges: []

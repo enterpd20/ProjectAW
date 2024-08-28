@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 5a549cf0d6ce44b4c9e1c19026c0a331
+guid: 2859100274f634a428cc36ef3a38a362
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1169237421681028079
-    second: Button_Confirm
-  - first:
-      213: 3038760721553864427
-    second: Button_Cancel
-  - first:
-      213: -9019385463695353330
-    second: Button_Develop
-  - first:
-      213: -613001406395450133
-    second: Button_Submit
+      213: 2800829625344421643
+    second: UI_DockUpper2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_Confirm
+      name: UI_DockUpper2
       rect:
         serializedVersion: 2
-        x: 1119
-        y: 1545
-        width: 235
-        height: 61
+        x: 45
+        y: 1039
+        width: 75
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,71 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feb24697d37f93010800000000000000
-      internalID: 1169237421681028079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Cancel
-      rect:
-        serializedVersion: 2
-        x: 1624
-        y: 336
-        width: 225
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be6b0a5b6c8db2a20800000000000000
-      internalID: 3038760721553864427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Develop
-      rect:
-        serializedVersion: 2
-        x: 1744
-        y: 105
-        width: 225
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0add1025b4b4d280800000000000000
-      internalID: -9019385463695353330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Submit
-      rect:
-        serializedVersion: 2
-        x: 595
-        y: 1795
-        width: 147
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: becfbfcf77e2e77f0800000000000000
-      internalID: -613001406395450133
+      spriteID: b0f6b0f64bb8ed620800000000000000
+      internalID: 2800829625344421643
       vertices: []
       indices: 
       edges: []
@@ -213,7 +141,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b0a3556822fc18b4eaf67e30a0db66fb
     internalID: 0
     vertices: []
     indices: 

@@ -1,28 +1,37 @@
 fileFormatVersion: 2
-guid: c055d3df3c8bcc24ba43665b2e962fef
+guid: bff0af4f39a670a4abcab0ad442a8577
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4641208822596924254
-    second: Button_AirSupport
+      213: 8623784757888199289
+    second: UI_DepotURBig
   - first:
-      213: -8182146480139223549
-    second: Button_Torpedoes
+      213: -128551891829431370
+    second: UI_DepotNBig
   - first:
-      213: -8512888718204694149
-    second: Button_Calibration
+      213: -6982675388364956095
+    second: UI_DepotSSRBig
   - first:
-      213: 4243151247066675258
-    second: Button_Controller
+      213: -7363781361146681660
+    second: UI_DepotSRBig
   - first:
-      213: -33027649569282340
-    second: Button_Sound
+      213: -2434006006706016081
+    second: UI_DepotRBig
   - first:
-      213: 2228543596064972039
-    second: Button_SettingSmallTEXT
+      213: -4484381539503801374
+    second: UI_DepotUR
   - first:
-      213: 2340652102770102530
-    second: Setting_BigTEXT
+      213: 6531667624790994021
+    second: UI_DepotR
+  - first:
+      213: -1887585578617616056
+    second: UI_DepotN
+  - first:
+      213: 8646473800384794167
+    second: UI_DepotSR
+  - first:
+      213: 7406784574500518069
+    second: UI_DepotSSR
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,139 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_AirSupport
+      name: UI_DepotURBig
       rect:
         serializedVersion: 2
-        x: 470
-        y: 646
-        width: 138
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e537c4f75d2e86040800000000000000
-      internalID: 4641208822596924254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Torpedoes
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 586
-        width: 138
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30eb61f802d237e80800000000000000
-      internalID: -8182146480139223549
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Calibration
-      rect:
-        serializedVersion: 2
-        x: 757
-        y: 493
-        width: 138
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b719af260d42cd980800000000000000
-      internalID: -8512888718204694149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Controller
-      rect:
-        serializedVersion: 2
-        x: 625
-        y: 853
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a383aa9f393b2ea30800000000000000
-      internalID: 4243151247066675258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Sound
-      rect:
-        serializedVersion: 2
-        x: 1446
-        y: 13
-        width: 41
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd628a71789aa8ff0800000000000000
-      internalID: -33027649569282340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_SettingSmallTEXT
-      rect:
-        serializedVersion: 2
-        x: 1126
-        y: 99
-        width: 80
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70d9ce1e7906dee10800000000000000
-      internalID: 2228543596064972039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Setting_BigTEXT
-      rect:
-        serializedVersion: 2
-        x: 747
-        y: 649
-        width: 189
-        height: 49
+        x: 1
+        y: 184
+        width: 179
+        height: 179
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +159,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2011268afaaab7020800000000000000
-      internalID: 2340652102770102530
+      spriteID: 97aaa59eb86dda770800000000000000
+      internalID: 8623784757888199289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotNBig
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 184
+        width: 179
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b36d484cba473ef0800000000000000
+      internalID: -128551891829431370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotSSRBig
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 179
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ed4a6eabd881f90800000000000000
+      internalID: -6982675388364956095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotSRBig
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1
+        width: 179
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6a535fdd79ec990800000000000000
+      internalID: -7363781361146681660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotRBig
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1
+        width: 179
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0fe1dce6ca83ed0800000000000000
+      internalID: -2434006006706016081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotUR
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 285
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb7e84cfb644c1c0800000000000000
+      internalID: -4484381539503801374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotR
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 184
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c2696391525aa50800000000000000
+      internalID: 6531667624790994021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotN
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 203
+        width: 86
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849c857cae2fdc5e0800000000000000
+      internalID: -1887585578617616056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotSR
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 102
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e48a74c127ef770800000000000000
+      internalID: 8646473800384794167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DepotSSR
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b832f2e35f2ac660800000000000000
+      internalID: 7406784574500518069
       vertices: []
       indices: 
       edges: []
@@ -285,7 +357,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: eee978d76cc757541b832e52ad99d43a
     internalID: 0
     vertices: []
     indices: 
