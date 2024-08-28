@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: 6963076248085086420
     second: UI_Line
+  - first:
+      213: 4925936220595945626
+    second: UI_SortingCategory
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -246,7 +249,7 @@ TextureImporter:
         width: 1
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,6 +257,27 @@ TextureImporter:
       bones: []
       spriteID: 4d04217a4f0d1a060800000000000000
       internalID: 6963076248085086420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SortingCategory
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 503
+        width: 343
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a900ad6d4e07c5440800000000000000
+      internalID: 4925936220595945626
       vertices: []
       indices: 
       edges: []
