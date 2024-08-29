@@ -17,6 +17,24 @@ TextureImporter:
   - first:
       213: 4877786139030349297
     second: Battle_Attack
+  - first:
+      213: 3089998235599593343
+    second: Button_StageBG
+  - first:
+      213: -7078434800867722003
+    second: Button_StageRectangle
+  - first:
+      213: -6099780207608565780
+    second: Button_StageRectInner
+  - first:
+      213: 6096241798017761944
+    second: Button_StageClearSprite1
+  - first:
+      213: -6154531844095126619
+    second: Button_StageClearSprite2
+  - first:
+      213: 6615946524142350708
+    second: UI_StageChaper
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -138,7 +156,7 @@ TextureImporter:
         width: 639
         height: 314
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +177,7 @@ TextureImporter:
         width: 1023
         height: 577
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,7 +198,7 @@ TextureImporter:
         width: 509
         height: 651
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +219,7 @@ TextureImporter:
         width: 639
         height: 314
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,7 +240,7 @@ TextureImporter:
         width: 144
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,6 +248,132 @@ TextureImporter:
       bones: []
       spriteID: 1f56a3b56a061b340800000000000000
       internalID: 4877786139030349297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_StageBG
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1202
+        width: 474
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f5f751601e1ea20800000000000000
+      internalID: 3089998235599593343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_StageRectangle
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 1003
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec34804d0954cd90800000000000000
+      internalID: -7078434800867722003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_StageRectInner
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 768
+        width: 86
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef688d183a395ba0800000000000000
+      internalID: -6099780207608565780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_StageClearSprite1
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 1514
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892ccb3bd933a9450800000000000000
+      internalID: 6096241798017761944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_StageClearSprite2
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 1514
+        width: 83
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a351e955e5b69aa0800000000000000
+      internalID: -6154531844095126619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StageChaper
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 831
+        width: 386
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4713c789f4090db50800000000000000
+      internalID: 6615946524142350708
       vertices: []
       indices: 
       edges: []
