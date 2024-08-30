@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 1b085228138c4bb4d94787e76920dec9
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 9163062559121638104
+    second: UI_StatHP
+  - first:
+      213: 6199519339703569343
+    second: UI_StatFP
+  - first:
+      213: -3705139247705174339
+    second: UI_StatTRP
+  - first:
+      213: -3156249342512046608
+    second: UI_StatAA
+  - first:
+      213: 2737547124209830136
+    second: UI_StatAVI
+  - first:
+      213: -7976350003921850303
+    second: UI_StatSPD
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +131,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI_StatHP
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 636
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2802b79dcb92f70800000000000000
+      internalID: 9163062559121638104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StatFP
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 673
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb02353efd190650800000000000000
+      internalID: 6199519339703569343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StatTRP
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 721
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbecc212c73b49cc0800000000000000
+      internalID: -3705139247705174339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StatAA
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 806
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd520d02ffb234d0800000000000000
+      internalID: -3156249342512046608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StatAVI
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 891
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f84b66fa98bdf520800000000000000
+      internalID: 2737547124209830136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StatSPD
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 927
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1407d049eef4e4190800000000000000
+      internalID: -7976350003921850303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

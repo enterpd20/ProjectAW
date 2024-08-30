@@ -35,6 +35,9 @@ TextureImporter:
   - first:
       213: 6615946524142350708
     second: UI_StageChaper
+  - first:
+      213: -764807070963577261
+    second: UI_ShipType1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -374,6 +377,27 @@ TextureImporter:
       bones: []
       spriteID: 4713c789f4090db50800000000000000
       internalID: 6615946524142350708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ShipType1
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 2
+        width: 456
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e4285650cd265f0800000000000000
+      internalID: -764807070963577261
       vertices: []
       indices: 
       edges: []

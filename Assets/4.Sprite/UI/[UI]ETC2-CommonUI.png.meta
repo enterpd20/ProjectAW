@@ -8,6 +8,24 @@ TextureImporter:
   - first:
       213: 8015244861408213096
     second: Button_ScrollBarVertical
+  - first:
+      213: 4069160295908296559
+    second: UI_DockUpper3
+  - first:
+      213: -7044186578874100010
+    second: UI_StarClear
+  - first:
+      213: -6926431696022041444
+    second: UI_StarLight
+  - first:
+      213: -9190703664346490446
+    second: UI_CharName
+  - first:
+      213: 6351397104471257574
+    second: UI_ShipName
+  - first:
+      213: -8159751263077589858
+    second: UI_CommonRectangle
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -158,6 +176,132 @@ TextureImporter:
       bones: []
       spriteID: 868f2002cbedb3f60800000000000000
       internalID: 8015244861408213096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_DockUpper3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1277
+        width: 56
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 24, y: 0, z: 11, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67ccb3dabf887830800000000000000
+      internalID: 4069160295908296559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StarClear
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1119
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d692a2d0a50e3e90800000000000000
+      internalID: -7044186578874100010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_StarLight
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 131
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c899df11f50ef90800000000000000
+      internalID: -6926431696022041444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_CharName
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1154
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b91fb236bf047080800000000000000
+      internalID: -9190703664346490446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ShipName
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1114
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1347fe302b42850800000000000000
+      internalID: 6351397104471257574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_CommonRectangle
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1190
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c17bc557db2ce80800000000000000
+      internalID: -8159751263077589858
       vertices: []
       indices: 
       edges: []
