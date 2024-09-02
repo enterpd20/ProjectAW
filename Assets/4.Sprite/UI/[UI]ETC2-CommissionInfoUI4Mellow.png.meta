@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e1df45ac10cb5d747b3327ef852ea749
+guid: e97698f4b0024f24997c6eeaf11746f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1949542787401084650
-    second: UI_Index
-  - first:
-      213: -7082293361888446426
-    second: UI_EquipSlot
+      213: 7704642931737771214
+    second: UI_EquipDetail
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,43 +118,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Index
+      name: UI_EquipDetail
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 279
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aee677506da2e0b10800000000000000
-      internalID: 1949542787401084650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_EquipSlot
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 162
-        width: 40
-        height: 40
+        x: 0
+        y: 593
+        width: 766
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 1, y: 1, z: 1, w: 1}
+      border: {x: 9, y: 9, z: 9, w: 9}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 628388106b3a6bd90800000000000000
-      internalID: -7082293361888446426
+      spriteID: ecc347bece36cea60800000000000000
+      internalID: 7704642931737771214
       vertices: []
       indices: 
       edges: []
@@ -165,7 +141,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c6b3544b1ac9311439b1bacf92a562df
+    spriteID: df059380a542e7f42a562b0efe87a266
     internalID: 0
     vertices: []
     indices: 

@@ -8,6 +8,21 @@ TextureImporter:
   - first:
       213: 6033988021674720888
     second: UI_ShipType3
+  - first:
+      213: 5421531864996529778
+    second: UI_ShipEquipEmpty
+  - first:
+      213: 8231314501433679181
+    second: UI_ExtraEquipSlot
+  - first:
+      213: -7755281764147816064
+    second: UI_ShipTypeLing
+  - first:
+      213: -358441524578830794
+    second: UI_EquipType
+  - first:
+      213: 4403276912868991704
+    second: UI_ExtraEquipButton
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -150,7 +165,7 @@ TextureImporter:
         width: 154
         height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,6 +173,111 @@ TextureImporter:
       bones: []
       spriteID: 87e32e2e2280db350800000000000000
       internalID: 6033988021674720888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ShipEquipEmpty
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 393
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2764497b1862d3b40800000000000000
+      internalID: 5421531864996529778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ExtraEquipSlot
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 638
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4dd97c7de08b3270800000000000000
+      internalID: 8231314501433679181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ShipTypeLing
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 294
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08997e22354bf5490800000000000000
+      internalID: -7755281764147816064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_EquipType
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 857
+        width: 74
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 1, z: 50, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 636babe155f860bf0800000000000000
+      internalID: -358441524578830794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ExtraEquipButton
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 653
+        width: 146
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d22c3fc5059b1d30800000000000000
+      internalID: 4403276912868991704
       vertices: []
       indices: 
       edges: []
