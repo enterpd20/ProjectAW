@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: -6514663839915501589
     second: UI_RedXCancel
+  - first:
+      213: -3537143609131755803
+    second: UI_IndexUnselected
+  - first:
+      213: -2461937877645649683
+    second: UI_IndexSelected
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -342,7 +348,7 @@ TextureImporter:
         width: 107
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -350,6 +356,48 @@ TextureImporter:
       bones: []
       spriteID: be711c6f0c34795a0800000000000000
       internalID: -6514663839915501589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_IndexUnselected
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 390
+        width: 263
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6982ac0aa89eec0800000000000000
+      internalID: -3537143609131755803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_IndexSelected
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 287
+        width: 263
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de81adf4b8075ddd0800000000000000
+      internalID: -2461937877645649683
       vertices: []
       indices: 
       edges: []
