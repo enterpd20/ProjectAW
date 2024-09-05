@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: 1096368c8a9179a44ae24d80f655b434
+guid: 004e50cba0c91da4ebc9267623e66b1d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3521887925433640744
+    second: UI_Pause
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,11 +116,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI_Pause
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 158
+        width: 261
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d85ac1779dbf1fc0800000000000000
+      internalID: -3521887925433640744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cd5a35713b8a39946aa25d57de0ec809
+    spriteID: 2849223c900016c4cb0938e558dc23ad
     internalID: 0
     vertices: []
     indices: 
