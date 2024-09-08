@@ -581,7 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d416331165c7c4e9052c1efda1493b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motion: {fileID: -9043468435836761345}
+  motion:
+  - {fileID: 0}
   layer: 0
   timeScale: 1
 --- !u!1101 &-5830325158683874692
@@ -1188,31 +1189,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isWin
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDie
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isMove
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1350,7 +1351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d416331165c7c4e9052c1efda1493b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motion: {fileID: -6793807053278040846}
+  motion:
+  - {fileID: 0}
   layer: 0
   timeScale: 1
 --- !u!1102 &1405525006608388150
@@ -1393,7 +1395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d416331165c7c4e9052c1efda1493b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motion: {fileID: 2631685228937410435}
+  motion:
+  - {fileID: 0}
   layer: 0
   timeScale: 1
 --- !u!74 &2467647745529879537
