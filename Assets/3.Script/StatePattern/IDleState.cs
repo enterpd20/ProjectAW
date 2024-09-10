@@ -54,7 +54,7 @@ public class IDleState : MonoBehaviour, IState
 
             navMeshAgent.SetDestination(finalPosition);
 
-            Vector3 direction = finalPosition - transform.position;
+            Vector3 direction = finalPosition - transform.position;     // 이동 방향에 따라 스프라이트 뒤집기
 
             if(direction.x > 0)
             {
@@ -68,8 +68,6 @@ public class IDleState : MonoBehaviour, IState
             animator.SetBool("move", true); // Move 애니메이션 재생
         }
     }
-
-   
 
     public void ExitState()
     {

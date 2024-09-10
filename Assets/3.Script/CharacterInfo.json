@@ -1,0 +1,380 @@
+{
+    "Characters": [
+        {
+            "name": "Enterprise",
+            "shipType": "CV",
+            "rarity": "SSR",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Hornet",
+            "shipType": "CV",
+            "rarity": "SR",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Akagi",
+            "shipType": "CV",
+            "rarity": "SSR",
+            "faction": "SakuraEmpire",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Kaga",
+            "shipType": "CV",
+            "rarity": "SSR",
+            "faction": "SakuraEmpire",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "ArkRoyal",
+            "shipType": "CV",
+            "rarity": "SR",
+            "faction": "RoyalNavy",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "ArkRoyalMETA",
+            "shipType": "CV",
+            "rarity": "SR",
+            "faction": "META",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+
+
+
+
+
+        {
+            "name": "Bismarck",
+            "shipType": "BB",
+            "rarity": "SSR",
+            "faction": "IronBlood",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 200,
+                "TRP": 0,
+                "AVI": 0,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Hood",
+            "shipType": "BB",
+            "rarity": "SSR",
+            "faction": "RoyalNavy",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "PrinceOfWales",
+            "shipType": "BB",
+            "rarity": "SSR",
+            "faction": "RoyalNavy",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "MaryLand",
+            "shipType": "BB",
+            "rarity": "SR",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Fusou",
+            "shipType": "BB",
+            "rarity": "R",
+            "faction": "SakuraEmpire",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "FusouMETA",
+            "shipType": "BB",
+            "rarity": "SR",
+            "faction": "META",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+
+
+
+
+
+        {
+            "name": "Atago",
+            "shipType": "CA/CL",
+            "rarity": "SSR",
+            "faction": "SakuraEmpire",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 100,
+                "TRP": 100,
+                "AVI": 0,
+                "AA": 100,
+                "SPD": 100
+            }
+        },
+        {
+            "name": "Minneapolis",
+            "shipType": "CA/CL",
+            "rarity": "SSR",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "PrinzEugen",
+            "shipType": "CA/CL",
+            "rarity": "SSR",
+            "faction": "IronBlood",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Sheffield",
+            "shipType": "CA/CL",
+            "rarity": "SR",
+            "faction": "RoyalNavy",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Northampton",
+            "shipType": "CA/CL",
+            "rarity": "R",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "SheffieldMETA",
+            "shipType": "CA/CL",
+            "rarity": "SR",
+            "faction": "META",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+
+
+
+
+
+        {
+            "name": "Kawakaze",
+            "shipType": "DD",
+            "rarity": "SSR",
+            "faction": "SakuraEmpire",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Ayanami",
+            "shipType": "DD",
+            "rarity": "SR",
+            "faction": "SakuraEmpire",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 50,
+                "TRP": 200,
+                "AVI": 0,
+                "AA": 50,
+                "SPD": 100
+            }
+        },
+        {
+            "name": "Icarus",
+            "shipType": "DD",
+            "rarity": "SR",
+            "faction": "RoyalNavy",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Aylwin",
+            "shipType": "DD",
+            "rarity": "R",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "Hamman",
+            "shipType": "DD",
+            "rarity": "R",
+            "faction": "EagleUnion",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        },
+        {
+            "name": "KasumiMETA",
+            "shipType": "DD",
+            "rarity": "SR",
+            "faction": "META",
+            "hasUniqueModule": true,
+            "stats": {
+                "HP": 100,
+                "FP": 0,
+                "TRP": 0,
+                "AVI": 200,
+                "AA": 200,
+                "SPD": 50
+            }
+        }
+
+    ]
+}
