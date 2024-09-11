@@ -1,0 +1,96 @@
+{
+  // Dive Bomber
+  "Gears": [
+    {
+      "name": "SBD Dauntless", // USS Enterprise, USS Hornet
+      "gearType": "Dive Bomber",
+      "rarity": "R",
+      "faction": "EagleUnion",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    },
+    {
+      "name": "SB2C HellDiver", // USS Enterprise
+      "gearType": "Dive Bomber",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    },
+    {
+      "name": "B-25 Mitchell", // USS Hornet
+      "gearType": "Dive Bomber",
+      "rarity": "SSR",
+      "faction": "EagleUnion",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    },
+    {
+      "name": "Aichi D3A Type 99",  // IJN Akagi, Kaga
+      "gearType": "Dive Bomber",
+      "rarity": "R",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    },
+    {
+      "name": "Aichi D3A2 Type 99", // IJN Akagi, Kaga
+      "gearType": "Dive Bomber",
+      "rarity": "SR",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    },
+    {
+      "name": "Blackburn Skua", // HMS ArkRoyal
+      "gearType": "Dive Bomber",
+      "rarity": "R",
+      "faction": "RoyalNavy",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    },
+    {
+      "name": "Fairey Fulmar", // HMS ArkRoyal
+      "gearType": "Dive Bomber",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "stats": {
+        "HP": 63,
+        "AVI": 12,
+        "DMG": 150,
+        "SPD": 48,
+        "RLD": 15
+      }
+    }
+  ]
+}

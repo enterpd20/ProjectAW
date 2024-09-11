@@ -1,0 +1,72 @@
+{
+  // CL/CA Gun
+  "Gears": [
+    {
+      "name": "Twin 203mm (3rd Year Type)", // IJN Atago
+      "gearType": "CL/CA Gun",
+      "rarity": "SR",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Triple 203mm (8inch/55 Mk 9)", // USS Minneapolis
+      "gearType": "CL/CA Gun",
+      "rarity": "R",
+      "faction": "EagleUnion",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Triple 203mm (8inch/55 Mk 15)", // USS Minneapolis
+      "gearType": "CL/CA Gun",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 203mm (SK C/34)", // KMS Prinz Eugen
+      "gearType": "CL/CA Gun",
+      "rarity": "SSR",
+      "faction": "IronBlood",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Triple 152mm (BL 6inch Mk XXIII)", // HMS Sheffield
+      "gearType": "CL/CA Gun",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Triple 203mm (8inch/55 Mk 15)", // USS Northampton
+      "gearType": "CL/CA Gun",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    }
+
+  ]
+}

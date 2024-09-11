@@ -1,0 +1,82 @@
+{
+  // BB Gun
+  "Gears": [
+    {
+      "name": "Twin 380mm (SK C/34)", // KMS Bismarck
+      "gearType": "BB Gun",
+      "rarity": "SSR",
+      "faction": "IronBlood",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 381mm (BL 15inch Mk I)", // HMS Hood
+      "gearType": "BB Gun",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 381mm (BL 15inch Mk II)", // HMS Hood
+      "gearType": "BB Gun",
+      "rarity": "SSR",
+      "faction": "RoyalNavy",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Quadruple 356mm (BL 14inch Mk VII)", // HMS Prince Of Wales
+      "gearType": "BB Gun",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 406mm (16inch/45 Mk 8)", // USS Maryland
+      "gearType": "BB Gun",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 356mm (41st Year Type)", // IJN Fusou
+      "gearType": "BB Gun",
+      "rarity": "R",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 356mm (41st Year Type) Kai", // IJN Fusou
+      "gearType": "BB Gun",
+      "rarity": "R",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  // DD Gun
+  "Gears": [
+    {
+      "name": "Twin 127mm (Type 3)", // IJN Kawakaze, Ayanami
+      "gearType": "DD Gun",
+      "rarity": "SR",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Single 120mm (QF Mark IX)", // HMS Icarus
+      "gearType": "DD Gun",
+      "rarity": "R",
+      "faction": "RoyalNavy",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 127mm (5inch/38 Mk 38)", // USS Aylwin, Hammann
+      "gearType": "DD Gun",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    }
+  ]
+}

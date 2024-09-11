@@ -1,0 +1,65 @@
+{
+  // Torpedo
+  "Gears": [
+    {
+      "name": "610mm Twin Torpedo Mount", // IJN Atago
+      "gearType": "Torpedo",
+      "rarity": "R",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "TRP": 50,
+        "DMG": 150,
+        "SPD": 4,
+        "RLD": 20
+      }
+    },
+    {
+      "name": "610mm Quadruple Torpedo Mount", // IJN Atago, Kawakaze, Ayanami
+      "gearType": "Torpedo",
+      "rarity": "SSR",
+      "faction": "SakuraEmpire",
+      "stats": {
+        "TRP": 50,
+        "DMG": 206,
+        "SPD": 4,
+        "RLD": 28
+      }
+    },
+    {
+      "name": "533mm Triple Homing Torpedo Mount", // KMS Prinz Eugen
+      "gearType": "Torpedo",
+      "rarity": "SR",
+      "faction": "IronBlood",
+      "stats": {
+        "TRP": 50,
+        "DMG": 145,
+        "SPD": 2,
+        "RLD": 22
+      }
+    },
+    {
+      "name": "533mm Quintuple Torpedo Mount Mk IX", // HMS Icarus
+      "gearType": "Torpedo",
+      "rarity": "SSR",
+      "faction": "RoyalNavy",
+      "stats": {
+        "TRP": 50,
+        "DMG": 172,
+        "SPD": 3.5,
+        "RLD": 28
+      }
+    },
+    {
+      "name": "533mm Quadruple Torpedo Mount Mk 17", // USS Aylwin, Hammann
+      "gearType": "Torpedo",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "stats": {
+        "TRP": 50,
+        "DMG": 160,
+        "SPD": 3,
+        "RLD": 23
+      }
+    }
+  ]
+}
