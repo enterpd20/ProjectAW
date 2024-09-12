@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class CharacterButton : MonoBehaviour
 {
-    public Image backgroundImage;
-    public Image characterImage;
+    public Image backgroundImage;       // 캐릭터의 레어도 배경
+    public Image characterImage;        // 캐릭터 일러스트
 
-    public DockDetailUI dockDetailUI;
+    public DockDetailUI_Character dockDetailUI_character;
 
     public void SetCharacterData(Character character, Sprite[] rarityBackground)
     {
@@ -35,6 +35,7 @@ public class CharacterButton : MonoBehaviour
     }
     private void OnCharacterButtonClicked(Character character)
     {
-        dockDetailUI.CharacterDetail(character);
+        // DockDetailUI 인스턴스를 통해 CharacterDetail 호출
+        dockDetailUI_character.CharacterDetail(character);        
     }
 }

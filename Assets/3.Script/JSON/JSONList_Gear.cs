@@ -22,6 +22,7 @@ public class Gear
     public string gearType;
     public string rarity;
     public string faction;
+    public string imageName;
     public GearStats stats;
 }
 

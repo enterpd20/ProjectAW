@@ -6,6 +6,7 @@
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
+      "imageName": "Drop Tank",
       "stats": {
         "HP": 60, // Aircraft HP +
         "AVI": 70 // Aircraft AVI +
@@ -16,6 +17,7 @@
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
+      "imageName": "Steam Catapult",
       "stats": {
         "HP": 60, // Aircraft HP +
         "AVI": 70 // Aircraft AVI +
@@ -26,6 +28,7 @@
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
+      "imageName": "Fire Control Radar",
       "stats": {
         "FP": 23, // BB FP +
         "RLD": -3 // BB RLD -
@@ -36,6 +39,7 @@
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
+      "imageName": "Anti-Torpedo Bulge",
       "stats": {
         "HP": 371 // BB, CL/CA HP +
       }
@@ -45,6 +49,7 @@
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
+      "imageName": "Air Radar",
       "stats": {
         "AA": 75 // CL/CA AA +
       }
@@ -54,6 +59,7 @@
       "gearType": "Auxiliary",
       "rarity": "SSR",
       "faction": "Universal",
+      "imageName": "Type 93 Pure Oxygen Torpedo",
       "stats": {
         "TRP": 70, // DD TRP +
         "RLD": -7
@@ -64,9 +70,10 @@
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
+      "imageName": "Gyroscope",
       "stats": {
-        "HP": 60,   // DD HP +
-        "SPD": 38  // DD SPD +
+        "HP": 60, // DD HP +
+        "SPD": 38 // DD SPD +
       }
     }
   ]

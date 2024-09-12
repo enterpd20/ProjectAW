@@ -7,6 +7,20 @@ public class GearDataLoader : MonoBehaviour
 {
     public GearList gearList;
 
+    private string[] gearFiles =
+    {
+        "GearInfo_DDgun.json",
+        "GearInfo_CLCAgun",
+        "GearInfo_CLCASubgun",
+        "GearInfo_BBgun",
+        "GearInfo_BBSubgun",
+        "GearInfo_Torpedo",
+        "GearInfo_DiveBomber",
+        "GearInfo_TorpedoBomber",
+        "GearInfo_AntiAir",
+        "GearInfo_Auxiliary"
+    };
+
     private void Start()
     {
         LoadGearData();
@@ -14,18 +28,22 @@ public class GearDataLoader : MonoBehaviour
 
     private void LoadGearData()
     {
-        string path = 
-            Path.Combine(Application.streamingAssetsPath, 
-            "GearInfo_DDgun.json", "GearInfo_CLCAgun", "GearInfo_BBgun", "GearInfo_Torpedo",
-            "GearInfo_DiveBomber", "GearInfo_TorpedoBomber", "GearInfo_AntiAir", "GearInfo_Auxiliary");
-        if(File.Exists(path))
+        // gearList √ ±‚»≠
+        gearList = new GearList { Gears = new List<Gear>() };
+
+       foreach (string fileName in gearFiles)
         {
-            string json = File.ReadAllText(path);
-            gearList = JsonUtility.FromJson<GearList>(json);
-        }
-        else
-        {
-            Debug.Log("JSON file not found.");
+            string path = Path.Combine(Application.streamingAssetsPath, fileName);
+            if(File.Exists(path))
+            {
+                string json = File.ReadAllText(path);
+                GearList loadedGearList = JsonUtility.FromJson<GearList>(json);
+                gearList.Gears.AddRange(loadedGearList.Gears);
+            }
+            else
+            {
+                Debug.Log($"JSON file not found: {fileName}");
+            }
         }
     }
 

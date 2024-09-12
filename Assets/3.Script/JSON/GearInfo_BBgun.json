@@ -6,6 +6,7 @@
       "gearType": "BB Gun",
       "rarity": "SSR",
       "faction": "IronBlood",
+      "imageName": "Twin 380mm (SK C/34)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -17,6 +18,7 @@
       "gearType": "BB Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
+      "imageName": "Twin 381mm (BL 15inch Mk I)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -28,6 +30,7 @@
       "gearType": "BB Gun",
       "rarity": "SSR",
       "faction": "RoyalNavy",
+      "imageName": "Twin 381mm (BL 15inch Mk II)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -39,6 +42,7 @@
       "gearType": "BB Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
+      "imageName": "Quadruple 356mm (BL 14inch Mk VII)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -50,6 +54,7 @@
       "gearType": "BB Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Twin 406mm (16inch/45 Mk 8)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -61,6 +66,7 @@
       "gearType": "BB Gun",
       "rarity": "R",
       "faction": "SakuraEmpire",
+      "imageName": "Twin 356mm (41st Year Type)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -72,6 +78,7 @@
       "gearType": "BB Gun",
       "rarity": "R",
       "faction": "SakuraEmpire",
+      "imageName": "Twin 356mm (41st Year Type) Kai",
       "stats": {
         "FP": 132,
         "DMG": 150,

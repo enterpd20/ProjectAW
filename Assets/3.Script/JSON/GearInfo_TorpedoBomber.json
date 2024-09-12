@@ -6,6 +6,7 @@
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "EagleUnion",
+      "imageName": "TBD Devastator",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -15,10 +16,11 @@
       }
     },
     {
-      "name": "TBM Avenger",  // USS Enterprise, Hornet
+      "name": "TBM Avenger", // USS Enterprise, Hornet
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "EagleUnion",
+      "imageName": "TBM Avenger",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -32,6 +34,7 @@
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "SakuraEmpire",
+      "imageName": "Nakajima B5N Type 97",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -45,6 +48,7 @@
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "SakuraEmpire",
+      "imageName": "Aichi B7A Ryuusei",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -58,6 +62,7 @@
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "RoyalNavy",
+      "imageName": "Fairey Swordfish",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -71,6 +76,7 @@
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "RoyalNavy",
+      "imageName": "Fairey Swordfish (818 Squadron)",
       "stats": {
         "HP": 63,
         "AVI": 12,

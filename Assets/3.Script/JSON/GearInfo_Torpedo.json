@@ -6,6 +6,7 @@
       "gearType": "Torpedo",
       "rarity": "R",
       "faction": "SakuraEmpire",
+      "imageName": "610mm Twin Torpedo Mount",
       "stats": {
         "TRP": 50,
         "DMG": 150,
@@ -18,6 +19,7 @@
       "gearType": "Torpedo",
       "rarity": "SSR",
       "faction": "SakuraEmpire",
+      "imageName": "610mm Quadruple Torpedo Mount",
       "stats": {
         "TRP": 50,
         "DMG": 206,
@@ -30,6 +32,7 @@
       "gearType": "Torpedo",
       "rarity": "SR",
       "faction": "IronBlood",
+      "imageName": "533mm Triple Homing Torpedo Mount",
       "stats": {
         "TRP": 50,
         "DMG": 145,
@@ -42,6 +45,7 @@
       "gearType": "Torpedo",
       "rarity": "SSR",
       "faction": "RoyalNavy",
+      "imageName": "533mm Quintuple Torpedo Mount Mk IX",
       "stats": {
         "TRP": 50,
         "DMG": 172,
@@ -54,6 +58,7 @@
       "gearType": "Torpedo",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "533mm Quadruple Torpedo Mount Mk 17",
       "stats": {
         "TRP": 50,
         "DMG": 160,

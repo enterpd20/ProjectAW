@@ -6,6 +6,7 @@
       "gearType": "DD Gun",
       "rarity": "SR",
       "faction": "SakuraEmpire",
+      "imageName": "Twin 127mm (Type 3)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -17,6 +18,7 @@
       "gearType": "DD Gun",
       "rarity": "R",
       "faction": "RoyalNavy",
+      "imageName": "Single 120mm (QF Mark IX)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -28,6 +30,7 @@
       "gearType": "DD Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Twin 127mm (5inch/38 Mk 38)",
       "stats": {
         "FP": 132,
         "DMG": 150,

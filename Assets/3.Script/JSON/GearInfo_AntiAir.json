@@ -6,6 +6,7 @@
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Quadruple 28mm Chicago Piano",
       "stats": {
         "AA": 25,
         "DMG": 72,
@@ -17,6 +18,7 @@
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "EagleUnion",
+      "imageName": "Quadruple 40mm Bofors (Mk 2 Mount)",
       "stats": {
         "AA": 45,
         "DMG": 120,
@@ -28,6 +30,7 @@
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "SakuraEmpire",
+      "imageName": "Triple 25mm AA (Type 96)",
       "stats": {
         "AA": 25,
         "DMG": 54,
@@ -39,6 +42,7 @@
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "SakuraEmpire",
+      "imageName": "Twin 127mm AA (Type 89)",
       "stats": {
         "AA": 25,
         "DMG": 116,
@@ -50,6 +54,7 @@
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "RoyalNavy",
+      "imageName": "Quadruple 40mm Pom-Pom",
       "stats": {
         "AA": 25,
         "DMG": 84,
@@ -61,6 +66,7 @@
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "RoyalNavy",
+      "imageName": "Twin 113mm AA (QF Mark I)",
       "stats": {
         "AA": 45,
         "DMG": 130,
@@ -72,6 +78,7 @@
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "IronBlood",
+      "imageName": "Twin 105mm AA (SK C/33)",
       "stats": {
         "AA": 45,
         "DMG": 122,
@@ -83,6 +90,7 @@
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "RoyalNavy",
+      "imageName": "Octuple 40mm Pom-Pom",
       "stats": {
         "AA": 45,
         "DMG": 128,
@@ -94,6 +102,7 @@
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Single 76mm AA (Mk 22 Mount)",
       "stats": {
         "AA": 25,
         "DMG": 54,
@@ -105,6 +114,7 @@
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Twin 40mm Bofors (Mk 1 Mount)",
       "stats": {
         "AA": 25,
         "DMG": 62,

@@ -1,0 +1,53 @@
+{
+  // BB Sub Gun
+  "Gears": [
+    {
+      "name": "Twin 150mm (TbtsK C/36)", // KMS Bismarck
+      "gearType": "BB Sub Gun",
+      "rarity": "SR",
+      "faction": "IronBlood",
+      "imageName": "Twin 150mm (TbtsK C/36)",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 102mm (QF Mk XVI*)", // HMS Hood, Prince Of Wales
+      "gearType": "BB Sub Gun",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "imageName": "Twin 381mm (BL 15inch Mk I)",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Single 127mm (5inch/38 Mk 30)", // USS Maryland
+      "gearType": "BB Sub Gun",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "imageName": "Single 127mm (5inch/38 Mk 30)",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Single 152mm (41st Year Type)", // IJN Fusou
+      "gearType": "BB Sub Gun",
+      "rarity": "R",
+      "faction": "SakuraEmpire",
+      "imageName": "Single 152mm (41st Year Type)",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    }
+  ]
+}

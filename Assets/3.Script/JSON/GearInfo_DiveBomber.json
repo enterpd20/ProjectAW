@@ -6,6 +6,7 @@
       "gearType": "Dive Bomber",
       "rarity": "R",
       "faction": "EagleUnion",
+      "imageName": "SBD Dauntless",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -19,6 +20,7 @@
       "gearType": "Dive Bomber",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "SB2C HellDiver",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -32,6 +34,7 @@
       "gearType": "Dive Bomber",
       "rarity": "SSR",
       "faction": "EagleUnion",
+      "imageName": "B-25 Mitchell",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -41,10 +44,11 @@
       }
     },
     {
-      "name": "Aichi D3A Type 99",  // IJN Akagi, Kaga
+      "name": "Aichi D3A Type 99", // IJN Akagi, Kaga
       "gearType": "Dive Bomber",
       "rarity": "R",
       "faction": "SakuraEmpire",
+      "imageName": "Aichi D3A Type 99",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -58,6 +62,7 @@
       "gearType": "Dive Bomber",
       "rarity": "SR",
       "faction": "SakuraEmpire",
+      "imageName": "Aichi D3A2 Type 99",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -71,6 +76,7 @@
       "gearType": "Dive Bomber",
       "rarity": "R",
       "faction": "RoyalNavy",
+      "imageName": "Blackburn Skua",
       "stats": {
         "HP": 63,
         "AVI": 12,
@@ -84,6 +90,7 @@
       "gearType": "Dive Bomber",
       "rarity": "SR",
       "faction": "RoyalNavy",
+      "imageName": "Fairey Fulmar",
       "stats": {
         "HP": 63,
         "AVI": 12,

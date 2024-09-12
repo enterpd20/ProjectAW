@@ -6,6 +6,7 @@
       "gearType": "CL/CA Gun",
       "rarity": "SR",
       "faction": "SakuraEmpire",
+      "imageName": "Twin 203mm (3rd Year Type)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -17,6 +18,7 @@
       "gearType": "CL/CA Gun",
       "rarity": "R",
       "faction": "EagleUnion",
+      "imageName": "Triple 203mm (8inch/55 Mk 9)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -28,6 +30,7 @@
       "gearType": "CL/CA Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Triple 203mm (8inch/55 Mk 15)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -39,6 +42,7 @@
       "gearType": "CL/CA Gun",
       "rarity": "SSR",
       "faction": "IronBlood",
+      "imageName": "Twin 203mm (SK C/34)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -50,6 +54,7 @@
       "gearType": "CL/CA Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
+      "imageName": "Triple 152mm (BL 6inch Mk XXIII)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -61,6 +66,7 @@
       "gearType": "CL/CA Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
+      "imageName": "Triple 203mm (8inch/55 Mk 15)",
       "stats": {
         "FP": 132,
         "DMG": 150,
