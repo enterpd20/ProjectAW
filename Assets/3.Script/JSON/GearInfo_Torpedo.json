@@ -1,6 +1,6 @@
 {
   // Torpedo
-  "Gears": [
+  "GearInfo_Torpedo": [
     {
       "name": "610mm Twin Torpedo Mount", // IJN Atago
       "gearType": "Torpedo",

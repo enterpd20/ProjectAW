@@ -1,6 +1,6 @@
 {
   // Auxiliary
-  "Gears": [
+  "GearInfo_Auxiliary": [
     {
       "name": "Drop Tank", // CV
       "gearType": "Auxiliary",

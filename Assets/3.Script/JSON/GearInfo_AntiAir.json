@@ -1,6 +1,6 @@
 {
   // AntiAir
-  "Gears": [
+  "GearInfo_AntiAir": [
     {
       "name": "Quadruple 28mm Chicago Piano", // USS Enterprise, Hornet
       "gearType": "AntiAir",

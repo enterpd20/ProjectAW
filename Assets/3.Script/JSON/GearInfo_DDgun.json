@@ -1,6 +1,6 @@
 {
   // DD Gun
-  "Gears": [
+  "GearInfo_DDgun": [
     {
       "name": "Twin 127mm (Type 3)", // IJN Kawakaze, Ayanami
       "gearType": "DD Gun",

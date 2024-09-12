@@ -1,6 +1,6 @@
 {
   // CL/CA Gun
-  "Gears": [
+  "GearInfo_CLCAgun": [
     {
       "name": "Twin 203mm (3rd Year Type)", // IJN Atago
       "gearType": "CL/CA Gun",

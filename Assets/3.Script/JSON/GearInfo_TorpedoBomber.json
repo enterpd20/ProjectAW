@@ -1,6 +1,6 @@
 {
   // Torpedo Bomber
-  "Gears": [
+  "GearInfo_TorpedoBomber": [
     {
       "name": "TBD Devastator", // USS Enterprise, Hornet
       "gearType": "Torpedo Bomber",

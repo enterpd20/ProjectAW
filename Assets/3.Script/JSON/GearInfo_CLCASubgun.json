@@ -1,6 +1,6 @@
 {
   // CL/CA Sub Gun
-  "Gears": [
+  "GearInfo_CLCASubgun": [
     {
       "name": "Single 127mm (5inch/38 Mk 30)", // USS Minneapolis
       "gearType": "CL/CA Sub Gun",

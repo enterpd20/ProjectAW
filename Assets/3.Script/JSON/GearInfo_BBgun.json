@@ -1,6 +1,6 @@
 {
   // BB Gun
-  "Gears": [
+  "GearInfo_BBgun": [
     {
       "name": "Twin 380mm (SK C/34)", // KMS Bismarck
       "gearType": "BB Gun",

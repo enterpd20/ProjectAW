@@ -1,6 +1,6 @@
 {
   // Dive Bomber
-  "Gears": [
+  "GearInfo_DiveBomber": [
     {
       "name": "SBD Dauntless", // USS Enterprise, USS Hornet
       "gearType": "Dive Bomber",

@@ -1,6 +1,6 @@
 {
   // BB Sub Gun
-  "Gears": [
+  "GearInfo_BBSubgun": [
     {
       "name": "Twin 150mm (TbtsK C/36)", // KMS Bismarck
       "gearType": "BB Sub Gun",
