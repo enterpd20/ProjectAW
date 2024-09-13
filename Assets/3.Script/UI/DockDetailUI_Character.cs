@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class DockDetailUI_Character : MonoBehaviour
 {    
+    public Text character_ShipType;                       // 일러스트 위에 표시할 캐릭터의 함종
     [SerializeField] private Image character_Image;       // 캐릭터 상세정보에 띄울 캐릭터 일러스트
     [SerializeField] private Text character_Name;         // 일러스트 위에 표시할 캐릭터의 이름
-    [SerializeField] private Text character_ShipType;     // 일러스트 위에 표시할 캐릭터의 함종
     //public Text Character_ShipName;     
 
     // 캐릭터 일러스트 오른쪽의 스탯창에 표시될 스탯 = 캐릭터 기본 스탯 + 현재 캐릭터가 장착한 장비 스탯

@@ -3,52 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class GearDataLoader : MonoBehaviour
+public static class GearDataLoader
 {
-    public GearList gearList;
-
-    private string[] gearFiles =
+    public static List<Gear> LoadAllGears()
     {
-        "GearInfo_DDgun.json",
-        "GearInfo_CLCAgun",
-        "GearInfo_CLCASubgun",
-        "GearInfo_BBgun",
-        "GearInfo_BBSubgun",
-        "GearInfo_Torpedo",
-        "GearInfo_DiveBomber",
-        "GearInfo_TorpedoBomber",
-        "GearInfo_AntiAir",
-        "GearInfo_Auxiliary"
-    };
+        List<Gear> allGears = new List<Gear>();
 
-    private void Start()
-    {
-        LoadGearData();
-    }
-
-    private void LoadGearData()
-    {
-        // gearList 초기화
-        gearList = new GearList { Gears = new List<Gear>() };
-
-       foreach (string fileName in gearFiles)
+        string[] gearFiles =
         {
-            string path = Path.Combine(Application.streamingAssetsPath, fileName);
-            if(File.Exists(path))
+            "GearInfo_DDgun",
+            "GearInfo_CLCAgun",
+            "GearInfo_CLCASubgun",
+            "GearInfo_BBgun",
+            "GearInfo_BBSubgun",
+            "GearInfo_Torpedo",
+            "GearInfo_DiveBomber",
+            "GearInfo_TorpedoBomber",
+            "GearInfo_AntiAir",
+            "GearInfo_Auxiliary"
+        };
+
+        // Resources 폴더에서 파일 가져옴
+        foreach(string file in gearFiles)
+        {
+            TextAsset jsonFile = Resources.Load<TextAsset>(file);
+            if(jsonFile != null)
             {
-                string json = File.ReadAllText(path);
-                GearList loadedGearList = JsonUtility.FromJson<GearList>(json);
-                gearList.Gears.AddRange(loadedGearList.Gears);
+                GearList gearList = JsonUtility.FromJson<GearList>(jsonFile.text);
+                allGears.AddRange(gearList.Gears);
             }
             else
             {
-                Debug.Log($"JSON file not found: {fileName}");
+                Debug.LogWarning($"Failed to load gear data from file: {file}");
             }
         }
+
+        return allGears;
     }
 
-    public Gear GetGearByName(string gearName)
+    // 이름을 기반으로 장비를 검색
+    public static Gear GetGearByName(string gearName)
     {
-        return gearList.Gears.Find(gear => gear.name == gearName);
+        List<Gear> allGears = LoadAllGears();
+        return allGears.Find(gear => gear.name == gearName);
     }
 }
