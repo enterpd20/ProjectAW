@@ -17,17 +17,71 @@ public class DockDetailUI_Character : MonoBehaviour
     [SerializeField] private Text finalCharacterStats_AVI;
     [SerializeField] private Text finalCharacterStats_AA;
     [SerializeField] private Text finalCharacterStats_SPD;
-    
-    public void CharacterDetail(Character character)
+
+    //private Character currentCharacter;
+    private List<Gear> equippedGears;
+
+    //public void CharacterDetail(Character character)
+    //{
+    //    character_Image.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
+    //    character_Name.text = character.name;
+    //    //Character_ShipName.text = character.shipname;
+    //    character_ShipType.text = character.shipType;
+    //
+    //    //currentCharacter = character;
+    //}
+
+    private void Start()
     {
-        character_Image.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
-        character_Name.text = character.name;
-        //Character_ShipName.text = character.shipname;
-        character_ShipType.text = character.shipType;
+        LoadCharacterData();
+    }
+
+    private void LoadCharacterData()
+    {
+        // PlayerPrefs에서 저장된 캐릭터 정보 가져오기
+        string json = PlayerPrefs.GetString("SelectedCharacter");
+        if (!string.IsNullOrEmpty(json))
+        {
+            Character character = JsonUtility.FromJson<Character>(json);
+
+            // 캐릭터 정보를 UI에 표시
+            character_Image.sprite = Resources.Load<Sprite>($"CharacterImages/{character.imageName}");
+            character_Name.text = character.name;
+            character_ShipType.text = character.shipType;
+
+            // 장비 정보 로드
+            List<Gear> equippedGears = GetEquippedGears(character.shipType);
+
+            // 캐릭터 스탯 업데이트
+            UpdateCharacterStats(character, equippedGears);
+        }
+    }
+
+    private List<Gear> GetEquippedGears(string shipType)
+    {
+        List<Gear> equippedGears = new List<Gear>();
+        DockDetailUI_EquipSlot equipSlotManager = FindObjectOfType<DockDetailUI_EquipSlot>();
+
+        // 각 슬롯에 장착된 장비 유형을 가져옴
+        for (int i = 0; i < 4; i++)
+        {
+            Text equipTypeText = equipSlotManager.transform.GetChild(i).Find("Text_EquipType").GetComponent<Text>();
+            string gearType = equipTypeText.text;
+
+            Gear gear = GearDataLoader.LoadAllGears().Find(g => g.gearType == gearType);
+            if (gear != null)
+            {
+                equippedGears.Add(gear);
+            }
+        }
+
+        return equippedGears;
     }
 
     public void UpdateCharacterStats(Character character, List<Gear> equippedGears)
     {
+        //this.equippedGears = equippedGears;
+
         CharacterStats finalStats = new CharacterStats
         {
             HP = character.stats.HP,

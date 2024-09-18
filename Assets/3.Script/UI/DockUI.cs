@@ -15,15 +15,28 @@ public class DockUI : MonoBehaviour
     {
         characterList = CharacterDataLoader.LoadCharaters();
 
-        NewCharacterButtons();
+        CreateCharacterButtons();
     }
 
-    private void NewCharacterButtons()
+    private void CreateCharacterButtons()
     {
         foreach(Character character in characterList)
         {
             GameObject newButton = Instantiate(CharacterButtonPrefab, ButtonContainer);
             CharacterButton characterButton = newButton.GetComponent<CharacterButton>();
+
+            if (characterButton == null)
+            {
+                Debug.LogError("CharacterButton component is missing on the instantiated prefab.");
+                continue;
+            }
+
+            // 확인: RarityBackGround와 CharacterButtonPrefab이 제대로 설정되어 있는지 확인
+            if (RarityBackGround == null || RarityBackGround.Length < 4)
+            {
+                Debug.LogError("RarityBackGround array is not properly assigned.");
+                continue;
+            }
 
             characterButton.SetCharacterData(character, RarityBackGround);
         }

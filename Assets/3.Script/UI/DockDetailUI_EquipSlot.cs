@@ -11,6 +11,9 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     // JSON 데이터를 통해 로드된 장비 정보 리스트
     private List<Gear> loadedGears;
 
+    private Character currentCharacter;
+    private List<Gear> equippedGears;
+
     private void Start()
     {
         LoadGearData();
@@ -21,6 +24,18 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     {
         // GearDataLoader 스크립트에서 JSON 파일을 불러와 List<Gear>에 저장
         loadedGears = GearDataLoader.LoadAllGears();    
+    }
+
+    public void SetCharaAndEquipInfo(Character character, List<Gear> gears)
+    {
+        currentCharacter = character;
+        equippedGears = gears;
+        SetEquipSlots();
+
+        for(int i = 0; i < equippedGears.Count; i++)
+        {
+            DisplayGearInfo(i, equippedGears[i]);
+        }
     }
 
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
