@@ -14,10 +14,14 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     private Character currentCharacter;
     private List<Gear> equippedGears;
 
-    private void Start()
+    private RectTransform Rect_GearUI;
+
+    private void Awake()
     {
         LoadGearData();
         SetEquipSlots();
+
+        Rect_GearUI = GetComponent<RectTransform>();
     }
 
     private void LoadGearData()
@@ -45,36 +49,43 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         // 각 슬롯에 장착 가능한 장비 유형을 설정
         for(int i = 0; i < equipSlots.Length; i++)
         {
-            Text equipTypeText = equipSlots[i].transform.Find("Text_EquipType").GetComponent<Text>();
-
-            switch(i)
+            //Text equipTypeText = equipSlots[i].transform.Find("Text_EquipType").GetComponent<Text>();
+            Text equipTypeText = equipSlots[i].GetComponentInChildren<Text>();
+            if(equipTypeText != null)
+            { 
+                switch(i)
+                {
+                    case 0:
+                        if (shipType == "BB")
+                            equipTypeText.text = "Main Gun";
+                        else if(shipType == "CLCA")
+                            equipTypeText.text = "Main Gun";
+                        else if (shipType == "DD")
+                            equipTypeText.text = "Main Gun";
+                        else if (shipType == "CV")
+                            equipTypeText.text = "Torpedo Bomber";
+                        break;
+                    case 1:
+                        if (shipType == "BB")
+                            equipTypeText.text = "Secondary Gun";
+                        else if (shipType == "CLCA")
+                            equipTypeText.text = "Secondary Weapon";
+                        else if (shipType == "DD")
+                            equipTypeText.text = "Torpedo";
+                        else if (shipType == "CV")
+                            equipTypeText.text = "Dive Bomber";
+                        break;
+                    case 2:
+                        equipTypeText.text = "AntiAir";
+                        break;
+                    case 3:
+                        equipTypeText.text = "Auxiliary";
+                        break;
+                }
+            }
+            else
             {
-                case 0:
-                    if (shipType == "BB")
-                        equipTypeText.text = "Main Gun";
-                    else if(shipType == "CLCA")
-                        equipTypeText.text = "Main Gun";
-                    else if (shipType == "DD")
-                        equipTypeText.text = "Main Gun";
-                    else if (shipType == "CV")
-                        equipTypeText.text = "Torpedo Bomber";
-                    break;
-                case 1:
-                    if (shipType == "BB")
-                        equipTypeText.text = "Secondary Gun";
-                    else if (shipType == "CLCA")
-                        equipTypeText.text = "Secondary Weapon";
-                    else if (shipType == "DD")
-                        equipTypeText.text = "Torpedo";
-                    else if (shipType == "CV")
-                        equipTypeText.text = "Dive Bomber";
-                    break;
-                case 2:
-                    equipTypeText.text = "AntiAir";
-                    break;
-                case 3:
-                    equipTypeText.text = "Auxiliary";
-                    break;
+                Debug.LogWarning($"Cannot find 'Text_EquipType' in equipSlot[{i}]");
             }
         }
     }
@@ -83,7 +94,14 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     {
         // 장비 이름을 UI에 표시
         Text equipNameText = equipSlots[slotIndex].transform.Find("UI_EquipName").GetComponent<Text>();
-        equipNameText.text = gear.name;
+        if (equipNameText != null)
+        { 
+            equipNameText.text = gear.name;
+        }
+        else
+        {
+            Debug.LogWarning($"Cannot find 'UI_EquipName' in equipSlot[{slotIndex}]");
+        }
 
         // 장비 이미지를 UI에 표시
         Image equipImage  = equipSlots[slotIndex].transform.Find("UI_EquipEmpty").GetComponent<Image>();
@@ -131,5 +149,15 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         {
             DisplayGearInfo(slotIndex, matchingGear);   // 장비 슬롯에 장착
         }
+    }
+
+    public void Appear_GearUI()
+    {
+        Rect_GearUI.localScale = Vector3.one;
+    }
+
+    public void Disappear_GearUI()
+    {
+        Rect_GearUI.localScale = Vector3.zero;
     }
 }

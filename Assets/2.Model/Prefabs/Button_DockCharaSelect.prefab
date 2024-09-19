@@ -133,6 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb59b941d18ac9499ae2b56fb7192bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
-  characterImage: {fileID: 0}
-  dockDetailUI_character: {fileID: 0}
+  backgroundImage: {fileID: 9016058667446019536}
+  characterImage: {fileID: 9016058667446019536}

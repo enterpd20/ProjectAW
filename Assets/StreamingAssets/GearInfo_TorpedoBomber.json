@@ -1,8 +1,8 @@
 {
-  // Torpedo Bomber
+  
   "GearInfo_TorpedoBomber": [
     {
-      "name": "TBD Devastator", // USS Enterprise, Hornet
+      "name": "TBD Devastator", 
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "EagleUnion",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "name": "TBM Avenger (VT-18 Squadron)", // USS Enterprise, Hornet
+      "name": "TBM Avenger (VT-18 Squadron)",
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "EagleUnion",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "name": "Nakajima B5N Type 97", // IJN Akagi, Kaga
+      "name": "Nakajima B5N Type 97", 
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "SakuraEmpire",
@@ -44,7 +44,7 @@
       }
     },
     {
-      "name": "Aichi B7A Ryuusei", // IJN Akagi, Kaga
+      "name": "Aichi B7A Ryuusei", 
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "SakuraEmpire",
@@ -58,7 +58,7 @@
       }
     },
     {
-      "name": "Fairey Swordfish", // HMS ArkRoyal
+      "name": "Fairey Swordfish", 
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "RoyalNavy",
@@ -72,7 +72,7 @@
       }
     },
     {
-      "name": "Fairey Swordfish (818 Squadron)", // HMS ArkRoyal
+      "name": "Fairey Swordfish (818 Squadron)",
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "RoyalNavy",

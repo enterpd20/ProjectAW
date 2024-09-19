@@ -1,8 +1,8 @@
 {
-  // Torpedo
+ 
   "GearInfo_Torpedo": [
     {
-      "name": "610mm Twin Torpedo Mount", // IJN Atago
+      "name": "610mm Twin Torpedo Mount", 
       "gearType": "Torpedo",
       "rarity": "R",
       "faction": "SakuraEmpire",
@@ -15,7 +15,7 @@
       }
     },
     {
-      "name": "610mm Quadruple Torpedo Mount", // IJN Atago, Kawakaze, Ayanami
+      "name": "610mm Quadruple Torpedo Mount", 
       "gearType": "Torpedo",
       "rarity": "SSR",
       "faction": "SakuraEmpire",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "name": "533mm Triple Homing Torpedo Mount", // KMS Prinz Eugen
+      "name": "533mm Triple Homing Torpedo Mount", 
       "gearType": "Torpedo",
       "rarity": "SR",
       "faction": "IronBlood",
@@ -41,7 +41,7 @@
       }
     },
     {
-      "name": "533mm Quintuple Torpedo Mount Mk IX", // HMS Icarus
+      "name": "533mm Quintuple Torpedo Mount Mk IX",
       "gearType": "Torpedo",
       "rarity": "SSR",
       "faction": "RoyalNavy",
@@ -54,7 +54,7 @@
       }
     },
     {
-      "name": "533mm Quadruple Torpedo Mount Mk 17", // USS Aylwin, Hammann
+      "name": "533mm Quadruple Torpedo Mount Mk 17", 
       "gearType": "Torpedo",
       "rarity": "SR",
       "faction": "EagleUnion",

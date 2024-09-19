@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2933,7 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
+  character_ShipType: {fileID: 1381889168}
   equipSlots: []
 --- !u!1 &514461452
 GameObject:
@@ -3100,6 +3100,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1185451753}
         m_TargetAssemblyTypeName: DockDetailUI_Character, Assembly-CSharp
         m_MethodName: Gear_MoveChracterIllust
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1053014297}
+        m_TargetAssemblyTypeName: DockDetailUI_EquipSlot, Assembly-CSharp
+        m_MethodName: Appear_GearUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1185451753}
+        m_TargetAssemblyTypeName: DockDetailUI_Character, Assembly-CSharp
+        m_MethodName: Disappear_StatusUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6623,7 +6647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
+  character_ShipType: {fileID: 1381889168}
   equipSlots: []
 --- !u!1 &1053014295
 GameObject:
@@ -6651,7 +6675,7 @@ RectTransform:
   m_GameObject: {fileID: 1053014295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 502526092}
   - {fileID: 2100598287}
@@ -7888,6 +7912,7 @@ MonoBehaviour:
   finalCharacterStats_AVI: {fileID: 686773840}
   finalCharacterStats_AA: {fileID: 826627488}
   finalCharacterStats_SPD: {fileID: 1698402990}
+  Rect_StatusUI: {fileID: 473180116}
 --- !u!1 &1188702851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8151,7 +8176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
+  character_ShipType: {fileID: 1381889168}
   equipSlots: []
 --- !u!1 &1214561528
 GameObject:
@@ -8453,7 +8478,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: EquipTypeLong
+  m_Text: Unique Module
 --- !u!222 &1251815825
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8785,6 +8810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1279168903}
+  - component: {fileID: 1279168904}
   m_Layer: 5
   m_Name: GroupUI_Upper
   m_TagString: Untagged
@@ -8817,6 +8843,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1279168904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279168902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bab33f5e2d150438fb0b6306ce795f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1281664589
 GameObject:
   m_ObjectHideFlags: 0
@@ -10707,6 +10745,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1185451753}
+        m_TargetAssemblyTypeName: DockDetailUI_Character, Assembly-CSharp
+        m_MethodName: Appear_StatusUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1053014297}
+        m_TargetAssemblyTypeName: DockDetailUI_EquipSlot, Assembly-CSharp
+        m_MethodName: Disappear_GearUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1570458460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10837,7 +10899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
+  character_ShipType: {fileID: 1381889168}
   equipSlots: []
 --- !u!1 &1587482470
 GameObject:
@@ -12980,7 +13042,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1769506983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279168904}
+        m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
+        m_MethodName: To_Dock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1769506983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13487,7 +13561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1850817387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15220,7 +15294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
+  character_ShipType: {fileID: 1381889168}
   equipSlots: []
 --- !u!1 &2108212870
 GameObject:
@@ -15780,7 +15854,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2145112644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279168904}
+        m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
+        m_MethodName: To_Lobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2145112644
 MonoBehaviour:
   m_ObjectHideFlags: 0

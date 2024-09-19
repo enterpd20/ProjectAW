@@ -1,8 +1,8 @@
 {
-  // AntiAir
+  
   "GearInfo_AntiAir": [
     {
-      "name": "Quadruple 28mm Chicago Piano", // USS Enterprise, Hornet
+      "name": "Quadruple 28mm Chicago Piano", 
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "EagleUnion",
@@ -14,7 +14,7 @@
       }
     },
     {
-      "name": "Quadruple 40mm Bofors (Mk 2 Mount)", // USS Enterprise, Hornet, Minneapolis, Northampton
+      "name": "Quadruple 40mm Bofors (Mk 2 Mount)", 
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "EagleUnion",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "name": "Triple 25mm AA (Type 96)", // IJN Akagi, Kaga, Kawakaze, Ayanami
+      "name": "Triple 25mm AA (Type 96)", 
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "SakuraEmpire",
@@ -38,7 +38,7 @@
       }
     },
     {
-      "name": "Twin 127mm AA (Type 89)", // IJN Akagi, Kaga, Fusou, Atago
+      "name": "Twin 127mm AA (Type 89)", 
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "SakuraEmpire",
@@ -50,7 +50,7 @@
       }
     },
     {
-      "name": "Quadruple 40mm Pom-Pom", // HMS ArkRoyal
+      "name": "Quadruple 40mm Pom-Pom",
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "RoyalNavy",
@@ -62,7 +62,7 @@
       }
     },
     {
-      "name": "Twin 113mm AA (QF Mark I)", // HMS ArkRoyal
+      "name": "Twin 113mm AA (QF Mark I)", 
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "RoyalNavy",
@@ -74,7 +74,7 @@
       }
     },
     {
-      "name": "Twin 105mm AA (SK C/33)", // KMS Bismarck, Prinz Eugen
+      "name": "Twin 105mm AA (SK C/33)", 
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "IronBlood",
@@ -86,7 +86,7 @@
       }
     },
     {
-      "name": "Octuple 40mm Pom-Pom", // HMS Hood, Prince Of Wales, Sheffield
+      "name": "Octuple 40mm Pom-Pom", 
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "RoyalNavy",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "name": "Single 76mm AA (Mk 22 Mount)", // USS Maryland
+      "name": "Single 76mm AA (Mk 22 Mount)", 
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "EagleUnion",
@@ -110,7 +110,7 @@
       }
     },
     {
-      "name": "Twin 40mm Bofors (Mk 1 Mount)", // USS Aylwin, Hammann
+      "name": "Twin 40mm Bofors (Mk 1 Mount)", 
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "EagleUnion",

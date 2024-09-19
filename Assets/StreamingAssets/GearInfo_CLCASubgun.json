@@ -1,8 +1,8 @@
 {
-  // CL/CA Sub Gun
+  
   "GearInfo_CLCASubgun": [
     {
-      "name": "Single 127mm (5inch/38 Mk 30)", // USS Minneapolis
+      "name": "Single 127mm (5inch/38 Mk 30)", 
       "gearType": "CLCA Sub Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
@@ -14,7 +14,7 @@
       }
     },
     {
-      "name": "Twin 102mm (QF Mk XVI*)", // HMS Sheffield
+      "name": "Twin 102mm (QF Mk XVI*)", 
       "gearType": "CLCA Sub Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "name": "Single 127mm (5inch/38 Mk 30)", // USS Northampton
+      "name": "Single 127mm (5inch/38 Mk 30)",
       "gearType": "CLCA Sub Gun",
       "rarity": "SR",
       "faction": "EagleUnion",

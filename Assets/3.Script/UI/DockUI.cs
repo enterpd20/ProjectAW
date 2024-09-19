@@ -13,8 +13,23 @@ public class DockUI : MonoBehaviour
 
     private void Start()
     {
-        characterList = CharacterDataLoader.LoadCharaters();
+        if (Player.Instance.ownedCharacter == null)
+        {
+            Debug.LogError("Player data is not loaded yet.");
+            return;
+        }
 
+        //characterList = CharacterDataLoader.LoadCharaters();
+        characterList = Player.Instance.ownedCharacter;
+
+        //CreateCharacterButtons();
+        StartCoroutine(LoadAndCreateButtons());
+    }
+
+    private IEnumerator LoadAndCreateButtons()  // ???
+    {
+        yield return new WaitUntil(() => Player.Instance.ownedCharacter != null && Player.Instance.ownedCharacter.Count > 0);
+        characterList = Player.Instance.ownedCharacter;
         CreateCharacterButtons();
     }
 

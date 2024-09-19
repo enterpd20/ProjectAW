@@ -18,6 +18,8 @@ public class DockDetailUI_Character : MonoBehaviour
     [SerializeField] private Text finalCharacterStats_AA;
     [SerializeField] private Text finalCharacterStats_SPD;
 
+    [SerializeField] private RectTransform Rect_StatusUI;
+
     //private Character currentCharacter;
     private List<Gear> equippedGears;
 
@@ -38,22 +40,24 @@ public class DockDetailUI_Character : MonoBehaviour
 
     private void LoadCharacterData()
     {
-        // PlayerPrefs에서 저장된 캐릭터 정보 가져오기
-        string json = PlayerPrefs.GetString("SelectedCharacter");
-        if (!string.IsNullOrEmpty(json))
-        {
-            Character character = JsonUtility.FromJson<Character>(json);
+        Character character = Player.Instance.GetSelectedCharacter();
 
-            // 캐릭터 정보를 UI에 표시
-            character_Image.sprite = Resources.Load<Sprite>($"CharacterImages/{character.imageName}");
+        if(character != null)
+        {
+            // UI에 캐릭터 정보 표시
+            character_Image.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
             character_Name.text = character.name;
             character_ShipType.text = character.shipType;
 
-            // 장비 정보 로드
+            // 장비 정보 가져오기
             List<Gear> equippedGears = GetEquippedGears(character.shipType);
 
             // 캐릭터 스탯 업데이트
             UpdateCharacterStats(character, equippedGears);
+        }
+        else
+        {
+            Debug.LogWarning("No character selected.");
         }
     }
 
@@ -62,10 +66,16 @@ public class DockDetailUI_Character : MonoBehaviour
         List<Gear> equippedGears = new List<Gear>();
         DockDetailUI_EquipSlot equipSlotManager = FindObjectOfType<DockDetailUI_EquipSlot>();
 
+        if (equipSlotManager == null)
+        {
+            Debug.LogError("DockDetailUI_EquipSlot is not found!");
+            return equippedGears;  // 빈 리스트 반환
+        }
+
         // 각 슬롯에 장착된 장비 유형을 가져옴
         for (int i = 0; i < 4; i++)
         {
-            Text equipTypeText = equipSlotManager.transform.GetChild(i).Find("Text_EquipType").GetComponent<Text>();
+            Text equipTypeText = equipSlotManager.GetComponentInChildren<Text>();
             string gearType = equipTypeText.text;
 
             Gear gear = GearDataLoader.LoadAllGears().Find(g => g.gearType == gearType);
@@ -140,5 +150,15 @@ public class DockDetailUI_Character : MonoBehaviour
 
         // 이동이 끝난 후 최종 위치 설정
         character_Image.rectTransform.anchoredPosition = targetPosition;
+    }
+
+    public void Appear_StatusUI()
+    {
+        Rect_StatusUI.localScale = Vector3.one;
+    }
+    
+    public void Disappear_StatusUI()
+    {
+        Rect_StatusUI.localScale = Vector3.zero;
     }
 }

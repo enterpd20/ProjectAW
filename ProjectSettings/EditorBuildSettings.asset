@@ -6,6 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/1.Scene/05_Battle.unity
+    path: Assets/1.Scene/00_Title.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/1.Scene/01_Lobby.unity
+    guid: 931800f3cd4d643488069588098cb23c
+  - enabled: 1
+    path: Assets/1.Scene/02_Build.unity
+    guid: d66038901d2bc1747aa23277c19a6cd4
+  - enabled: 1
+    path: Assets/1.Scene/02_Depot.unity
+    guid: afa27f34e7a90714686550c941558c74
+  - enabled: 1
+    path: Assets/1.Scene/02_Dock.unity
+    guid: 75b3b1097318d7a4f88100c5c57264be
+  - enabled: 1
+    path: Assets/1.Scene/02_DockDetail.unity
+    guid: d4ff7e522f82ef24d979fd03fab057d3
+  - enabled: 1
+    path: Assets/1.Scene/02_Lab.unity
+    guid: a4acfb1987da5be48b1c8194783c03cb
+  - enabled: 1
+    path: Assets/1.Scene/03_SelectBattle.unity
+    guid: 7c54c7fa5efbe1341823511d85b8c5fd
+  - enabled: 1
+    path: Assets/1.Scene/03_SelectStage.unity
+    guid: f9ae4b9e50d6c2648888ef65c4d6336e
+  - enabled: 1
+    path: Assets/1.Scene/04_Battle.unity
     guid: b69021ad794bd1742aa41b87fcd67f62
   m_configObjects: {}

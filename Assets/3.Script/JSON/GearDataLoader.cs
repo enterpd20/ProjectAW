@@ -24,13 +24,35 @@ public static class GearDataLoader
         };
 
         // Resources 폴더에서 파일 가져옴
+        //foreach(string file in gearFiles)
+        //{
+        //    TextAsset jsonFile = Resources.Load<TextAsset>(file);
+        //    if(jsonFile != null)
+        //    {
+        //        GearList gearList = JsonUtility.FromJson<GearList>(jsonFile.text);
+        //        allGears.AddRange(gearList.Gears);
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning($"Failed to load gear data from file: {file}");
+        //    }
+        //}
+
+        // StreamingAssets 폴더에서 파일 가져옴
         foreach(string file in gearFiles)
         {
-            TextAsset jsonFile = Resources.Load<TextAsset>(file);
-            if(jsonFile != null)
+            string filePath = Path.Combine(Application.streamingAssetsPath, file + ".json");
+
+            if(File.Exists(filePath))
             {
-                GearList gearList = JsonUtility.FromJson<GearList>(jsonFile.text);
-                allGears.AddRange(gearList.Gears);
+                string jsonContent = File.ReadAllText(filePath);
+
+                Debug.Log($"Loaded JSON content from {file}: {jsonContent}");   // JSON 내용을 출력
+
+                GearList gearList = JsonUtility.FromJson<GearList>(jsonContent);
+                allGears.AddRange(gearList.gears);
+                
+                Debug.Log($"Successfully loaded gears from {file}");
             }
             else
             {

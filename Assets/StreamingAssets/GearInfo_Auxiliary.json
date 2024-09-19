@@ -1,79 +1,79 @@
 {
-  // Auxiliary
+  
   "GearInfo_Auxiliary": [
     {
-      "name": "Drop Tank", // CV
+      "name": "Drop Tank", 
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Drop Tank",
       "stats": {
-        "HP": 60, // Aircraft HP +
-        "AVI": 70 // Aircraft AVI +
+        "HP": 60, 
+        "AVI": 70 
       }
     },
     {
-      "name": "Steam Catapult", // CV
+      "name": "Steam Catapult",
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Steam Catapult",
       "stats": {
-        "HP": 60, // Aircraft HP +
-        "AVI": 70 // Aircraft AVI +
+        "HP": 60,
+        "AVI": 70
       }
     },
     {
-      "name": "Fire Control Radar", // BB
+      "name": "Fire Control Radar", 
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Fire Control Radar",
       "stats": {
-        "FP": 23, // BB FP +
-        "RLD": -3 // BB RLD -
+        "FP": 23, 
+        "RLD": -3 
       }
     },
     {
-      "name": "Anti-Torpedo Bulge", // BB, CL/CA
+      "name": "Anti-Torpedo Bulge", 
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Anti-Torpedo Bulge",
       "stats": {
-        "HP": 371 // BB, CL/CA HP +
+        "HP": 371 
       }
     },
     {
-      "name": "Air Radar", // CL/CA
+      "name": "Air Radar", 
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Air Radar",
       "stats": {
-        "AA": 75 // CL/CA AA +
+        "AA": 75 
       }
     },
     {
-      "name": "Type 93 Pure Oxygen Torpedo", // DD
+      "name": "Type 93 Pure Oxygen Torpedo", 
       "gearType": "Auxiliary",
       "rarity": "SSR",
       "faction": "Universal",
       "imageName": "Type 93 Pure Oxygen Torpedo",
       "stats": {
-        "TRP": 70, // DD TRP +
+        "TRP": 70,
         "RLD": -7
       }
     },
     {
-      "name": "Gyroscope", // DD
+      "name": "Gyroscope", 
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Gyroscope",
       "stats": {
-        "HP": 60, // DD HP +
-        "SPD": 38 // DD SPD +
+        "HP": 60, 
+        "SPD": 38 
       }
     }
   ]

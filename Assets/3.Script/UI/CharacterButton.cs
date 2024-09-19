@@ -72,7 +72,7 @@ public class CharacterButton : MonoBehaviour
             return;
         }
 
-        PlayerPrefs.SetString("SelectedCharacter", JsonUtility.ToJson(characterData));
+        Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
 
         SceneManager.LoadScene("02_DockDetail");
 
