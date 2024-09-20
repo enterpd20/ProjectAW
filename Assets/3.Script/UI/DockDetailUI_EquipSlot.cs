@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class DockDetailUI_EquipSlot : MonoBehaviour
 {
-    [SerializeField] private Text character_ShipType;   // 캐릭터 함종 받아오기
-    [SerializeField] private GameObject[] equipSlots;   // UI_EquipSlot 1~4 배열로 할당
-    private DockDetailUI_Character characterUI;
+    [SerializeField] private Text[] equipTypeText;      // UI_EquipType의 Text_EquipType 배열로 할당
+    [SerializeField] private Text[] equipNameText;      // Text_EquipName의 텍스트를 배열로 할당
+    [SerializeField] private Image[] equipImage;        // UI_EquipEmpty의 이미지를 배열로 할당
+
+    [SerializeField] private Text character_ShipType;   // 캐릭터 함종 받아오기     
+    [SerializeField] private GameObject[] equipSlot;    // UI_EquipSlot 1~4 배열로 할당  
 
     // JSON 데이터를 통해 로드된 장비 정보 리스트
     private List<Gear> loadedGears;
 
     private Character currentCharacter;
-    private List<Gear> equippedGears;
+    private List<Gear> equippedGears;   // 장비의 데이터를 담고 있는 리스트
 
     // UI 표현을 위함
     private RectTransform Rect_GearUI;
@@ -25,151 +28,103 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     private void Start()
     {
-        LoadGearData();
+        currentCharacter = Player.Instance.GetSelectedCharacter();  // 현재 선택된 캐릭터
+        equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
+
         SetEquipSlots();
-
-        currentCharacter = Player.Instance.GetSelectedCharacter();
-        equippedGears = currentCharacter.eqiuppedGears;
-
-        SetCharaAndEquipInfo(currentCharacter, equippedGears);
-    }
-
-    private void LoadGearData()
-    {
-        // GearDataLoader 스크립트에서 JSON 파일을 불러와 List<Gear>에 저장
-        loadedGears = GearDataLoader.LoadAllGears();
-        if (loadedGears == null || loadedGears.Count == 0)
-        {
-            Debug.LogError("Failed to load gear data.");
-        }
-    }
-
-    public void SetCharaAndEquipInfo(Character character, List<Gear> gears)
-    {
-        currentCharacter = character;
-        equippedGears = gears;
-        SetEquipSlots();
-
-        for(int i = 0; i < equippedGears.Count; i++)
-        {
-            DisplayGearInfo(i, equippedGears[i]);
-        }
     }
 
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
     {
         string shipType = character_ShipType.text; // 캐릭터 함종 파악
 
-        for(int i = 0; i < equipSlots.Length; i++)
+        for (int i = 0; i < equipSlot.Length; i++)
         {
-            //Text equipTypeText = equipSlots[i].transform.Find("Text_EquipType").GetComponent<Text>();
-            Text equipTypeText = equipSlots[i].GetComponentInChildren<Text>();
-            if(equipTypeText != null)
-            { 
-                switch(i)
+            if (equipTypeText[i] != null)
+            {
+                equipTypeText[i].text = GetGearType(shipType, i);
+            }         
+            
+            // 캐릭터가 장착한 장비를 기반으로 장비 이름과 이미지를 설정
+            if(i < equippedGears.Count)
+            {
+                Gear currentGear = equippedGears[i];
+
+                if (equipNameText[i] != null)
                 {
-                    case 0:
-                        if (shipType == "BB")
-                            equipTypeText.text = "Main Gun";
-                        else if(shipType == "CLCA")
-                            equipTypeText.text = "Main Gun";
-                        else if (shipType == "DD")
-                            equipTypeText.text = "Main Gun";
-                        else if (shipType == "CV")
-                            equipTypeText.text = "Torpedo Bomber";
-                        break;
-                    case 1:
-                        if (shipType == "BB")
-                            equipTypeText.text = "Secondary Gun";
-                        else if (shipType == "CLCA")
-                            equipTypeText.text = "Secondary Weapon";
-                        else if (shipType == "DD")
-                            equipTypeText.text = "Torpedo";
-                        else if (shipType == "CV")
-                            equipTypeText.text = "Dive Bomber";
-                        break;
-                    case 2:
-                        equipTypeText.text = "AntiAir";
-                        break;
-                    case 3:
-                        equipTypeText.text = "Auxiliary";
-                        break;
+                    equipNameText[i].text = currentGear.name;   // 장착한 장비의 이름을 UI에 표시
+                }
+
+                if (equipImage[i] != null)
+                {
+                    equipImage[i].sprite = GetGearSprite(currentGear);  // 장착한 장비의 이미지를 UI에 표시
+                    equipImage[i].enabled = true;
                 }
             }
             else
             {
-                Debug.LogWarning($"Cannot find 'Text_EquipType' in equipSlot[{i}]");
+                if (equipImage[i] != null)
+                {
+                    equipImage[i].enabled = false;
+                }
             }
+        }
+    }
+
+    private Sprite GetGearSprite(Gear gear)
+    {
+        return Resources.Load<Sprite>($"mages_Gear/{gear.imageName}");
+    }
+
+    private string GetGearType(string shipType, int index)
+    {
+        switch(index)
+        {
+            case 0: return (shipType == "CV") ? "Main Gun" : "Torpedo Bomber";
+            case 1: return (shipType == "CV") ? "Secondary Weapon" : "Dive Bomber";
+            case 2: return "AntiAir";
+            case 3: return "Auxiliary";
+            default: return "";
         }
     }
 
     public void DisplayGearInfo(int slotIndex, Gear gear)
     {
-        // 장비 이름을 UI에 표시
-        Text equipNameText = equipSlots[slotIndex].transform.Find("UI_EquipName").GetComponent<Text>();
-        if (equipNameText != null)
-        { 
-            equipNameText.text = gear.name;
-        }
-        else
+        //스탯의 정보 표시
+        for (int i = 0; i < equippedGears.Count; i++)
         {
-            Debug.LogWarning($"Cannot find 'UI_EquipName' in equipSlot[{slotIndex}]");
-        }
-
-        // 장비 이미지를 UI에 표시
-        Image equipImage  = equipSlots[slotIndex].transform.Find("UI_EquipEmpty").GetComponent<Image>();
-        Sprite gearSprite = Resources.Load<Sprite>($"Images_Gear/{gear.imageName}");
-        if(gearSprite != null)
-        {
-            equipImage.sprite = gearSprite;
-        }
-        else
-        {
-            Debug.LogWarning($"Failed to load sprite for gear: {gear.imageName}");
-        }
-
-
-        // 스탯 종류와 그 값을 저장하는 리스트
-        List <(string, float)> stats = new List<(string, float)>
-        {
-            ("HP", gear.stats.HP),
-            ("AVI", gear.stats.AVI),
-            ("SPD", gear.stats.SPD),
-            ("AA", gear.stats.AA),
-            ("FP", gear.stats.FP),
-            ("TRP", gear.stats.TRP),
-            ("DMG", gear.stats.DMG),
-            ("RLD", gear.stats.RLD),
-        };
-
-        // 스탯의 정보 표시
-        for(int i = 0; i < equipSlots[slotIndex].transform.Find("UI_EquipStat").childCount; i++)
-        {
-            Transform statBG = equipSlots[slotIndex].transform.Find("UI_EquipStat").Find("UI_StatBG " + i);
-
-            if(i < stats.Count)
+            if (i < equipSlot.Length)
             {
-                Text statTypeText = statBG.Find("Text_StatType").GetComponent<Text>();
-                Text statValueText = statBG.Find("Text_StatValue").GetComponent<Text>();
-
-                statTypeText.text = stats[i].Item1;
-                statValueText.text = stats[i].Item2.ToString();
-            }
-            else
-            {
-                statBG.Find("Text_StatType").GetComponent<Text>().text = "";
-                statBG.Find("Text_StatValue").GetComponent<Text>().text = "";
+                //DockDetailUI_EquipStat equipStat = equipSlots[i].GetComponent<DockDetailUI_EquipStat>();
+                DockDetailUI_EquipStat equipStat = GetComponent<DockDetailUI_EquipStat>();
+                if (equipStat != null)
+                {
+                    equipStat.SetGearInfo(equippedGears[i]);
+                }              
             }
         }
+
+        //if(equipNameText[slotIndex] != null && equipImage[slotIndex] != null)
+        //{
+        //    equipNameText[slotIndex].text = gear.name;  // 장비 이름 표시
+        //    equipImage[slotIndex].enabled = false;      // 빈 장비슬롯 이미지 비활성화
+        //    //equipImage[slotIndex].sprite = 
+        //}
     }
 
     // 장비 데이터를 기반으로 적절한 장비를 장착
     public void AssignGearToSlot(int slotIndex, string gearType)
     {
-        Gear matchingGear = loadedGears.Find(g => g.gearType == gearType); // gearType에 맞는 장비 찾기
+        //Gear matchingGear = loadedGears.Find(g => g.gearType == gearType); // gearType에 맞는 장비 찾기
+        Gear matchingGear = GearDataLoader.GetGearByName(gearType); // gearType에 맞는 장비 찾기
         if(matchingGear != null)
         {
             DisplayGearInfo(slotIndex, matchingGear);   // 장비 슬롯에 장착
+            Debug.Log($"Assigned gear {matchingGear.name} to slot {slotIndex}");
+        }
+        else
+        {
+            Debug.LogWarning($"No matching gear found for type {gearType} in slot {slotIndex}");
         }
     }
 

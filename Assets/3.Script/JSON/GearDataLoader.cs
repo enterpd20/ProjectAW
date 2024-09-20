@@ -67,6 +67,18 @@ public static class GearDataLoader
     public static Gear GetGearByName(string gearName)
     {
         List<Gear> allGears = LoadAllGears();
-        return allGears.Find(gear => gear.name == gearName);
+        Gear findGear = allGears.Find(gear => gear.name == gearName);
+        //return allGears.Find(gear => gear.name == gearName);
+
+        if(findGear != null)
+        {
+            Debug.Log($"Find gear: {findGear.name}, Type: {findGear.gearType}");
+        }
+        else
+        {
+            Debug.LogWarning($"Gear with name {gearName} not found!");
+        }
+
+        return findGear;
     }
 }
