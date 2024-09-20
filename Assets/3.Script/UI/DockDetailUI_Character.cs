@@ -18,10 +18,8 @@ public class DockDetailUI_Character : MonoBehaviour
     [SerializeField] private Text finalCharacterStats_AA;
     [SerializeField] private Text finalCharacterStats_SPD;
 
+    // UI 표현을 위함
     [SerializeField] private RectTransform Rect_StatusUI;
-
-    //private Character currentCharacter;
-    private List<Gear> equippedGears;
 
     //public void CharacterDetail(Character character)
     //{
@@ -38,7 +36,7 @@ public class DockDetailUI_Character : MonoBehaviour
         LoadCharacterData();
     }
 
-    private void LoadCharacterData()
+    public void LoadCharacterData()
     {
         Character character = Player.Instance.GetSelectedCharacter();
 

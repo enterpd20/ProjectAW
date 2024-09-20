@@ -1610,7 +1610,7 @@ RectTransform:
   m_GameObject: {fileID: 345988849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1692066152}
   m_RootOrder: 2
@@ -2852,7 +2852,6 @@ GameObject:
   - component: {fileID: 502526092}
   - component: {fileID: 502526094}
   - component: {fileID: 502526093}
-  - component: {fileID: 502526095}
   m_Layer: 5
   m_Name: UI_EquipSlot 1
   m_TagString: Untagged
@@ -2921,20 +2920,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502526091}
   m_CullTransparentMesh: 1
---- !u!114 &502526095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502526091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 1381889168}
-  equipSlots: []
 --- !u!1 &514461452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6566,7 +6551,6 @@ GameObject:
   - component: {fileID: 1051967689}
   - component: {fileID: 1051967691}
   - component: {fileID: 1051967690}
-  - component: {fileID: 1051967692}
   m_Layer: 5
   m_Name: UI_EquipSlot 3
   m_TagString: Untagged
@@ -6635,20 +6619,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051967688}
   m_CullTransparentMesh: 1
---- !u!114 &1051967692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051967688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 1381889168}
-  equipSlots: []
 --- !u!1 &1053014295
 GameObject:
   m_ObjectHideFlags: 0
@@ -6675,7 +6645,7 @@ RectTransform:
   m_GameObject: {fileID: 1053014295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 502526092}
   - {fileID: 2100598287}
@@ -7106,9 +7076,8 @@ GameObject:
   - component: {fileID: 1124873090}
   - component: {fileID: 1124873093}
   - component: {fileID: 1124873092}
-  - component: {fileID: 1124873091}
   m_Layer: 5
-  m_Name: UI_EquipSlot 1 (2)
+  m_Name: UI_EquipChangeSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7123,7 +7092,7 @@ RectTransform:
   m_GameObject: {fileID: 1124873089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999202, y: 0.9999202, z: 0.9999202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425964713}
   - {fileID: 2108212871}
@@ -7137,20 +7106,6 @@ RectTransform:
   m_AnchoredPosition: {x: -245, y: -145}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1124873091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124873089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
-  equipSlots: []
 --- !u!114 &1124873092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8095,7 +8050,6 @@ GameObject:
   - component: {fileID: 1213456355}
   - component: {fileID: 1213456357}
   - component: {fileID: 1213456356}
-  - component: {fileID: 1213456358}
   m_Layer: 5
   m_Name: UI_EquipSlot 4
   m_TagString: Untagged
@@ -8164,20 +8118,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213456354}
   m_CullTransparentMesh: 1
---- !u!114 &1213456358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213456354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 1381889168}
-  equipSlots: []
 --- !u!1 &1214561528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9623,7 +9563,7 @@ RectTransform:
   m_GameObject: {fileID: 1398394394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1692066152}
   m_Father: {fileID: 626275633}
@@ -13593,9 +13533,8 @@ GameObject:
   - component: {fileID: 1865369438}
   - component: {fileID: 1865369441}
   - component: {fileID: 1865369440}
-  - component: {fileID: 1865369439}
   m_Layer: 5
-  m_Name: UI_EquipSlot 1 (1)
+  m_Name: UI_EquipChangeSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13610,7 +13549,7 @@ RectTransform:
   m_GameObject: {fileID: 1865369437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999202, y: 0.9999202, z: 0.9999202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 247559610}
   - {fileID: 79789748}
@@ -13624,20 +13563,6 @@ RectTransform:
   m_AnchoredPosition: {x: -245, y: 120}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1865369439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865369437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 0}
-  equipSlots: []
 --- !u!114 &1865369440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15213,7 +15138,6 @@ GameObject:
   - component: {fileID: 2100598287}
   - component: {fileID: 2100598289}
   - component: {fileID: 2100598288}
-  - component: {fileID: 2100598290}
   m_Layer: 5
   m_Name: UI_EquipSlot 2
   m_TagString: Untagged
@@ -15282,20 +15206,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100598286}
   m_CullTransparentMesh: 1
---- !u!114 &2100598290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100598286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b109834a9470f4e90d6805372938e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_ShipType: {fileID: 1381889168}
-  equipSlots: []
 --- !u!1 &2108212870
 GameObject:
   m_ObjectHideFlags: 0

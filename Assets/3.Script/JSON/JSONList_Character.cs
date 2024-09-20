@@ -22,7 +22,10 @@ public class Character
     public string faction;
     public bool hasUniqueModule;
     public CharacterStats stats;
-    
+
+    public List<Gear> eqiuppedGears;
+    public List<Gear> availableGears;
+
     public string imageName;   
 }
 

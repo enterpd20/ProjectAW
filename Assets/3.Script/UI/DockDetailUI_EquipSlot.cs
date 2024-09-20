@@ -7,6 +7,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 {
     [SerializeField] private Text character_ShipType;   // 캐릭터 함종 받아오기
     [SerializeField] private GameObject[] equipSlots;   // UI_EquipSlot 1~4 배열로 할당
+    private DockDetailUI_Character characterUI;
 
     // JSON 데이터를 통해 로드된 장비 정보 리스트
     private List<Gear> loadedGears;
@@ -14,20 +15,33 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     private Character currentCharacter;
     private List<Gear> equippedGears;
 
+    // UI 표현을 위함
     private RectTransform Rect_GearUI;
 
     private void Awake()
     {
+        Rect_GearUI = GetComponent<RectTransform>();
+    }
+
+    private void Start()
+    {
         LoadGearData();
         SetEquipSlots();
 
-        Rect_GearUI = GetComponent<RectTransform>();
+        currentCharacter = Player.Instance.GetSelectedCharacter();
+        equippedGears = currentCharacter.eqiuppedGears;
+
+        SetCharaAndEquipInfo(currentCharacter, equippedGears);
     }
 
     private void LoadGearData()
     {
         // GearDataLoader 스크립트에서 JSON 파일을 불러와 List<Gear>에 저장
-        loadedGears = GearDataLoader.LoadAllGears();    
+        loadedGears = GearDataLoader.LoadAllGears();
+        if (loadedGears == null || loadedGears.Count == 0)
+        {
+            Debug.LogError("Failed to load gear data.");
+        }
     }
 
     public void SetCharaAndEquipInfo(Character character, List<Gear> gears)
@@ -45,8 +59,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
     {
         string shipType = character_ShipType.text; // 캐릭터 함종 파악
-        
-        // 각 슬롯에 장착 가능한 장비 유형을 설정
+
         for(int i = 0; i < equipSlots.Length; i++)
         {
             //Text equipTypeText = equipSlots[i].transform.Find("Text_EquipType").GetComponent<Text>();
@@ -106,6 +119,15 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         // 장비 이미지를 UI에 표시
         Image equipImage  = equipSlots[slotIndex].transform.Find("UI_EquipEmpty").GetComponent<Image>();
         Sprite gearSprite = Resources.Load<Sprite>($"Images_Gear/{gear.imageName}");
+        if(gearSprite != null)
+        {
+            equipImage.sprite = gearSprite;
+        }
+        else
+        {
+            Debug.LogWarning($"Failed to load sprite for gear: {gear.imageName}");
+        }
+
 
         // 스탯 종류와 그 값을 저장하는 리스트
         List <(string, float)> stats = new List<(string, float)>
