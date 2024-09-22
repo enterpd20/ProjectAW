@@ -1,8 +1,7 @@
 {
- 
-  "GearInfo_Torpedo": [
+  "gears": [
     {
-      "name": "610mm Twin Torpedo Mount", 
+      "name": "610mm Twin Torpedo Mount",
       "gearType": "Torpedo",
       "rarity": "R",
       "faction": "SakuraEmpire",
@@ -15,7 +14,7 @@
       }
     },
     {
-      "name": "610mm Quadruple Torpedo Mount", 
+      "name": "610mm Quadruple Torpedo Mount",
       "gearType": "Torpedo",
       "rarity": "SSR",
       "faction": "SakuraEmpire",
@@ -28,7 +27,7 @@
       }
     },
     {
-      "name": "533mm Triple Homing Torpedo Mount", 
+      "name": "533mm Triple Homing Torpedo Mount",
       "gearType": "Torpedo",
       "rarity": "SR",
       "faction": "IronBlood",
@@ -54,7 +53,7 @@
       }
     },
     {
-      "name": "533mm Quadruple Torpedo Mount Mk 17", 
+      "name": "533mm Quadruple Torpedo Mount Mk 17",
       "gearType": "Torpedo",
       "rarity": "SR",
       "faction": "EagleUnion",

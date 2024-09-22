@@ -29,7 +29,21 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     private void Start()
     {
         currentCharacter = Player.Instance.GetSelectedCharacter();  // 현재 선택된 캐릭터
-        equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
+        //equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
+        equippedGears = new List<Gear>();             // equippedGears 리스트 초기화, 현재 선택된 캐릭터가 장착중인 장비       
+
+        foreach(var gearName in currentCharacter.eqiuppedGears)
+        {
+            Gear matchingGear = GearDataLoader.GetGearByName(gearName);
+            if(matchingGear != null)
+            {
+                equippedGears.Add(matchingGear);    // 변환된 Gear 객체를 equippedGears에 추가
+            }
+            else
+            {
+                Debug.LogWarning($"No matching gear found for name {gearName}");
+            }
+        }
 
         SetEquipSlots();
     }
@@ -43,29 +57,62 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
             if (equipTypeText[i] != null)
             {
                 equipTypeText[i].text = GetGearType(shipType, i);
-            }         
-            
+            }
+
             // 캐릭터가 장착한 장비를 기반으로 장비 이름과 이미지를 설정
-            if(i < equippedGears.Count)
+            //if(i < equippedGears.Count)
+            //{
+            //    Gear currentGear = equippedGears[i];
+            //
+            //    if (equipNameText[i] != null)
+            //    {
+            //        equipNameText[i].text = currentGear.name;   // 장착한 장비의 이름을 UI에 표시
+            //    }
+            //
+            //    if (equipImage[i] != null)
+            //    {
+            //        equipImage[i].sprite = GetGearSprite(currentGear);  // 장착한 장비의 이미지를 UI에 표시
+            //        equipImage[i].enabled = true;
+            //    }
+            //}
+            //else
+            //{
+            //    if (equipImage[i] != null)
+            //    {
+            //        equipImage[i].enabled = false;
+            //    }
+            //}
+
+            // 캐릭터가 장착한 장비를 기반으로 장비 이름과 이미지를 설정
+            if (i < currentCharacter.eqiuppedGears.Count)
             {
-                Gear currentGear = equippedGears[i];
+                string equippedGearName = currentCharacter.eqiuppedGears[i];  // 슬롯 i에 장착된 장비 이름 가져오기
+                Gear matchingGear = GearDataLoader.GetGearByName(equippedGearName); // 장비 이름으로 Gear 객체 찾기
 
-                if (equipNameText[i] != null)
+                if (matchingGear != null)
                 {
-                    equipNameText[i].text = currentGear.name;   // 장착한 장비의 이름을 UI에 표시
-                }
-
-                if (equipImage[i] != null)
-                {
-                    equipImage[i].sprite = GetGearSprite(currentGear);  // 장착한 장비의 이미지를 UI에 표시
-                    equipImage[i].enabled = true;
+                    // UI 업데이트: 장비 이름과 이미지 설정
+                    if (equipNameText[i] != null)
+                    {
+                        equipNameText[i].text = matchingGear.name;   // 장착한 장비의 이름을 UI에 표시
+                    }
+                    if (equipImage[i] != null)
+                    {
+                        equipImage[i].sprite = GetGearSprite(matchingGear);  // 장착한 장비의 이미지를 UI에 표시
+                        equipImage[i].enabled = true;
+                    }
                 }
             }
             else
             {
+                // 장비가 없는 경우 빈 슬롯으로 처리
+                if (equipNameText[i] != null)
+                {
+                    equipNameText[i].text = "Empty";
+                }
                 if (equipImage[i] != null)
                 {
-                    equipImage[i].enabled = false;
+                    equipImage[i].enabled = false;  // 장비가 없을 경우 빈 이미지로 설정
                 }
             }
         }
@@ -91,25 +138,29 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     public void DisplayGearInfo(int slotIndex, Gear gear)
     {
         //스탯의 정보 표시
-        for (int i = 0; i < equippedGears.Count; i++)
+        //for (int i = 0; i < equippedGears.Count; i++)
+        //{
+        //    if (i < equipSlot.Length)
+        //    {
+        //        //DockDetailUI_EquipStat equipStat = equipSlots[i].GetComponent<DockDetailUI_EquipStat>();
+        //        DockDetailUI_EquipStat equipStat = GetComponent<DockDetailUI_EquipStat>();
+        //        if (equipStat != null)
+        //        {
+        //            equipStat.SetGearInfo(equippedGears[i]);
+        //        }              
+        //    }
+        //}
+
+        // 스탯 정보 표시
+        if(slotIndex < equipSlot.Length)
         {
-            if (i < equipSlot.Length)
+            
+            DockDetailUI_EquipStat equipStat = equipSlot[slotIndex].GetComponent<DockDetailUI_EquipStat>();
+            if(equipStat != null)
             {
-                //DockDetailUI_EquipStat equipStat = equipSlots[i].GetComponent<DockDetailUI_EquipStat>();
-                DockDetailUI_EquipStat equipStat = GetComponent<DockDetailUI_EquipStat>();
-                if (equipStat != null)
-                {
-                    equipStat.SetGearInfo(equippedGears[i]);
-                }              
+                equipStat.SetGearInfo(gear);    // 해당 슬롯에 장착된 장비 정보를 UI에 표시
             }
         }
-
-        //if(equipNameText[slotIndex] != null && equipImage[slotIndex] != null)
-        //{
-        //    equipNameText[slotIndex].text = gear.name;  // 장비 이름 표시
-        //    equipImage[slotIndex].enabled = false;      // 빈 장비슬롯 이미지 비활성화
-        //    //equipImage[slotIndex].sprite = 
-        //}
     }
 
     // 장비 데이터를 기반으로 적절한 장비를 장착

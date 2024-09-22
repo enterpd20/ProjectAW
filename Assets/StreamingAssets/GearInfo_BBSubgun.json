@@ -1,8 +1,7 @@
 {
-  
-  "GearInfo_BBSubgun": [
+  "gears": [
     {
-      "name": "Twin 150mm (TbtsK C/36)", 
+      "name": "Twin 150mm (TbtsK C/36)",
       "gearType": "BB Sub Gun",
       "rarity": "SR",
       "faction": "IronBlood",
@@ -26,7 +25,7 @@
       }
     },
     {
-      "name": "Single 127mm (5inch/38 Mk 30)", 
+      "name": "Single 127mm (5inch/38 Mk 30)",
       "gearType": "BB Sub Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
@@ -38,7 +37,7 @@
       }
     },
     {
-      "name": "Single 152mm (41st Year Type)", 
+      "name": "Single 152mm (41st Year Type)",
       "gearType": "BB Sub Gun",
       "rarity": "R",
       "faction": "SakuraEmpire",

@@ -20,13 +20,13 @@ public class Character
     public string shipType;
     public string rarity;
     public string faction;
+    public string imageName;   
     public bool hasUniqueModule;
     public CharacterStats stats;
 
-    public List<Gear> eqiuppedGears;
+    public List<string> eqiuppedGears;
     public List<Gear> availableGears;
 
-    public string imageName;   
 }
 
 [System.Serializable]

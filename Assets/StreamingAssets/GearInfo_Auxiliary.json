@@ -1,15 +1,14 @@
 {
-  
-  "GearInfo_Auxiliary": [
+  "gears": [
     {
-      "name": "Drop Tank", 
+      "name": "Drop Tank",
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Drop Tank",
       "stats": {
-        "HP": 60, 
-        "AVI": 70 
+        "HP": 60,
+        "AVI": 70
       }
     },
     {
@@ -24,38 +23,38 @@
       }
     },
     {
-      "name": "Fire Control Radar", 
+      "name": "Fire Control Radar",
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Fire Control Radar",
       "stats": {
-        "FP": 23, 
-        "RLD": -3 
+        "FP": 23,
+        "RLD": -3
       }
     },
     {
-      "name": "Anti-Torpedo Bulge", 
+      "name": "Anti-Torpedo Bulge",
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Anti-Torpedo Bulge",
       "stats": {
-        "HP": 371 
+        "HP": 371
       }
     },
     {
-      "name": "Air Radar", 
+      "name": "Air Radar",
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Air Radar",
       "stats": {
-        "AA": 75 
+        "AA": 75
       }
     },
     {
-      "name": "Type 93 Pure Oxygen Torpedo", 
+      "name": "Type 93 Pure Oxygen Torpedo",
       "gearType": "Auxiliary",
       "rarity": "SSR",
       "faction": "Universal",
@@ -66,14 +65,14 @@
       }
     },
     {
-      "name": "Gyroscope", 
+      "name": "Gyroscope",
       "gearType": "Auxiliary",
       "rarity": "SR",
       "faction": "Universal",
       "imageName": "Gyroscope",
       "stats": {
-        "HP": 60, 
-        "SPD": 38 
+        "HP": 60,
+        "SPD": 38
       }
     }
   ]

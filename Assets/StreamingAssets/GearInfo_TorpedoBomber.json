@@ -1,8 +1,7 @@
 {
-  
-  "GearInfo_TorpedoBomber": [
+  "gears": [
     {
-      "name": "TBD Devastator", 
+      "name": "TBD Devastator",
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "EagleUnion",
@@ -30,7 +29,7 @@
       }
     },
     {
-      "name": "Nakajima B5N Type 97", 
+      "name": "Nakajima B5N Type 97",
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "SakuraEmpire",
@@ -44,7 +43,7 @@
       }
     },
     {
-      "name": "Aichi B7A Ryuusei", 
+      "name": "Aichi B7A Ryuusei",
       "gearType": "Torpedo Bomber",
       "rarity": "SSR",
       "faction": "SakuraEmpire",
@@ -58,7 +57,7 @@
       }
     },
     {
-      "name": "Fairey Swordfish", 
+      "name": "Fairey Swordfish",
       "gearType": "Torpedo Bomber",
       "rarity": "R",
       "faction": "RoyalNavy",

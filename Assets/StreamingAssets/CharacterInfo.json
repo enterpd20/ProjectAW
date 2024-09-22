@@ -15,12 +15,12 @@
           "AA": 200,
           "SPD": 50
         },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
+        "eqiuppedGears": [
+          "TBD Devastator",
+          "SBD Dauntless",
+          "Quadruple 28mm Chicago Piano",
+          "Drop Tank"
+        ],
         "availableGears": [
           "TBD Devastator",
           "SBD Dauntless",

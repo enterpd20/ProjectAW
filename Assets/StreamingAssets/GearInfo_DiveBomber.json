@@ -1,8 +1,7 @@
 {
-  
-  "GearInfo_DiveBomber": [
+  "gears": [
     {
-      "name": "SBD Dauntless", 
+      "name": "SBD Dauntless",
       "gearType": "Dive Bomber",
       "rarity": "R",
       "faction": "EagleUnion",
@@ -16,7 +15,7 @@
       }
     },
     {
-      "name": "SB2C HellDiver", 
+      "name": "SB2C HellDiver",
       "gearType": "Dive Bomber",
       "rarity": "SR",
       "faction": "EagleUnion",
@@ -30,7 +29,7 @@
       }
     },
     {
-      "name": "B-25 Mitchell", 
+      "name": "B-25 Mitchell",
       "gearType": "Dive Bomber",
       "rarity": "SSR",
       "faction": "EagleUnion",
@@ -58,7 +57,7 @@
       }
     },
     {
-      "name": "Aichi D3A2 Type 99", 
+      "name": "Aichi D3A2 Type 99",
       "gearType": "Dive Bomber",
       "rarity": "SR",
       "faction": "SakuraEmpire",
@@ -72,7 +71,7 @@
       }
     },
     {
-      "name": "Blackburn Skua", 
+      "name": "Blackburn Skua",
       "gearType": "Dive Bomber",
       "rarity": "R",
       "faction": "RoyalNavy",
@@ -86,7 +85,7 @@
       }
     },
     {
-      "name": "Fairey Fulmar", 
+      "name": "Fairey Fulmar",
       "gearType": "Dive Bomber",
       "rarity": "SR",
       "faction": "RoyalNavy",

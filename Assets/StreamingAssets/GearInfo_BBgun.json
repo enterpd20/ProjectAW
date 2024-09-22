@@ -1,8 +1,7 @@
 {
-  
-  "GearInfo_BBgun": [
+  "gears": [
     {
-      "name": "Twin 380mm (SK C/34)", 
+      "name": "Twin 380mm (SK C/34)",
       "gearType": "BB Gun",
       "rarity": "SSR",
       "faction": "IronBlood",
@@ -14,7 +13,7 @@
       }
     },
     {
-      "name": "Twin 381mm (BL 15inch Mk I)", 
+      "name": "Twin 381mm (BL 15inch Mk I)",
       "gearType": "BB Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
@@ -26,7 +25,7 @@
       }
     },
     {
-      "name": "Twin 381mm (BL 15inch Mk II)", 
+      "name": "Twin 381mm (BL 15inch Mk II)",
       "gearType": "BB Gun",
       "rarity": "SSR",
       "faction": "RoyalNavy",
@@ -38,7 +37,7 @@
       }
     },
     {
-      "name": "Quadruple 356mm (BL 14inch Mk VII)", 
+      "name": "Quadruple 356mm (BL 14inch Mk VII)",
       "gearType": "BB Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
@@ -62,7 +61,7 @@
       }
     },
     {
-      "name": "Twin 356mm (41st Year Type)", 
+      "name": "Twin 356mm (41st Year Type)",
       "gearType": "BB Gun",
       "rarity": "R",
       "faction": "SakuraEmpire",
@@ -74,7 +73,7 @@
       }
     },
     {
-      "name": "Twin 356mm (41st Year Type) Kai", 
+      "name": "Twin 356mm (41st Year Type) Kai",
       "gearType": "BB Gun",
       "rarity": "R",
       "faction": "SakuraEmpire",
