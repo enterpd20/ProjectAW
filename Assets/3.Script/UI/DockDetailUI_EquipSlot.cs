@@ -24,18 +24,15 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     private void Awake()
     {
         Rect_GearUI = GetComponent<RectTransform>();
-    }
 
-    private void Start()
-    {
         currentCharacter = Player.Instance.GetSelectedCharacter();  // 현재 선택된 캐릭터
         //equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
         equippedGears = new List<Gear>();             // equippedGears 리스트 초기화, 현재 선택된 캐릭터가 장착중인 장비       
 
-        foreach(var gearName in currentCharacter.eqiuppedGears)
+        foreach (var gearName in currentCharacter.eqiuppedGears)
         {
             Gear matchingGear = GearDataLoader.GetGearByName(gearName);
-            if(matchingGear != null)
+            if (matchingGear != null)
             {
                 equippedGears.Add(matchingGear);    // 변환된 Gear 객체를 equippedGears에 추가
             }
@@ -46,6 +43,11 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         }
 
         SetEquipSlots();
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
@@ -120,7 +122,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     private Sprite GetGearSprite(Gear gear)
     {
-        return Resources.Load<Sprite>($"mages_Gear/{gear.imageName}");
+        return Resources.Load<Sprite>($"Images_Gear/{gear.imageName}");
     }
 
     private string GetGearType(string shipType, int index)

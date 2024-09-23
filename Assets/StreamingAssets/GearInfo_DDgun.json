@@ -7,9 +7,9 @@
       "faction": "SakuraEmpire",
       "imageName": "Twin 127mm (Type 3)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 12,
+        "RLD": 1.5
       }
     },
     {

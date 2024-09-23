@@ -29,10 +29,6 @@ public class Player : MonoBehaviour
         }        
     }
 
-    private void Start()
-    {
-    }
-
     public void SavePlayerData()
     {
         string path = Application.persistentDataPath + "/playerData.json";

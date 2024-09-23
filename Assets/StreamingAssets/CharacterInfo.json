@@ -1,772 +1,770 @@
 {
-    "Characters": [
-      {
-        "name": "Enterprise",
-        "shipType": "CV",
-        "rarity": "SSR",
-        "faction": "EagleUnion",
-        "imageName": "Enterprise",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank"
-        ],
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+  "Characters": [
+    {
+      "name": "Enterprise",
+      "shipType": "CV",
+      "rarity": "SSR",
+      "faction": "EagleUnion",
+      "imageName": "Enterprise",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Hornet",
-        "shipType": "CV",
-        "rarity": "SR",
-        "faction": "EagleUnion",
-        "imageName": "Hornet",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "B-25 Mitchell",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Hornet",
+      "shipType": "CV",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "imageName": "Hornet",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Akagi",
-        "shipType": "CV",
-        "rarity": "SSR",
-        "faction": "SakuraEmpire",
-        "imageName": "Akagi",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Nakajima B5N Type 97",
-          "1": "Aichi D3A Type 99",
-          "2": "Triple 25mm AA (Type 96)",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "Nakajima B5N Type 97",
-          "Aichi D3A Type 99",
-          "Triple 25mm AA (Type 96)",
-          "Drop Tank",
-          "Aichi B7A Ryuusei",
-          "Aichi D3A2 Type 99",
-          "Twin 127mm AA (Type 89)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "B-25 Mitchell",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Akagi",
+      "shipType": "CV",
+      "rarity": "SSR",
+      "faction": "SakuraEmpire",
+      "imageName": "Akagi",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Kaga",
-        "shipType": "CV",
-        "rarity": "SSR",
-        "faction": "SakuraEmpire",
-        "imageName": "Kaga",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Nakajima B5N Type 97",
-          "1": "Aichi D3A Type 99",
-          "2": "Triple 25mm AA (Type 96)",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "Nakajima B5N Type 97",
-          "Aichi D3A Type 99",
-          "Triple 25mm AA (Type 96)",
-          "Drop Tank",
-          "Aichi B7A Ryuusei",
-          "Aichi D3A2 Type 99",
-          "Twin 127mm AA (Type 89)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "Nakajima B5N Type 97",
+        "Aichi D3A Type 99",
+        "Triple 25mm AA (Type 96)",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "Nakajima B5N Type 97",
+        "Aichi D3A Type 99",
+        "Triple 25mm AA (Type 96)",
+        "Drop Tank",
+        "Aichi B7A Ryuusei",
+        "Aichi D3A2 Type 99",
+        "Twin 127mm AA (Type 89)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Kaga",
+      "shipType": "CV",
+      "rarity": "SSR",
+      "faction": "SakuraEmpire",
+      "imageName": "Kaga",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "ArkRoyal",
-        "shipType": "CV",
-        "rarity": "SR",
-        "faction": "RoyalNavy",
-        "imageName": "ArkRoyal",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Fairey Swordfish",
-          "1": "Blackburn Skua",
-          "2": "Quadruple 40mm Pom-Pom",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "Fairey Swordfish",
-          "Blackburn Skua",
-          "Quadruple 40mm Pom-Pom",
-          "Drop Tank",
-          "Fairey Swordfish (818 Squadron)",
-          "Fairey Fulmar",
-          "Twin 113mm AA (QF Mark I)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "Nakajima B5N Type 97",
+        "Aichi D3A Type 99",
+        "Triple 25mm AA (Type 96)",
+        "Drop Tank"
+
+      ],
+      "availableGears": [
+        "Nakajima B5N Type 97",
+        "Aichi D3A Type 99",
+        "Triple 25mm AA (Type 96)",
+        "Drop Tank",
+        "Aichi B7A Ryuusei",
+        "Aichi D3A2 Type 99",
+        "Twin 127mm AA (Type 89)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "ArkRoyal",
+      "shipType": "CV",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "imageName": "ArkRoyal",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "ArkRoyalMETA",
-        "shipType": "CV",
-        "rarity": "SR",
-        "faction": "META",
-        "imageName": "ArkRoyalMETA",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Fairey Swordfish",
-          "1": "Blackburn Skua",
-          "2": "Quadruple 40mm Pom-Pom",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "Fairey Swordfish",
-          "Blackburn Skua",
-          "Quadruple 40mm Pom-Pom",
-          "Drop Tank",
-          "Fairey Swordfish (818 Squadron)",
-          "Fairey Fulmar",
-          "Twin 113mm AA (QF Mark I)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "Fairey Swordfish",
+        "Blackburn Skua",
+        "Quadruple 40mm Pom-Pom",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "Fairey Swordfish",
+        "Blackburn Skua",
+        "Quadruple 40mm Pom-Pom",
+        "Drop Tank",
+        "Fairey Swordfish (818 Squadron)",
+        "Fairey Fulmar",
+        "Twin 113mm AA (QF Mark I)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "ArkRoyalMETA",
+      "shipType": "CV",
+      "rarity": "SR",
+      "faction": "META",
+      "imageName": "ArkRoyalMETA",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
+      "eqiuppedGears": [
+        "Fairey Swordfish",
+        "Blackburn Skua",
+        "Quadruple 40mm Pom-Pom",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "Fairey Swordfish",
+        "Blackburn Skua",
+        "Quadruple 40mm Pom-Pom",
+        "Drop Tank",
+        "Fairey Swordfish (818 Squadron)",
+        "Fairey Fulmar",
+        "Twin 113mm AA (QF Mark I)",
+        "Steam Catapult"
+      ]
+    },
 
 
 
 
 
-      {
-        "name": "Bismarck",
-        "shipType": "BB",
-        "rarity": "SSR",
-        "faction": "IronBlood",
-        "imageName": "Bismarck",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 200,
-          "TRP": 0,
-          "AVI": 0,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Twin 380mm (SK C/34)",
-          "1": "Twin 150mm (TbtsK C/36)",
-          "2": "Twin 105mm AA (SK C/33)",
-          "3": "Fire Control Radar"
-        },
-        "availableGears": [
-          "Twin 380mm (SK C/34)",
-          "Twin 150mm (TbtsK C/36)",
-          "Twin 105mm AA (SK C/33)",
-          "Fire Control Radar",
-          "Anti-Torpedo Bulge"
-        ]
+    {
+      "name": "Bismarck",
+      "shipType": "BB",
+      "rarity": "SSR",
+      "faction": "IronBlood",
+      "imageName": "Bismarck",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 200,
+        "TRP": 0,
+        "AVI": 0,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Hood",
-        "shipType": "BB",
-        "rarity": "SSR",
-        "faction": "RoyalNavy",
-        "imageName": "Hood",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Twin 381mm (BL 15inch Mk I)",
-          "1": "Twin 102mm (QF Mk XVI*)",
-          "2": "Octuple 40mm Pom-Pom",
-          "3": "Fire Control Radar"
-        },
-        "availableGears": [
-          "Twin 381mm (BL 15inch Mk I)",
-          "Twin 102mm (QF Mk XVI*)",
-          "Octuple 40mm Pom-Pom",
-          "Fire Control Radar",
-          "Twin 381mm (BL 15inch Mk II)",
-          "Anti-Torpedo Bulge"          
-        ]
+      "eqiuppedGears": [
+        "Twin 380mm (SK C/34)",
+        "Twin 150mm (TbtsK C/36)",
+        "Twin 105mm AA (SK C/33)",
+        "Fire Control Radar"
+      ],
+      "availableGears": [
+        "Twin 380mm (SK C/34)",
+        "Twin 150mm (TbtsK C/36)",
+        "Twin 105mm AA (SK C/33)",
+        "Fire Control Radar",
+        "Anti-Torpedo Bulge"
+      ]
+    },
+    {
+      "name": "Hood",
+      "shipType": "BB",
+      "rarity": "SSR",
+      "faction": "RoyalNavy",
+      "imageName": "Hood",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "PrinceOfWales",
-        "shipType": "BB",
-        "rarity": "SSR",
-        "faction": "RoyalNavy",
-        "imageName": "PrinceOfWales",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Quadruple 356mm (BL 14inch Mk VII)",
-          "1": "Twin 102mm (QF Mk XVI*)",
-          "2": "Octuple 40mm Pom-Pom",
-          "3": "Fire Control Radar"
-        },
-        "availableGears": [
-          "Quadruple 356mm (BL 14inch Mk VII)",
-          "Twin 102mm (QF Mk XVI*)",
-          "Octuple 40mm Pom-Pom",
-          "Fire Control Radar",
-          "Anti-Torpedo Bulge"
-        ]
+      "eqiuppedGears": [
+        "Twin 381mm (BL 15inch Mk I)",
+        "Twin 102mm (QF Mk XVI*)",
+        "Octuple 40mm Pom-Pom",
+        "Fire Control Radar"
+      ],
+      "availableGears": [
+        "Twin 381mm (BL 15inch Mk I)",
+        "Twin 102mm (QF Mk XVI*)",
+        "Octuple 40mm Pom-Pom",
+        "Fire Control Radar",
+        "Twin 381mm (BL 15inch Mk II)",
+        "Anti-Torpedo Bulge"
+      ]
+    },
+    {
+      "name": "PrinceOfWales",
+      "shipType": "BB",
+      "rarity": "SSR",
+      "faction": "RoyalNavy",
+      "imageName": "PrinceOfWales",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "MaryLand",
-        "shipType": "BB",
-        "rarity": "SR",
-        "faction": "EagleUnion",
-        "imageName": "MaryLand",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Twin 406mm (16inch/45 Mk 8)",
-          "1": "Single 127mm (5inch/38 Mk 30)",
-          "2": "Single 76mm AA (Mk 22 Mount)",
-          "3": "Fire Control Radar"
-        },
-        "availableGears": [
-          "Twin 406mm (16inch/45 Mk 8)",
-          "Single 127mm (5inch/38 Mk 30)",
-          "Single 76mm AA (Mk 22 Mount)",
-          "Fire Control Radar",
-          "Anti-Torpedo Bulge"
-        ]
+      "eqiuppedGears": [
+        "Quadruple 356mm (BL 14inch Mk VII)",
+        "Twin 102mm (QF Mk XVI*)",
+        "Octuple 40mm Pom-Pom",
+        "Fire Control Radar"
+      ],
+      "availableGears": [
+        "Quadruple 356mm (BL 14inch Mk VII)",
+        "Twin 102mm (QF Mk XVI*)",
+        "Octuple 40mm Pom-Pom",
+        "Fire Control Radar",
+        "Anti-Torpedo Bulge"
+      ]
+    },
+    {
+      "name": "MaryLand",
+      "shipType": "BB",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "imageName": "MaryLand",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Fusou",
-        "shipType": "BB",
-        "rarity": "R",
-        "faction": "SakuraEmpire",
-        "imageName": "Fusou",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Twin 356mm (41st Year Type)",
-          "1": "Single 152mm (41st Year Type)",
-          "2": "Twin 127mm AA (Type 89)",
-          "3": "Fire Control Radar"
-        },
-        "availableGears": [
-          "Twin 356mm (41st Year Type)",
-          "Single 152mm (41st Year Type)",
-          "Twin 127mm AA (Type 89)",
-          "Fire Control Radar",
-          "Twin 356mm (41st Year Type) Kai",
-          "Anti-Torpedo Bulge"
-        ]
+      "eqiuppedGears": [
+        "Twin 406mm (16inch/45 Mk 8)",
+        "Single 127mm (5inch/38 Mk 30)",
+        "Single 76mm AA (Mk 22 Mount)",
+        "Fire Control Radar"
+      ],
+      "availableGears": [
+        "Twin 406mm (16inch/45 Mk 8)",
+        "Single 127mm (5inch/38 Mk 30)",
+        "Single 76mm AA (Mk 22 Mount)",
+        "Fire Control Radar",
+        "Anti-Torpedo Bulge"
+      ]
+    },
+    {
+      "name": "Fusou",
+      "shipType": "BB",
+      "rarity": "R",
+      "faction": "SakuraEmpire",
+      "imageName": "Fusou",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "FusouMETA",
-        "shipType": "BB",
-        "rarity": "SR",
-        "faction": "META",
-        "imageName": "FusouMETA",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "Twin 356mm (41st Year Type)",
-          "1": "Single 152mm (41st Year Type)",
-          "2": "Twin 127mm AA (Type 89)",
-          "3": "Fire Control Radar"
-        },
-        "availableGears": [
-          "Twin 356mm (41st Year Type)",
-          "Single 152mm (41st Year Type)",
-          "Twin 127mm AA (Type 89)",
-          "Fire Control Radar",
-          "Twin 356mm (41st Year Type) Kai",
-          "Anti-Torpedo Bulge"
-        ]
+      "eqiuppedGears": [
+        "Twin 356mm (41st Year Type)",
+        "Single 152mm (41st Year Type)",
+        "Twin 127mm AA (Type 89)",
+        "Fire Control Radar"
+      ],
+      "availableGears": [
+        "Twin 356mm (41st Year Type)",
+        "Single 152mm (41st Year Type)",
+        "Twin 127mm AA (Type 89)",
+        "Fire Control Radar",
+        "Twin 356mm (41st Year Type) Kai",
+        "Anti-Torpedo Bulge"
+      ]
+    },
+    {
+      "name": "FusouMETA",
+      "shipType": "BB",
+      "rarity": "SR",
+      "faction": "META",
+      "imageName": "FusouMETA",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
+      "eqiuppedGears": [
+        "Twin 356mm (41st Year Type)",
+        "Single 152mm (41st Year Type)",
+        "Twin 127mm AA (Type 89)",
+        "Fire Control Radar"
+      ],
+      "availableGears": [
+        "Twin 356mm (41st Year Type)",
+        "Single 152mm (41st Year Type)",
+        "Twin 127mm AA (Type 89)",
+        "Fire Control Radar",
+        "Twin 356mm (41st Year Type) Kai",
+        "Anti-Torpedo Bulge"
+      ]
+    },
 
 
 
 
 
-      {
-        "name": "Atago",
-        "shipType": "CLCA",
-        "rarity": "SSR",
-        "faction": "SakuraEmpire",
-        "imageName": "Atago",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 100,
-          "TRP": 100,
-          "AVI": 0,
-          "AA": 100,
-          "SPD": 100
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+    {
+      "name": "Atago",
+      "shipType": "CLCA",
+      "rarity": "SSR",
+      "faction": "SakuraEmpire",
+      "imageName": "Atago",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 100,
+        "TRP": 100,
+        "AVI": 0,
+        "AA": 100,
+        "SPD": 100
       },
-      {
-        "name": "Minneapolis",
-        "shipType": "CLCA",
-        "rarity": "SSR",
-        "faction": "EagleUnion",
-        "imageName": "Minneapolis",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Minneapolis",
+      "shipType": "CLCA",
+      "rarity": "SSR",
+      "faction": "EagleUnion",
+      "imageName": "Minneapolis",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "PrinzEugen",
-        "shipType": "CLCA",
-        "rarity": "SSR",
-        "faction": "IronBlood",
-        "imageName": "PrinzEugen",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "PrinzEugen",
+      "shipType": "CLCA",
+      "rarity": "SSR",
+      "faction": "IronBlood",
+      "imageName": "PrinzEugen",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Sheffield",
-        "shipType": "CLCA",
-        "rarity": "SR",
-        "faction": "RoyalNavy",
-        "imageName": "Sheffield",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Sheffield",
+      "shipType": "CLCA",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "imageName": "Sheffield",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Northampton",
-        "shipType": "CLCA",
-        "rarity": "R",
-        "faction": "EagleUnion",
-        "imageName": "Northampton",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Northampton",
+      "shipType": "CLCA",
+      "rarity": "R",
+      "faction": "EagleUnion",
+      "imageName": "Northampton",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "SheffieldMETA",
-        "shipType": "CLCA",
-        "rarity": "SR",
-        "faction": "META",
-        "imageName": "SheffieldMETA",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "SheffieldMETA",
+      "shipType": "CLCA",
+      "rarity": "SR",
+      "faction": "META",
+      "imageName": "SheffieldMETA",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
 
 
 
 
 
-      {
-        "name": "Kawakaze",
-        "shipType": "DD",
-        "rarity": "SSR",
-        "faction": "SakuraEmpire",
-        "imageName": "Kawakaze",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+    {
+      "name": "Kawakaze",
+      "shipType": "DD",
+      "rarity": "SSR",
+      "faction": "SakuraEmpire",
+      "imageName": "Kawakaze",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Ayanami",
-        "shipType": "DD",
-        "rarity": "SR",
-        "faction": "SakuraEmpire",
-        "imageName": "Ayanami",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 50,
-          "TRP": 200,
-          "AVI": 0,
-          "AA": 50,
-          "SPD": 100
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Ayanami",
+      "shipType": "DD",
+      "rarity": "SR",
+      "faction": "SakuraEmpire",
+      "imageName": "Ayanami",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 2007,
+        "FP": 76,
+        "TRP": 576,
+        "AVI": 0,
+        "AA": 149,
+        "SPD": 48
       },
-      {
-        "name": "Icarus",
-        "shipType": "DD",
-        "rarity": "SR",
-        "faction": "RoyalNavy",
-        "imageName": "Icarus",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "Twin 127mm (Type 3)",
+        "610mm Quadruple Torpedo Mount",
+        "Twin 25mm AA (Type 96)",
+        "Type 93 Pure Oxygen Torpedo"
+      ],
+      "availableGears": [
+        "Twin 127mm (Type 3)",
+        "610mm Quadruple Torpedo Mount",
+        "Twin 25mm AA (Type 96)",
+        "Type 93 Pure Oxygen Torpedo",
+        "Gyroscope"
+      ]
+    },
+    {
+      "name": "Icarus",
+      "shipType": "DD",
+      "rarity": "SR",
+      "faction": "RoyalNavy",
+      "imageName": "Icarus",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Aylwin",
-        "shipType": "DD",
-        "rarity": "R",
-        "faction": "EagleUnion",
-        "imageName": "Aylwin",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Aylwin",
+      "shipType": "DD",
+      "rarity": "R",
+      "faction": "EagleUnion",
+      "imageName": "Aylwin",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "Hammann",
-        "shipType": "DD",
-        "rarity": "R",
-        "faction": "EagleUnion",
-        "imageName": "Hammann",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "Hammann",
+      "shipType": "DD",
+      "rarity": "R",
+      "faction": "EagleUnion",
+      "imageName": "Hammann",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
       },
-      {
-        "name": "KasumiMETA",
-        "shipType": "DD",
-        "rarity": "SR",
-        "faction": "META",
-        "imageName": "KasumiMETA",
-        "hasUniqueModule": true,
-        "stats": {
-          "HP": 100,
-          "FP": 0,
-          "TRP": 0,
-          "AVI": 200,
-          "AA": 200,
-          "SPD": 50
-        },
-        "eqiuppedGears": {
-          "0": "TBD Devastator",
-          "1": "SBD Dauntless",
-          "2": "Quadruple 28mm Chicago Piano",
-          "3": "Drop Tank"
-        },
-        "availableGears": [
-          "TBD Devastator",
-          "SBD Dauntless",
-          "Quadruple 28mm Chicago Piano",
-          "Drop Tank",
-          "TBM Avenger (VT-18 Squadron)",
-          "SB2C HellDiver",
-          "Quadruple 40mm Bofors (Mk 2 Mount)",
-          "Steam Catapult"
-        ]
-      }
-    ]
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    },
+    {
+      "name": "KasumiMETA",
+      "shipType": "DD",
+      "rarity": "SR",
+      "faction": "META",
+      "imageName": "KasumiMETA",
+      "hasUniqueModule": true,
+      "stats": {
+        "HP": 100,
+        "FP": 0,
+        "TRP": 0,
+        "AVI": 200,
+        "AA": 200,
+        "SPD": 50
+      },
+      "eqiuppedGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank"
+      ],
+      "availableGears": [
+        "TBD Devastator",
+        "SBD Dauntless",
+        "Quadruple 28mm Chicago Piano",
+        "Drop Tank",
+        "TBM Avenger (VT-18 Squadron)",
+        "SB2C HellDiver",
+        "Quadruple 40mm Bofors (Mk 2 Mount)",
+        "Steam Catapult"
+      ]
+    }
+  ]
 }

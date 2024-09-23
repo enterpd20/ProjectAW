@@ -18,18 +18,10 @@ public class DockDetailUI_Character : MonoBehaviour
     [SerializeField] private Text finalCharacterStats_AA;
     [SerializeField] private Text finalCharacterStats_SPD;
 
+    [SerializeField] private Image backgroundImage;
+
     // UI 표현을 위함
     [SerializeField] private RectTransform Rect_StatusUI;
-
-    //public void CharacterDetail(Character character)
-    //{
-    //    character_Image.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
-    //    character_Name.text = character.name;
-    //    //Character_ShipName.text = character.shipname;
-    //    character_ShipType.text = character.shipType;
-    //
-    //    //currentCharacter = character;
-    //}
 
     private void Start()
     {
@@ -38,17 +30,19 @@ public class DockDetailUI_Character : MonoBehaviour
 
     public void LoadCharacterData()
     {
-        Character character = Player.Instance.GetSelectedCharacter();
+        Character character = Player.Instance.GetSelectedCharacter();        
 
-        if(character != null)
+        if (character != null)
         {
             // UI에 캐릭터 정보 표시
             character_Image.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
             character_Name.text = character.name;
             character_ShipType.text = character.shipType;
 
+            backgroundImage.sprite = GetRarityBackground(character.rarity);
+
             // 장비 정보 가져오기
-            List<Gear> equippedGears = GetEquippedGears(character.shipType);
+            List<Gear> equippedGears = GetEquippedGears(character);
 
             // 캐릭터 스탯 업데이트
             UpdateCharacterStats(character, equippedGears);
@@ -56,40 +50,42 @@ public class DockDetailUI_Character : MonoBehaviour
         else
         {
             Debug.LogWarning("No character selected.");
+        }        
+    }
+
+    Sprite GetRarityBackground(string rarity)
+    {
+        switch (rarity)
+        {
+            case "SSR": return Resources.Load<Sprite>("RarityBG/BG_SSR");
+            case "SR": return Resources.Load<Sprite>("RarityBG/BG_SR");
+            case "R": return Resources.Load<Sprite>("RarityBG/BG_R");
+            case "N": return Resources.Load<Sprite>("RarityBG/BG_N");
+            default: return Resources.Load<Sprite>("RarityBG/DefaultBackground");
         }
     }
 
-    private List<Gear> GetEquippedGears(string shipType)
+    private List<Gear> GetEquippedGears(/*string shipType*/ Character character)
     {
         List<Gear> equippedGears = new List<Gear>();
-        DockDetailUI_EquipSlot equipSlotManager = FindObjectOfType<DockDetailUI_EquipSlot>();
 
-        if (equipSlotManager == null)
+        foreach(string gearName in character.eqiuppedGears)
         {
-            Debug.LogError("DockDetailUI_EquipSlot is not found!");
-            return equippedGears;  // 빈 리스트 반환
-        }
-
-        // 각 슬롯에 장착된 장비 유형을 가져옴
-        for (int i = 0; i < 4; i++)
-        {
-            Text equipTypeText = equipSlotManager.GetComponentInChildren<Text>();
-            string gearType = equipTypeText.text;
-
-            Gear gear = GearDataLoader.LoadAllGears().Find(g => g.gearType == gearType);
-            if (gear != null)
+            Gear matchingGear = GearDataLoader.GetGearByName(gearName);
+            if(matchingGear != null)
             {
-                equippedGears.Add(gear);
+                equippedGears.Add(matchingGear);
+            }
+            else
+            {
+                Debug.LogWarning($"No matching gear foun for {gearName}");
             }
         }
-
         return equippedGears;
     }
 
     public void UpdateCharacterStats(Character character, List<Gear> equippedGears)
     {
-        //this.equippedGears = equippedGears;
-
         CharacterStats finalStats = new CharacterStats
         {
             HP = character.stats.HP,
@@ -102,13 +98,28 @@ public class DockDetailUI_Character : MonoBehaviour
 
         foreach(var gear in equippedGears)
         {
-            finalStats.HP  += gear.stats.HP;
-            finalStats.FP  += gear.stats.FP;
-            finalStats.TRP += gear.stats.TRP;
-            finalStats.AVI += gear.stats.AVI;
-            finalStats.AA  += gear.stats.AA;
-            finalStats.AA  += gear.stats.AA;
-            finalStats.SPD += gear.stats.SPD;
+            Gear.GearStats stats = gear.stats;
+
+            // 장비가 항공기일 경우, HP와 SPD를 제외하고 계산
+            if(gear.gearType == "Torpedo Bomber" || gear.gearType == "Dive Bomber")
+            {
+                finalStats.FP += stats.FP;
+                finalStats.TRP += stats.TRP;
+                finalStats.AVI += stats.AVI;
+                finalStats.AA += stats.AA;
+            }
+            else
+            {
+                // 유효한 스탯만 필터링하여 더하기
+                finalStats.HP += stats.HP;
+                finalStats.FP += stats.FP;
+                finalStats.TRP += stats.TRP;
+                finalStats.AVI += stats.AVI;
+                finalStats.AA += stats.AA;
+                finalStats.SPD += stats.SPD;
+            }
+
+
         }
 
         finalCharacterStats_HP.text =  finalStats.HP.ToString();

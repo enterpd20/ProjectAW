@@ -71,8 +71,8 @@
       "faction": "Universal",
       "imageName": "Gyroscope",
       "stats": {
-        "HP": 60,
-        "SPD": 38
+        "HP": 38,
+        "SPD": 8
       }
     }
   ]

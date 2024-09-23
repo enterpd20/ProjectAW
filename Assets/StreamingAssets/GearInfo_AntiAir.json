@@ -25,14 +25,14 @@
       }
     },
     {
-      "name": "Triple 25mm AA (Type 96)",
+      "name": "Twin 25mm AA (Type 96)",
       "gearType": "AntiAir",
       "rarity": "SR",
       "faction": "SakuraEmpire",
-      "imageName": "Triple 25mm AA (Type 96)",
+      "imageName": "Twin 25mm AA (Type 96)",
       "stats": {
         "AA": 25,
-        "DMG": 54,
+        "DMG": 40,
         "RLD": 0.6
       }
     },
