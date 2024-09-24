@@ -30,6 +30,7 @@ public class DockDetailUI_Character : MonoBehaviour
 
     public void LoadCharacterData()
     {
+
         Character character = Player.Instance.GetSelectedCharacter();        
 
         if (character != null)

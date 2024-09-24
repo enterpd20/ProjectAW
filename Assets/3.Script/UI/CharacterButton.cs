@@ -69,14 +69,30 @@ public class CharacterButton : MonoBehaviour
     }
     private void OnCharacterButtonClicked(Character character)
     {
+        string currentScene = SceneManager.GetActiveScene().name;
+
         if (characterData == null)
         {
             Debug.LogError("CharacterData is null");
             return;
         }
 
-        Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
 
-        SceneManager.LoadScene("02_DockDetail");
+        //Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
+        int characterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
+
+        if(currentScene == "02_Dock")
+        {
+            SceneManager.LoadScene("02_DockDetail");
+        }
+        else if(currentScene == "03_SelectStage")
+        {
+            var selectStageUI = GameObject.FindObjectOfType<SelectStageUI>();
+            if(selectStageUI != null)
+            {
+                selectStageUI.SetSelectedCharacter(characterData);
+                selectStageUI.Close_CharacterSelectUI();
+            }
+        }
     }
 }

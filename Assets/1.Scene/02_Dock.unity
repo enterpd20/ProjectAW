@@ -2090,6 +2090,7 @@ GameObject:
   - component: {fileID: 626275631}
   - component: {fileID: 626275630}
   - component: {fileID: 626275634}
+  - component: {fileID: 626275635}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2199,6 +2200,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 829e87fa83bcdf043bf77f83089ffed3, type: 3}
   - {fileID: 21300000, guid: 6fa7872bc40d2c04c9906f96224a08d1, type: 3}
   - {fileID: 21300000, guid: 765b4ff6b98fb864a9b171e9b7243a77, type: 3}
+--- !u!114 &626275635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626275629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bab33f5e2d150438fb0b6306ce795f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &661065688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5393,7 +5406,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1279168903}
-  - component: {fileID: 1279168904}
   m_Layer: 5
   m_Name: GroupUI
   m_TagString: Untagged
@@ -5427,18 +5439,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1279168904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279168902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16bab33f5e2d150438fb0b6306ce795f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1295895136
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,7 +5904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030034656, y: 0.00008462234}
+  m_AnchoredPosition: {x: 0.000030034656, y: 0.00040530224}
   m_SizeDelta: {x: -1153.0001, y: 330}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1458340587
@@ -6629,7 +6629,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 806729118}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999953
+  m_Size: 0.9999227
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7392,7 +7392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279168904}
+      - m_Target: {fileID: 626275635}
         m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
         m_MethodName: To_Lobby
         m_Mode: 1
@@ -8819,7 +8819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279168904}
+      - m_Target: {fileID: 626275635}
         m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
         m_MethodName: To_Lobby
         m_Mode: 1

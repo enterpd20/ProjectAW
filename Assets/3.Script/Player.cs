@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Player.Instance.LoadPlayerData();   // 게임 시작 시 저장된 데이터를 불러움
+            LoadPlayerData();   // 게임 시작 시 저장된 데이터를 불러움
         }
         else
         {
@@ -29,9 +29,23 @@ public class Player : MonoBehaviour
         }        
     }
 
+    //public void SaveReturnScene(string sceneName)
+    //{
+    //    //returnToScene = sceneName;
+    //    SavePlayerData();
+    //}
+
     public void SavePlayerData()
     {
         string path = Application.persistentDataPath + "/playerData.json";
+        PlayerData data = new PlayerData
+        {
+            ownedCharacter = this.ownedCharacter,
+            gears = this.gears,
+            selectedCharacterIndex = this.selectedCharacterIndex,
+            //returnToScene = this.returnToScene,
+            //isFormationUIActive = this.isFormationUIActive
+        };
         string json = JsonUtility.ToJson(this);
         File.WriteAllText(path, json);
         Debug.Log("Player data saved to file: " + path);
@@ -44,12 +58,14 @@ public class Player : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
 
             ownedCharacter = playerData.ownedCharacter;
             gears = playerData.gears;
-            
+            selectedCharacterIndex = playerData.selectedCharacterIndex;
+            //returnToScene = playerData.returnToScene;
+            //isFormationUIActive = playerData.isFormationUIActive;
+
             Debug.Log("Player data loaded from file: " + json);
         }
         else
@@ -79,4 +95,7 @@ public class PlayerData
 {
     public List<Character> ownedCharacter;
     public List<Gear> gears;
+    public int selectedCharacterIndex;
+    //public string returnToScene;
+    //public bool isFormationUIActive;
 }

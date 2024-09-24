@@ -25,6 +25,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     {
         Rect_GearUI = GetComponent<RectTransform>();
 
+        
         currentCharacter = Player.Instance.GetSelectedCharacter();  // 현재 선택된 캐릭터
         //equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
         equippedGears = new List<Gear>();             // equippedGears 리스트 초기화, 현재 선택된 캐릭터가 장착중인 장비       
@@ -41,13 +42,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
                 Debug.LogWarning($"No matching gear found for name {gearName}");
             }
         }
-
         SetEquipSlots();
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
@@ -173,7 +168,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         if(matchingGear != null)
         {
             DisplayGearInfo(slotIndex, matchingGear);   // 장비 슬롯에 장착
-            Debug.Log($"Assigned gear {matchingGear.name} to slot {slotIndex}");
+            //Debug.Log($"Assigned gear {matchingGear.name} to slot {slotIndex}");
         }
         else
         {
