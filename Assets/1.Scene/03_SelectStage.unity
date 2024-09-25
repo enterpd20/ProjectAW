@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390, y: 235}
+  m_AnchoredPosition: {x: -600, y: 335}
   m_SizeDelta: {x: 420, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75410843
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2100,7 +2100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -202, y: -115}
+  m_AnchoredPosition: {x: -202, y: -185}
   m_SizeDelta: {x: 322, y: 87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342620471
@@ -2603,7 +2603,7 @@ RectTransform:
   m_GameObject: {fileID: 411426013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2076136308}
   m_Father: {fileID: 278774614}
@@ -3021,12 +3021,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076136311}
         m_TargetAssemblyTypeName: SelectStageUI, Assembly-CSharp
-        m_MethodName: Open_CharacterSelectUI
-        m_Mode: 1
+        m_MethodName: SelectButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5211,8 +5211,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 170, y: 190}
-  m_Spacing: {x: 20, y: 0}
+  m_CellSize: {x: 245, y: 300}
+  m_Spacing: {x: 15, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 6
 --- !u!1 &858227342
@@ -5640,12 +5640,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076136311}
         m_TargetAssemblyTypeName: SelectStageUI, Assembly-CSharp
-        m_MethodName: Open_CharacterSelectUI
-        m_Mode: 1
+        m_MethodName: SelectButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6226,12 +6226,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076136311}
         m_TargetAssemblyTypeName: SelectStageUI, Assembly-CSharp
-        m_MethodName: Open_CharacterSelectUI
-        m_Mode: 1
+        m_MethodName: SelectButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6557,12 +6557,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076136311}
         m_TargetAssemblyTypeName: SelectStageUI, Assembly-CSharp
-        m_MethodName: Open_CharacterSelectUI
-        m_Mode: 1
+        m_MethodName: SelectButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9125,7 +9125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 202, y: -115}
+  m_AnchoredPosition: {x: 202, y: -185}
   m_SizeDelta: {x: 322, y: 87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518218183
@@ -9306,8 +9306,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076136311}
         m_TargetAssemblyTypeName: SelectStageUI, Assembly-CSharp
-        m_MethodName: Open_CharacterSelectUI
-        m_Mode: 1
+        m_MethodName: SelectButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10729,7 +10729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -131365.16, y: 80237.36}
+  m_AnchoredPosition: {x: -579951.6, y: 355223.53}
   m_SizeDelta: {x: -1153.0001, y: 330}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1819375279
@@ -11662,12 +11662,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076136311}
         m_TargetAssemblyTypeName: SelectStageUI, Assembly-CSharp
-        m_MethodName: Open_CharacterSelectUI
-        m_Mode: 1
+        m_MethodName: SelectButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12253,7 +12253,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 400}
+  m_SizeDelta: {x: 1620, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2076136309
 MonoBehaviour:
@@ -12305,6 +12305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac6d8942cef7b3499fce24c4b5afb60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterFormationUI: {fileID: 411426013}
+  characterSelectUI: {fileID: 1280658352}
   characterSelectButton:
   - {fileID: 1518876690}
   - {fileID: 1022827634}
@@ -12312,8 +12314,6 @@ MonoBehaviour:
   - {fileID: 474215558}
   - {fileID: 1940255327}
   - {fileID: 1050454449}
-  characterFormationUI: {fileID: 411426013}
-  characterSelectUI: {fileID: 1280658352}
 --- !u!1 &2081926756
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,38 @@
+{
+  "bullets": [
+    {
+      "name": "DD Gun Shell",
+      "bulletType": "DD Gun Shell",
+      "imageName": "DD Gun Shell",
+      "stats": {
+        "FP": 25,
+        "DMG": 12,
+        "RLD": 1.5
+      }
+    },
+    {
+      "name": "Single 120mm (QF Mark IX)",
+      "gearType": "DD Gun",
+      "rarity": "R",
+      "faction": "RoyalNavy",
+      "imageName": "Single 120mm (QF Mark IX)",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    },
+    {
+      "name": "Twin 127mm (5inch/38 Mk 38)",
+      "gearType": "DD Gun",
+      "rarity": "SR",
+      "faction": "EagleUnion",
+      "imageName": "Twin 127mm (5inch/38 Mk 38)",
+      "stats": {
+        "FP": 132,
+        "DMG": 150,
+        "RLD": 18
+      }
+    }
+  ]
+}

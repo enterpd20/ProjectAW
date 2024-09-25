@@ -13,15 +13,21 @@ public class Player : MonoBehaviour
     public List<Gear> gears;
     //public List<Stage> clearedStage;  // 스테이지 작성해야함 240919
 
-    public int selectedCharacterIndex = -1;
+    public int selectedCharacterIndex = -1;             // Dock에서 사용할 캐릭터 인덱스
+    public int[] selectedCharacterIndices = new int[6]; //SelectStage의 캐릭터 편성에 사용할 인덱스
+    //public int[] selectedCharacterIndices; //SelectStage의 캐릭터 편성에 사용할 인덱스
 
     private void Awake()
     {
+        Debug.Log("Player Awake called");
+
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
             LoadPlayerData();   // 게임 시작 시 저장된 데이터를 불러움
+            InitializePlayerData(); // 캐릭터 배치 버튼 배열 초기화
+            Debug.Log("Player Initialized and Data Loaded");
         }
         else
         {
@@ -29,10 +35,17 @@ public class Player : MonoBehaviour
         }        
     }
 
-    //public void SaveReturnScene(string sceneName)
+    //public void InitializeIndices(int buttonCount)
     //{
-    //    //returnToScene = sceneName;
-    //    SavePlayerData();
+    //    if (selectedCharacterIndices == null || selectedCharacterIndices.Length != buttonCount)
+    //    {
+    //        selectedCharacterIndices = new int[buttonCount];
+    //        for(int i = 0; i < selectedCharacterIndices.Length; i++)
+    //        {
+    //            selectedCharacterIndices[i] = -1;
+    //        }
+    //        Debug.Log($"selectedCharacterIndices 배열 초기화: {selectedCharacterIndices.Length}개의 슬롯 생성");
+    //    }
     //}
 
     public void SavePlayerData()
@@ -43,6 +56,7 @@ public class Player : MonoBehaviour
             ownedCharacter = this.ownedCharacter,
             gears = this.gears,
             selectedCharacterIndex = this.selectedCharacterIndex,
+            selectedCharacterIndices = this.selectedCharacterIndices
             //returnToScene = this.returnToScene,
             //isFormationUIActive = this.isFormationUIActive
         };
@@ -51,8 +65,29 @@ public class Player : MonoBehaviour
         Debug.Log("Player data saved to file: " + path);
     }
 
+    public void InitializePlayerData()
+    {
+        // 배열이 초기화되지 않았을 경우 -1로 초기화
+        if(selectedCharacterIndices == null || selectedCharacterIndices.Length != -6)
+        {
+            selectedCharacterIndices = new int[6];
+        }
+
+        for(int i = 0; i < selectedCharacterIndices.Length; i++)
+        {
+            selectedCharacterIndices[i] = -1;
+        }
+
+        Debug.Log("selectedCharacterIndices initialized with length: " + selectedCharacterIndices.Length);
+    }
+
     public void LoadPlayerData()
     {
+        //for(int i = 0; i < selectedCharacterIndices.Length; i++)
+        //{
+        //    if (selectedCharacterIndices[i] == 0) selectedCharacterIndices[i] = -1;
+        //}
+
         string path = Application.persistentDataPath + "/playerData.json";
 
         if (File.Exists(path))
@@ -63,6 +98,7 @@ public class Player : MonoBehaviour
             ownedCharacter = playerData.ownedCharacter;
             gears = playerData.gears;
             selectedCharacterIndex = playerData.selectedCharacterIndex;
+            selectedCharacterIndices = playerData.selectedCharacterIndices;
             //returnToScene = playerData.returnToScene;
             //isFormationUIActive = playerData.isFormationUIActive;
 
@@ -80,11 +116,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    public Character GetSelectedCharacter()
+    public Character GetSelectedCharacter_DockUI()
     {
         if(selectedCharacterIndex >= 0 && selectedCharacterIndex < ownedCharacter.Count)
         {
             return ownedCharacter[selectedCharacterIndex];
+        }
+        return null;
+    }
+
+    public Character GetSelectedCharacter_SelectStage(int index)
+    {
+        if(index >= 0 && index < ownedCharacter.Count)
+        {
+            return ownedCharacter[index];
         }
         return null;
     }
@@ -96,6 +141,7 @@ public class PlayerData
     public List<Character> ownedCharacter;
     public List<Gear> gears;
     public int selectedCharacterIndex;
+    public int[] selectedCharacterIndices;
     //public string returnToScene;
     //public bool isFormationUIActive;
 }

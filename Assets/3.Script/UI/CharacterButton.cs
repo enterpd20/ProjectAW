@@ -76,13 +76,12 @@ public class CharacterButton : MonoBehaviour
             Debug.LogError("CharacterData is null");
             return;
         }
-
-
-        //Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
-        int characterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
-
+        
+        //int characterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
+        
         if(currentScene == "02_Dock")
         {
+            Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
             SceneManager.LoadScene("02_DockDetail");
         }
         else if(currentScene == "03_SelectStage")

@@ -26,7 +26,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         Rect_GearUI = GetComponent<RectTransform>();
 
         
-        currentCharacter = Player.Instance.GetSelectedCharacter();  // 현재 선택된 캐릭터
+        currentCharacter = Player.Instance.GetSelectedCharacter_DockUI();  // 현재 선택된 캐릭터
         //equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
         equippedGears = new List<Gear>();             // equippedGears 리스트 초기화, 현재 선택된 캐릭터가 장착중인 장비       
 
