@@ -6,11 +6,13 @@ using Spine.Unity;
 
 public class IDleState : MonoBehaviour, IState
 {
-    private SkeletonAnimation skeletonAnimation;
-    private Animator animator;
+    public SkeletonAnimation skeletonAnimation;
+    public Animator animator;
+    public string currentState;
+
     private NavMeshAgent navMeshAgent;
 
-    private CapsuleCollider CharaSight, min_BattleRange, MAX_BattleRange;
+    private CapsuleCollider CharacterSight, min_BattleRange, MAX_BattleRange;
 
     private LayerMask enemyLayer;   
 
@@ -20,7 +22,7 @@ public class IDleState : MonoBehaviour, IState
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        CharaSight = GetComponentInChildren<CapsuleCollider>();
+        CharacterSight = GetComponentInChildren<CapsuleCollider>();
         min_BattleRange = GetComponentInChildren<CapsuleCollider>();    // 이거 두개는 교전 상태 스크립트에도 똑같이 적용할 것
         MAX_BattleRange = GetComponentInChildren<CapsuleCollider>();    // 이거 두개는 교전 상태 스크립트에도 똑같이 적용할 것
 
@@ -31,9 +33,9 @@ public class IDleState : MonoBehaviour, IState
     {
         Collider[] enemyInSight = 
             Physics.OverlapCapsule(
-                CharaSight.bounds.center, 
-                CharaSight.bounds.center + CharaSight.height * CharaSight.transform.up, 
-                CharaSight.radius, 
+                CharacterSight.bounds.center, 
+                CharacterSight.bounds.center + CharacterSight.height * CharacterSight.transform.up, 
+                CharacterSight.radius, 
                 enemyLayer);
 
         if(enemyInSight.Length == 0)    // 적이 시야 범위 내에 없을 경우
@@ -44,11 +46,11 @@ public class IDleState : MonoBehaviour, IState
 
     private void RandomPositioning()    // 시야 범위 내의 무작위 위치 이동 메서드
     {
-        Vector3 randomDirection = Random.insideUnitSphere * CharaSight.radius;
+        Vector3 randomDirection = Random.insideUnitSphere * CharacterSight.radius;
         randomDirection += transform.position;
 
         NavMeshHit hit;
-        if(NavMesh.SamplePosition(randomDirection, out hit, CharaSight.radius, 1))
+        if(NavMesh.SamplePosition(randomDirection, out hit, CharacterSight.radius, 1))
         {
             Vector3 finalPosition = hit.position;
 
@@ -58,11 +60,11 @@ public class IDleState : MonoBehaviour, IState
 
             if(direction.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);            // 이동 방향에 따라 스프라이트 뒤집기
             }
             else if(direction.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);           // 이동 방향에 따라 스프라이트 뒤집기
             }
 
             animator.SetBool("move", true); // Move 애니메이션 재생

@@ -27,9 +27,8 @@ public class BulletControl : MonoBehaviour
     {
         if(gear != null)
         {
-            Damage = gear.stats.DMG;
-            ReloadTime = gear.stats.RLD;
-
+            Damage = gear.stats.DMG;        // 장비의 공격력 그대로 받아오기
+            ReloadTime = gear.stats.RLD;    // 장비의 재장전 그대로 받아오기
         }
         else
         {
@@ -44,14 +43,14 @@ public class BulletControl : MonoBehaviour
         ShootBullet(transform);
     }
 
-    private void ShootBullet(Transform target)
+    private void ShootBullet(Transform target)  // 포탄이 날아가는 방향
     {
         Vector2 direction = (target.position - transform.position).normalized;
 
         rigidbody.velocity = direction * speed;
     }
 
-    private float BulletSpeed(BulletType type)
+    private float BulletSpeed(BulletType type)  // 포탄이 날아가는 속도
     {
         switch(type)
         {
@@ -68,7 +67,7 @@ public class BulletControl : MonoBehaviour
             case BulletType.Torpedo:
                 return 10f;
             case BulletType.Bomb:
-                return 10f;
+                return 15f;
             default:
                 return 1f;
         }

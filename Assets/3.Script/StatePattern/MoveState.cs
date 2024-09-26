@@ -12,7 +12,7 @@ public class MoveState : MonoBehaviour, IState
     private Animator animator;
     private NavMeshAgent navMeshAgent;
 
-    private CapsuleCollider CharaSight, min_BattleRange, MAX_BattleRange;
+    private CapsuleCollider CharacterSight, min_BattleRange, MAX_BattleRange;
 
     private LayerMask enemyLayer;
     private Transform enemyTransform;
@@ -25,7 +25,7 @@ public class MoveState : MonoBehaviour, IState
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        CharaSight = GetComponentInChildren<CapsuleCollider>();
+        CharacterSight = GetComponentInChildren<CapsuleCollider>();
         min_BattleRange = GetComponentInChildren<CapsuleCollider>();
         MAX_BattleRange = GetComponentInChildren<CapsuleCollider>();
     }
@@ -36,9 +36,9 @@ public class MoveState : MonoBehaviour, IState
     {
         Collider[] enemyInSight =
             Physics.OverlapCapsule(
-                CharaSight.bounds.center,
-                CharaSight.bounds.center + CharaSight.height * CharaSight.transform.up,
-                CharaSight.radius,
+                CharacterSight.bounds.center,
+                CharacterSight.bounds.center + CharacterSight.height * CharacterSight.transform.up,
+                CharacterSight.radius,
                 enemyLayer);
 
         if (enemyInSight.Length > 0)                    // 적이 시야 범위 내에 있을 경우
