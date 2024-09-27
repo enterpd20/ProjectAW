@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,27 +8,21 @@ public class BattleAI : MonoBehaviour
     enum State
     {
         Patrol,       // 대기 상태
-        Move,       // 이동 상태
         Engage,     // 전투 상태
         Retreat     // 후퇴 상태
     }
 
     private State currentState = State.Patrol;   // 초기 상태는 대기 상태로 설정
 
-    public Transform target;           // 타겟(적) 위치
-    public float engageRange;                   // 적과의 교전 범위 (설정해둔 콜라이더 갖고와서 적용)
+    private Transform target;                    // 타겟(적) 위치
     public float retreatHealthThreshold = 30f;  // 후퇴할 체력 임계값
 
     private float currentHealth;    // 현재 체력 (Dock UI에서 최종 스탯을 받아올 것)
     private float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
-    public float moveSpeed;         // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)
-    
+    private float moveSpeed;         // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)
+
     public float attackCooldown = 2f; // 공격 쿨타임
     private float attackCooldownTimer = 0f; // 공격 타이머
-
-    // 대기 상태에서 일정 시간 지나면 Idle 상태로 돌아가도록 설정
-    private float patrolTimer = 0f;
-    private float patrolTimeLimit = 5f;
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
     public SphereCollider characterSight, min_EngageRange, MAX_EngageRange;
@@ -38,6 +31,19 @@ public class BattleAI : MonoBehaviour
     void Start()
     {
         currentState = State.Patrol;  // 초기 상태 설정
+        AutoBattleAgent = GetComponent<NavMeshAgent>();
+
+        CharacterStats battleStats = Player.Instance.finalCharacterStats;
+
+        if(battleStats != null)
+        {
+            currentHealth = battleStats.HP;
+            moveSpeed = battleStats.SPD;
+        }
+        else
+        {
+            Debug.LogWarning("Final characters stats not found.");
+        }
     }
 
     // Update is called once per frame
@@ -48,9 +54,6 @@ public class BattleAI : MonoBehaviour
             case State.Patrol:
                 HandlePatrolState();
                 break;
-            case State.Move:
-                HandleMoveState();
-                break;
             case State.Engage:
                 HandleEngageState();
                 break;
@@ -60,21 +63,32 @@ public class BattleAI : MonoBehaviour
         }
     }
 
-    // 대기 상태 처리
-    void HandlePatrolState()
+    // 정찰 상태 처리
+    void HandlePatrolState()    // [[[[[시야범위 내에 적이 있다면, 적이 최대 교전범위 내에 들어올 때까지 추격 -> 구현돼있는지 확인]]]]]
     {
-        patrolTimer += Time.deltaTime;
+        ScanEnemy();            // 시야 범위 내의 적 스캔 메서드
 
-        if (patrolTimer > patrolTimeLimit)   // 일정 시간 후 이동
+        if (target == null)     // 일정 시간 후 이동
         {
             RandomPositioning();
-            patrolTimer = 0f;
         }
-
-        // 적과의 거리 확인 -> [[[[[[[[[[[[[[[[[[[[[[[[[이거 필요함?? 확인좀]]]]]]]]]]]]]]]]]]]]]
-        if (target != null && Vector3.Distance(transform.position, target.position) < engageRange)
+        else
         {
-            currentState = State.Engage; // 적이 있으면 전투 상태로 전환
+            currentState = State.Engage;
+        }
+    }
+
+    void ScanEnemy()    // 시야 범위 내의 적 스캔 메서드
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, characterSight.radius);
+        foreach (var hitCol in hitColliders)
+        {
+            TeamManager charaTeam = hitCol.GetComponent<TeamManager>();
+            if (charaTeam != null && charaTeam.team == TeamManager.Team.Enemy)
+            {
+                target = hitCol.transform;
+                break;
+            }
         }
     }
 
@@ -105,56 +119,66 @@ public class BattleAI : MonoBehaviour
         }
     }
 
-    // 이동 상태 처리
-    void HandleMoveState()
-    {
-        if (target == null)
-        {
-            currentState = State.Patrol;
-            return;
-        }
-
-        // 적과의 거리를 확인하고 가까워질 때까지 이동
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance > engageRange)
-        {
-            MoveTowardsTarget();
-        }
-        else
-        {
-            currentState = State.Engage; // 적과 가까워지면 전투 상태로 전환
-        }
-    }
-
     // 전투 상태 처리
     void HandleEngageState()
     {
-        attackCooldownTimer += Time.deltaTime;
+        attackCooldownTimer += Time.deltaTime;          // [[[[[공격 쿨타임 -> 캐릭터가 장착한 장비의 RLD 받아올 것]]]]]
 
-        // 공격 쿨타임이 지났으면 공격
-        if (attackCooldownTimer >= attackCooldown)
+        if (target != null)
         {
-            Attack();
-            attackCooldownTimer = 0f;  // 쿨타임 초기화
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+            if (distanceToTarget > MAX_EngageRange.radius)
+            {
+                currentState = State.Patrol;    // 최대 교전 범위를 벗어나면 정찰 상태로 전환
+                return;
+            }
+            else if (distanceToTarget < MAX_EngageRange.radius || distanceToTarget > min_EngageRange.radius)
+            {
+                MovingInEngageRange();
+            }
+
+            if (currentHealth <= retreatHealthThreshold)
+            {
+                currentState = State.Retreat;
+            }
         }
-
-        // 체력이 일정 이하로 떨어지면 후퇴 상태로 전환
-        if (currentHealth <= retreatHealthThreshold)
+        else
         {
-            currentState = State.Retreat;
+            currentState = State.Patrol;
+        }
+    }
+
+    void MovingInEngageRange()  // 교전 범위 내 무작위 위치로 이동
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * MAX_EngageRange.radius;
+        randomDirection += transform.position;
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, MAX_EngageRange.radius, 1))
+        {
+            Vector3 finalPosition = hit.position;
+            AutoBattleAgent.SetDestination(finalPosition);
         }
     }
 
     // 후퇴 상태 처리
     void HandleRetreatState()
     {
-        // 적과 반대 방향으로 이동
-        RetreatFromTarget();
-
-        // 체력이 회복되면 다시 이동 상태로 전환
-        if (currentHealth > retreatHealthThreshold)
+        if(target != null)
         {
-            currentState = State.Move;
+            // 적과 반대 방향으로 이동
+            RetreatFromTarget();
+
+            // 후퇴 조건이 사라지면 정찰 상태로 전환
+            if (!RetreatConditions())
+            {
+                currentState = State.Patrol;
+            }
+        }
+        else
+        {
+            currentState = State.Patrol;
         }
     }
 
@@ -165,11 +189,20 @@ public class BattleAI : MonoBehaviour
         transform.position += direction * moveSpeed * Time.deltaTime;
     }
 
-    // 적을 향해 이동
-    void MoveTowardsTarget()
+    bool RetreatConditions()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
+        if (target == null) return false;
+
+        // 1. 체력이 35% 미만인 경우
+        if (currentHealth < maxHealth * 0.35f) return true;
+
+        // 2. 체력이 40% 미만이고, 전체 아군의 수가 전체 적군의 수보다 2명 이상 적은 경우
+        if (currentHealth < maxHealth * 0.4f /*&& GetAllyCount() + 2 < GetEnemyCount()*/) return true;
+
+        // 3. 체력이 50% 미만이고 적이 우위 상성에 있는 경우
+        // 4. 캐릭터 자신의 함종이 항공모함(CV)인 경우
+
+        return false;
     }
 
     // 적을 공격하는 함수
@@ -189,4 +222,43 @@ public class BattleAI : MonoBehaviour
             // 사망 처리 로직 추가 필요
         }
     }
+
+    // 이동 상태 처리
+    //void HandleMoveState()
+    //{
+    //    if (target == null)
+    //    {
+    //        currentState = State.Patrol;
+    //        return;
+    //    }
+    //
+    //    // 적과의 거리를 확인하고 가까워질 때까지 이동
+    //    float distance = Vector3.Distance(transform.position, target.position);
+    //    if (distance > engageRange)
+    //    {
+    //        MoveTowardsTarget();
+    //    }
+    //    else
+    //    {
+    //        currentState = State.Engage; // 적과 가까워지면 전투 상태로 전환
+    //    }
+    //}
+
+    // 적을 향해 이동
+    //void MoveTowardsTarget()
+    //{
+    //    Vector3 direction = (target.position - transform.position).normalized;
+    //    transform.position += direction * moveSpeed * Time.deltaTime;
+    //}    
+}
+
+public class TeamManager : MonoBehaviour
+{
+    public enum Team
+    {
+        Ally,
+        Enemy
+    }
+
+    public Team team;
 }

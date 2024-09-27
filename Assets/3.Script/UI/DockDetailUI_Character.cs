@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DockDetailUI_Character : MonoBehaviour
-{    
+{
     public Text character_ShipType;                       // 일러스트 위에 표시할 캐릭터의 함종
     [SerializeField] private Image character_Image;       // 캐릭터 상세정보에 띄울 캐릭터 일러스트
     [SerializeField] private Text character_Name;         // 일러스트 위에 표시할 캐릭터의 이름
@@ -30,8 +30,7 @@ public class DockDetailUI_Character : MonoBehaviour
 
     public void LoadCharacterData()
     {
-
-        Character character = Player.Instance.GetSelectedCharacter_DockUI();        
+        Character character = Player.Instance.GetSelectedCharacter_DockUI();
 
         if (character != null)
         {
@@ -45,13 +44,13 @@ public class DockDetailUI_Character : MonoBehaviour
             // 장비 정보 가져오기
             List<Gear> equippedGears = GetEquippedGears(character);
 
-            // 캐릭터 스탯 업데이트
+            // 캐릭터 스탯 업데이트 후 최종 스탯을 PlayerData에 저장
             UpdateCharacterStats(character, equippedGears);
         }
         else
         {
             Debug.LogWarning("No character selected.");
-        }        
+        }
     }
 
     Sprite GetRarityBackground(string rarity)
@@ -70,10 +69,10 @@ public class DockDetailUI_Character : MonoBehaviour
     {
         List<Gear> equippedGears = new List<Gear>();
 
-        foreach(string gearName in character.eqiuppedGears)
+        foreach (string gearName in character.eqiuppedGears)
         {
             Gear matchingGear = GearDataLoader.GetGearByName(gearName);
-            if(matchingGear != null)
+            if (matchingGear != null)
             {
                 equippedGears.Add(matchingGear);
             }
@@ -97,12 +96,12 @@ public class DockDetailUI_Character : MonoBehaviour
             SPD = character.stats.SPD
         };
 
-        foreach(var gear in equippedGears)
+        foreach (var gear in equippedGears)
         {
             Gear.GearStats stats = gear.stats;
 
             // 장비가 항공기일 경우, HP와 SPD를 제외하고 계산
-            if(gear.gearType == "Torpedo Bomber" || gear.gearType == "Dive Bomber")
+            if (gear.gearType == "Torpedo Bomber" || gear.gearType == "Dive Bomber")
             {
                 finalStats.FP += stats.FP;
                 finalStats.TRP += stats.TRP;
@@ -119,16 +118,17 @@ public class DockDetailUI_Character : MonoBehaviour
                 finalStats.AA += stats.AA;
                 finalStats.SPD += stats.SPD;
             }
-
-
         }
 
-        finalCharacterStats_HP.text =  finalStats.HP.ToString();
-        finalCharacterStats_FP.text =  finalStats.FP.ToString();
+        finalCharacterStats_HP.text = finalStats.HP.ToString();
+        finalCharacterStats_FP.text = finalStats.FP.ToString();
         finalCharacterStats_TRP.text = finalStats.TRP.ToString();
         finalCharacterStats_AVI.text = finalStats.AVI.ToString();
-        finalCharacterStats_AA.text =  finalStats.AA.ToString();
+        finalCharacterStats_AA.text = finalStats.AA.ToString();
         finalCharacterStats_SPD.text = finalStats.SPD.ToString();
+
+        Player.Instance.finalCharacterStats = finalStats;
+        Player.Instance.SavePlayerData();
     }
 
     public void Gear_MoveChracterIllust()   // Gear 버튼 누르면 일러스트가 중앙으로 이동하는 메서드
@@ -149,10 +149,10 @@ public class DockDetailUI_Character : MonoBehaviour
         Vector3 startPosition = character_Image.rectTransform.anchoredPosition;
         float timeElapsed = 0;
 
-        while(timeElapsed < duration)
+        while (timeElapsed < duration)
         {
             // 현재 시간에 비례해서 위치 업데이트
-            character_Image.rectTransform.anchoredPosition = 
+            character_Image.rectTransform.anchoredPosition =
                 Vector3.Lerp(startPosition, targetPosition, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
             yield return null;
@@ -166,7 +166,7 @@ public class DockDetailUI_Character : MonoBehaviour
     {
         Rect_StatusUI.localScale = Vector3.one;
     }
-    
+
     public void Disappear_StatusUI()
     {
         Rect_StatusUI.localScale = Vector3.zero;

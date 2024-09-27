@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SelectStageUI : MonoBehaviour
 {
     public GameObject characterFormationUI;     // UI 표시를 위한 변수
     public GameObject characterSelectUI;        // UI 표시를 위한 변수
+    public GameObject confirmButton;
+    public GameObject warningMessage;
 
     public Image[] characterSelectButton;       // 배치할 캐릭터를 선택할 수 있는 버튼들
 
@@ -12,18 +16,6 @@ public class SelectStageUI : MonoBehaviour
 
     private void Start()
     {
-        // SelectStage로 돌아올 때, 캐릭터 편성 UI 상태 복원
-        //if (Player.Instance.selectedCharacterIndex != -1)   // 저장된 선택 캐릭터가 있는지 확인
-        //{
-        //    UpdateCharacterSelection(Player.Instance.selectedCharacterIndex);   // 선택된 캐릭터를 버튼에 표시
-        //}
-
-        if (Player.Instance == null)
-        {
-            Debug.LogError("Player.Instance is not initialized properly.");
-            return;
-        }
-
         if (Player.Instance.selectedCharacterIndices == null)
         {
             Debug.LogError("selectedCharacterIndices is not initialized properly.");
@@ -40,27 +32,17 @@ public class SelectStageUI : MonoBehaviour
     // 선택된 버튼의 인덱스를 사용해 해당 버튼에 캐릭터 이미지를 업데이트
     private void UpdateCharacterSelection(int buttonIndex)
     {
-        //Character selectedCharacter = Player.Instance.GetSelectedCharacter();   // 현재 선택된 캐릭터 불러옴
-
-        // 선택된 캐릭터가 존재하고 유효한 버튼 인덱스인지 확인
-        //if (selectedCharacter != null && buttonIndex >= 0 && buttonIndex < characterSelectButton.Length)
+        //if (Player.Instance.selectedCharacterIndices == null)
         //{
-        //    // 해당 버튼에 선택된 캐릭터의 이미지 설정
-        //    characterSelectButton[buttonIndex].sprite =
-        //        Resources.Load<Sprite>($"Images_Character/{selectedCharacter.imageName}");
+        //    Debug.LogError("selectedCharacterIndices is not initialized properly.");
+        //    Debug.LogError("selectedCharacterIndices == null");
+        //    return;
         //}
-
-        if (Player.Instance.selectedCharacterIndices == null)
-        {
-            Debug.LogError("selectedCharacterIndices is not initialized properly.");
-            Debug.LogError("selectedCharacterIndices == null");
-            return;
-        }
-        if(Player.Instance.selectedCharacterIndices.Length != 6)
-        {
-            Debug.LogError("selectedCharacterIndices.Length != 6");
-            return;
-        }
+        //if(Player.Instance.selectedCharacterIndices.Length != 6)
+        //{
+        //    Debug.LogError("selectedCharacterIndices.Length != 6");
+        //    return;
+        //}
 
         int characterIndex = Player.Instance.selectedCharacterIndices[buttonIndex];
         Debug.Log($"Button {buttonIndex} - characterIndex: {characterIndex}");
@@ -77,10 +59,10 @@ public class SelectStageUI : MonoBehaviour
                 Debug.LogError($"No character found for index {characterIndex}");
             }
         }
-        else
-        {
-            Debug.LogWarning($"No character assigned to button {buttonIndex}");
-        }
+        //else
+        //{
+        //    Debug.LogWarning($"No character assigned to button {buttonIndex}");
+        //}
     }
 
     private void UpdateAllCharacterSelections()
@@ -93,15 +75,6 @@ public class SelectStageUI : MonoBehaviour
 
     public void SetSelectedCharacter(Character character)
     {
-        // 선택된 캐릭터의 인덱스를 저장
-        //Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(character);
-
-        // 선택된 캐릭터 데이터 저장
-        //Player.Instance.SavePlayerData();   
-
-        // 현재 선택된 버튼에 선택된 캐릭터 이미지를 업데이트
-        //UpdateCharacterSelection(currentSelectedButtonIndex);
-
         int characterIndex = Player.Instance.ownedCharacter.IndexOf(character);
         Debug.Log($"Character index for {character.name}: {characterIndex}");
 
@@ -144,5 +117,36 @@ public class SelectStageUI : MonoBehaviour
     public void Close_CharacterSelectUI()
     {
         characterSelectUI.transform.localScale = Vector3.zero;
+    }
+
+    public void Change_ToBattleScene()
+    {
+        if(IsAnyCharacterAssigned())
+        {
+        SceneManager.LoadScene("04_Battle");
+        }
+        else
+        {
+            StartCoroutine(ShowWarningMessage());
+        }
+    }
+
+    private bool IsAnyCharacterAssigned()
+    {
+        foreach(int characterIndex in Player.Instance.selectedCharacterIndices)
+        {
+            if(characterIndex != -1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private IEnumerator ShowWarningMessage()
+    {
+        warningMessage.transform.localScale = Vector3.one;
+        yield return new WaitForSeconds(1.5f);
+        warningMessage.transform.localScale = Vector3.zero;
     }
 }
