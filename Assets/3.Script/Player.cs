@@ -89,6 +89,14 @@ public class Player : MonoBehaviour
             //isFormationUIActive = playerData.isFormationUIActive;
 
             Debug.Log("Player data loaded from file: " + json);
+            if (finalCharacterStats != null)
+            {
+                Debug.Log($"Loaded final stats: HP = {finalCharacterStats.HP}, FP = {finalCharacterStats.FP}, SPD = {finalCharacterStats.SPD}");
+            }
+            else
+            {
+                Debug.LogWarning("Final character stats are null in the loaded data.");
+            }
         }
         else
         {
@@ -118,6 +126,13 @@ public class Player : MonoBehaviour
             return ownedCharacter[index];
         }
         return null;
+    }
+
+    public void SaveFinalCharacterStats(CharacterStats finalStats)
+    {
+        finalCharacterStats = finalStats;
+        Debug.Log($"Saved final stats: HP = {finalStats.HP}, FP = {finalStats.FP}, SPD = {finalStats.SPD}");
+        SavePlayerData();
     }
 }
 

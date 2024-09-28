@@ -1,6 +1,16 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+
+/*
+캐릭터가 가져야하는 스탯
+체력 - 여기서 씀
+이동속도 - 여기서 씀
+공격력 - BulletControl에서 장비 데이터 받아와서 씀
+재장전 - BulletControl에서 장비 데이터 받아와서 씀
+
+*/
 
 public class BattleAI : MonoBehaviour
 {
@@ -20,8 +30,8 @@ public class BattleAI : MonoBehaviour
     private float currentHealth;    // 현재 체력 (Dock UI에서 최종 스탯을 받아올 것)
     private float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
     private float moveSpeed;         // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)
+    private float attackCooldown; // 공격 쿨타임
 
-    public float attackCooldown = 2f; // 공격 쿨타임
     private float attackCooldownTimer = 0f; // 공격 타이머
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
@@ -33,17 +43,34 @@ public class BattleAI : MonoBehaviour
         currentState = State.Patrol;  // 초기 상태 설정
         AutoBattleAgent = GetComponent<NavMeshAgent>();
 
-        CharacterStats battleStats = Player.Instance.finalCharacterStats;
+        Debug.Log("Trying to get finalCharacterStats from Player.Instance...");
 
-        if(battleStats != null)
+        if (Player.Instance == null)
         {
-            currentHealth = battleStats.HP;
+            Debug.LogError("Player.Instance is null!");
+            return;
+        }
+
+        int selectedIndex = Player.Instance.selectedCharacterIndex;
+        if(selectedIndex >= 0 && selectedIndex < Player.Instance.ownedCharacter.Count)
+        {
+            CharacterStats battleStats = Player.Instance.ownedCharacter[selectedIndex].stats;
+
+            maxHealth = battleStats.HP;
             moveSpeed = battleStats.SPD;
+            Debug.Log($"Character Stats: HP = {battleStats.HP}, SPD = {battleStats.SPD}");
         }
         else
         {
-            Debug.LogWarning("Final characters stats not found.");
+            Debug.LogWarning("Selected character index is out of range or invalid.");
         }
+    }
+
+    public void InitializeCharacterStats(CharacterStats stats)
+    {       
+        maxHealth = stats.HP;
+        moveSpeed = stats.SPD;
+        Debug.Log($"Initialized Character Stats: HP = {stats.HP}, SPD = {stats.SPD}");
     }
 
     // Update is called once per frame

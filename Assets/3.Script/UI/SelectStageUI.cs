@@ -45,7 +45,7 @@ public class SelectStageUI : MonoBehaviour
         //}
 
         int characterIndex = Player.Instance.selectedCharacterIndices[buttonIndex];
-        Debug.Log($"Button {buttonIndex} - characterIndex: {characterIndex}");
+        //Debug.Log($"Button {buttonIndex} - characterIndex: {characterIndex}");
         if (characterIndex != -1)
         {
             Character selectedCharacter = Player.Instance.GetSelectedCharacter_SelectStage(characterIndex);

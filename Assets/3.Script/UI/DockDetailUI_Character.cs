@@ -127,8 +127,9 @@ public class DockDetailUI_Character : MonoBehaviour
         finalCharacterStats_AA.text = finalStats.AA.ToString();
         finalCharacterStats_SPD.text = finalStats.SPD.ToString();
 
-        Player.Instance.finalCharacterStats = finalStats;
-        Player.Instance.SavePlayerData();
+        //Player.Instance.finalCharacterStats = finalStats;
+        //Player.Instance.SavePlayerData();
+        Player.Instance.SaveFinalCharacterStats(finalStats);
     }
 
     public void Gear_MoveChracterIllust()   // Gear 버튼 누르면 일러스트가 중앙으로 이동하는 메서드
