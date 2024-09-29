@@ -26,7 +26,7 @@ public class DockUI : MonoBehaviour
         StartCoroutine(LoadAndCreateButtons());
     }
 
-    private IEnumerator LoadAndCreateButtons()  // ???
+    private IEnumerator LoadAndCreateButtons()
     {
         yield return new WaitUntil(() => Player.Instance.ownedCharacter != null && Player.Instance.ownedCharacter.Count > 0);
         characterList = Player.Instance.ownedCharacter;

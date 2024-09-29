@@ -13,6 +13,9 @@ public class SelectStageUI : MonoBehaviour
     public Image[] characterSelectButton;       // 배치할 캐릭터를 선택할 수 있는 버튼들
 
     private int currentSelectedButtonIndex = -1;    // 캐릭터가 버튼에 배치되었는지 여부를 나타내는 변수. -1 = 배치되지 않음
+    public Transform characterListContainer;    // 캐릭터 목록 UI의 부모 객체
+    public GameObject characterListItemPrefab;  // 캐릭터 목록 아이템 프리팹
+
 
     private void Start()
     {
@@ -49,7 +52,7 @@ public class SelectStageUI : MonoBehaviour
         if (characterIndex != -1)
         {
             Character selectedCharacter = Player.Instance.GetSelectedCharacter_SelectStage(characterIndex);
-            if(selectedCharacter != null)
+            if (selectedCharacter != null)
             {
                 characterSelectButton[buttonIndex].sprite =
                     Resources.Load<Sprite>($"Images_Character/{selectedCharacter.imageName}");
@@ -67,7 +70,7 @@ public class SelectStageUI : MonoBehaviour
 
     private void UpdateAllCharacterSelections()
     {
-        for(int i = 0; i < characterSelectButton.Length; i++)
+        for (int i = 0; i < characterSelectButton.Length; i++)
         {
             UpdateCharacterSelection(i);
         }
@@ -80,10 +83,24 @@ public class SelectStageUI : MonoBehaviour
 
         if (characterIndex != -1 && currentSelectedButtonIndex != -1)
         {
-            Debug.Log($"Assigning {character.name} to button {currentSelectedButtonIndex}");
-            Player.Instance.selectedCharacterIndices[currentSelectedButtonIndex] = characterIndex;
-            Player.Instance.SavePlayerData();
-            UpdateCharacterSelection(currentSelectedButtonIndex);
+            //Debug.Log($"Assigning {character.name} to button {currentSelectedButtonIndex}");
+            //Player.Instance.selectedCharacterIndices[currentSelectedButtonIndex] = characterIndex;
+            //Player.Instance.SavePlayerData();
+            //UpdateCharacterSelection(currentSelectedButtonIndex);
+
+            // 현재 버튼에 올바른 함종만 배치할 수 있도록 검사
+            if (IsValidShipTypeForButton(character.shipType, currentSelectedButtonIndex))
+            {
+                Debug.Log($"Assigning {character.name} to button {currentSelectedButtonIndex}");
+                Player.Instance.selectedCharacterIndices[currentSelectedButtonIndex] = characterIndex;
+                Player.Instance.SavePlayerData();
+                UpdateCharacterSelection(currentSelectedButtonIndex);
+                Close_CharacterSelectUI();
+            }
+            else
+            {
+                Debug.LogError($"Cannot assign {character.shipType} to button {currentSelectedButtonIndex}");
+            }
         }
         else
         {
@@ -97,6 +114,53 @@ public class SelectStageUI : MonoBehaviour
         currentSelectedButtonIndex = buttonIndex;
         Debug.Log($"Selected button index: {currentSelectedButtonIndex}");
         Open_CharacterSelectUI();
+
+        // 캐릭터 목록을 필터링하여 UI 업데이트
+        FilterCharacterListByButton(buttonIndex);
+    }
+
+    // 버튼 인덱스에 따라 배치 가능한 함종을 검사하는 메서드
+    private bool IsValidShipTypeForButton(string shipType, int buttonIndex)
+    {
+        if (buttonIndex < 3) // 첫 3칸은 BB, CV만
+        {
+            return shipType == "BB" || shipType == "CV";
+        }
+        else // 나머지 3칸은 DD, CLCA만
+        {
+            return shipType == "DD" || shipType == "CLCA";
+        }
+    }
+
+    // 버튼 인덱스에 따라 캐릭터 목록을 필터링하는 메서드
+    private void FilterCharacterListByButton(int buttonIndex)
+    {
+        // 기존 목록 삭제
+        foreach (Transform child in characterListContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 필터링된 캐릭터 추가
+        foreach (Character character in Player.Instance.ownedCharacter)
+        {
+            if (IsValidShipTypeForButton(character.shipType, buttonIndex))
+            {
+                GameObject listItem = Instantiate(characterListItemPrefab, characterListContainer);
+
+                // 희귀도 배경 설정 (자식 오브젝트의 첫 번째 인덱스)
+                Image rarityBackground = listItem.transform.GetChild(0).GetComponent<Image>();
+                rarityBackground.sprite = GetRarityBackground(character.rarity);
+
+                // 캐릭터 스프라이트 설정 (자식 오브젝트의 두 번째 인덱스)
+                Image characterImage = listItem.transform.GetChild(1).GetComponent<Image>();
+                characterImage.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
+
+                listItem.GetComponentInChildren<Text>().text = character.name; // 캐릭터 이름 표시
+
+                listItem.GetComponent<Button>().onClick.AddListener(() => SetSelectedCharacter(character));
+            }
+        }
     }
 
     public void Open_CharacterFormationUI()
@@ -121,9 +185,9 @@ public class SelectStageUI : MonoBehaviour
 
     public void Change_ToBattleScene()
     {
-        if(IsAnyCharacterAssigned())
+        if (IsAnyCharacterAssigned())
         {
-        SceneManager.LoadScene("04_Battle");
+            SceneManager.LoadScene("04_Battle");
         }
         else
         {
@@ -133,9 +197,9 @@ public class SelectStageUI : MonoBehaviour
 
     private bool IsAnyCharacterAssigned()
     {
-        foreach(int characterIndex in Player.Instance.selectedCharacterIndices)
+        foreach (int characterIndex in Player.Instance.selectedCharacterIndices)
         {
-            if(characterIndex != -1)
+            if (characterIndex != -1)
             {
                 return true;
             }
@@ -148,5 +212,18 @@ public class SelectStageUI : MonoBehaviour
         warningMessage.transform.localScale = Vector3.one;
         yield return new WaitForSeconds(1.5f);
         warningMessage.transform.localScale = Vector3.zero;
+    }
+
+    // 희귀도에 따른 배경을 가져오는 메서드
+    private Sprite GetRarityBackground(string rarity)
+    {
+        switch (rarity)
+        {
+            case "SSR": return Resources.Load<Sprite>("RarityBG/BG_SSR");
+            case "SR": return Resources.Load<Sprite>("RarityBG/BG_SR");
+            case "R": return Resources.Load<Sprite>("RarityBG/BG_R");
+            case "N": return Resources.Load<Sprite>("RarityBG/BG_N");
+            default: return Resources.Load<Sprite>("RarityBG/DefaultBackground");
+        }
     }
 }
