@@ -97,7 +97,7 @@ namespace Spine.Unity.Editor {
 
 #region Initialization
 		static SpineEditorUtilities () {
-			Initialize();
+			EditorApplication.delayCall += () => Initialize();
 		}
 
 		static void Initialize () {

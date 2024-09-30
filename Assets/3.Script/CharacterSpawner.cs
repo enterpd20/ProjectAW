@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    public GameObject[] characterPrefabs;  // 캐릭터 프리팹 배열
-    public Transform[] spawnPoints;      // 캐릭터가 스폰되는 위치 배열
+    //public GameObject[] characterPrefabs;  // 캐릭터 프리팹 배열
+    public Transform[] mainFleetSpawnPoints;      // BB, CV용 스폰 지점 배열
+    public Transform[] vanguardFleetSpawnPoints;  // DD, CLCA용 스폰 지점 배열
 
     private void Start()
     {
@@ -30,17 +31,17 @@ public class CharacterSpawner : MonoBehaviour
                 Transform spawnPoint = null;
                 if(characterData.shipType == "BB" || characterData.shipType == "CV")
                 {
-                    if(mainFleetSpawnIndex < 3)
+                    if(mainFleetSpawnIndex < mainFleetSpawnPoints.Length/*mainFleetSpawnIndex < 3*/)
                     {
-                        spawnPoint = spawnPoints[mainFleetSpawnIndex];
+                        spawnPoint = mainFleetSpawnPoints[mainFleetSpawnIndex];
                         mainFleetSpawnIndex++;
                     }
                 }
                 else if(characterData.shipType == "DD" || characterData.shipType == "CLCA")
                 {
-                    if(vanguardFleetSpawnIndex < 6)
+                    if(vanguardFleetSpawnIndex < vanguardFleetSpawnPoints.Length/*vanguardFleetSpawnIndex < 6*/)
                     {
-                        spawnPoint = spawnPoints[vanguardFleetSpawnIndex];
+                        spawnPoint = vanguardFleetSpawnPoints[vanguardFleetSpawnIndex];
                         vanguardFleetSpawnIndex++;
                     }
                 }
@@ -48,21 +49,47 @@ public class CharacterSpawner : MonoBehaviour
                 // 캐릭터 프리팹을 생성하고 배치하기
                 if(spawnPoint != null)
                 {
-                    GameObject characterPrefab = characterPrefabs[characterIndex];
-                    GameObject characterObject = Instantiate(characterPrefab, spawnPoint.position, spawnPoint.rotation);
-                    characterObject.name = characterData.name;
+                    //GameObject characterPrefab = characterPrefabs[characterIndex];
+                    //GameObject characterObject = Instantiate(characterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    //characterObject.name = characterData.name;
+                    //
+                    //BattleAI battleAI = characterObject.GetComponent<BattleAI>();
+                    //if (battleAI != null)
+                    //{
+                    //    battleAI.InitializeCharacterStats(characterData.stats);
+                    //}
+                    //
+                    //TeamManager teamManager = characterObject.GetComponent<TeamManager>();
+                    //if(teamManager != null)
+                    //{
+                    //    teamManager.team = TeamManager.Team.Ally;
+                    //}
 
-                    BattleAI battleAI = characterObject.GetComponent<BattleAI>();
-                    if (battleAI != null)
+                    // 프리팹 이름을 통해 프리팹을 로드
+                    GameObject characterPrefab = Resources.Load<GameObject>($"Prefabs_Character/{characterData.prefabName}");
+
+                    if (characterPrefab != null)
                     {
-                        battleAI.InitializeCharacterStats(characterData.stats);
+                        GameObject characterObject = Instantiate(characterPrefab, spawnPoint.position, spawnPoint.rotation);
+                        characterObject.name = characterData.name;
+
+                        BattleAI battleAI = characterObject.GetComponent<BattleAI>();
+                        if (battleAI != null)
+                        {
+                            battleAI.InitializeCharacterStats(characterData.stats);
+                        }
+
+                        TeamManager teamManager = characterObject.GetComponent<TeamManager>();
+                        if (teamManager != null)
+                        {
+                            teamManager.team = TeamManager.Team.Ally;
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError($"Prefab with name {characterData.prefabName} not found in Resources/Prefabs.");
                     }
 
-                    TeamManager teamManager = characterObject.GetComponent<TeamManager>();
-                    if(teamManager != null)
-                    {
-                        teamManager.team = TeamManager.Team.Ally;
-                    }
                 }
                 else
                 {

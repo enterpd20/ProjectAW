@@ -135,13 +135,13 @@ public class DockDetailUI_Character : MonoBehaviour
     public void Gear_MoveChracterIllust()   // Gear 버튼 누르면 일러스트가 중앙으로 이동하는 메서드
     {
         StartCoroutine(MoveCharacterImage_co
-            (new Vector3(105, character_Image.rectTransform.anchoredPosition.y, 0), 1.0f));
+            (new Vector3(105, character_Image.rectTransform.anchoredPosition.y, 0), 0.5f));
     }
 
     public void Info_MoveChracterIllust()   // Info 버튼 누르면 일러스트가 다시 왼쪽으로 이동하는 메서드
     {
         StartCoroutine(MoveCharacterImage_co
-            (new Vector3(-365, character_Image.rectTransform.anchoredPosition.y, 0), 1.0f));
+            (new Vector3(-280, character_Image.rectTransform.anchoredPosition.y, 0), 0.5f));
     }
 
     private IEnumerator MoveCharacterImage_co(Vector3 targetPosition, float duration)

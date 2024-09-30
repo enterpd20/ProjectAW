@@ -144,12 +144,11 @@ GameObject:
   - component: {fileID: 8043540869147155129}
   - component: {fileID: 8043540869147155126}
   - component: {fileID: 8043540869147155127}
-  - component: {fileID: 8043540869147155132}
-  - component: {fileID: 8043540869147155131}
+  - component: {fileID: 7693997962255012729}
   - component: {fileID: 8043540869147155133}
   - component: {fileID: 8043540869147155130}
   m_Layer: 0
-  m_Name: Ayanami
+  m_Name: CharaPrefab_Ayanami
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,41 +258,20 @@ MonoBehaviour:
   _animationName: 
   loop: 1
   timeScale: 1
---- !u!195 &8043540869147155132
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043540869147155124}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 2.1390097
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 7.1198716
-  m_BaseOffset: 3.5599358
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!135 &8043540869147155131
-SphereCollider:
+--- !u!136 &7693997962255012729
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8043540869147155124}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.89216816
+  m_Height: 4.0645385
+  m_Direction: 1
+  m_Center: {x: 0.7937232, y: 1.5276673, z: 0.000000062154044}
 --- !u!54 &8043540869147155133
 Rigidbody:
   m_ObjectHideFlags: 0

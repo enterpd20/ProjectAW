@@ -6,6 +6,7 @@
       "rarity": "SSR",
       "faction": "EagleUnion",
       "imageName": "Enterprise",
+      "prefabName": "CharaPrefab_Enterprise",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -38,6 +39,7 @@
       "rarity": "SR",
       "faction": "EagleUnion",
       "imageName": "Hornet",
+      "prefabName": "CharaPrefab_Hornet",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -70,6 +72,7 @@
       "rarity": "SSR",
       "faction": "SakuraEmpire",
       "imageName": "Akagi",
+      "prefabName": "CharaPrefab_Akagi",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -102,6 +105,7 @@
       "rarity": "SSR",
       "faction": "SakuraEmpire",
       "imageName": "Kaga",
+      "prefabName": "CharaPrefab_Kaga",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -135,6 +139,7 @@
       "rarity": "SR",
       "faction": "RoyalNavy",
       "imageName": "ArkRoyal",
+      "prefabName": "CharaPrefab_ArkRoyal",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -167,6 +172,7 @@
       "rarity": "SR",
       "faction": "META",
       "imageName": "ArkRoyalMETA",
+      "prefabName": "CharaPrefab_ArkRoyalMETA",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -204,6 +210,7 @@
       "rarity": "SSR",
       "faction": "IronBlood",
       "imageName": "Bismarck",
+      "prefabName": "CharaPrefab_Bismarck",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -233,6 +240,7 @@
       "rarity": "SSR",
       "faction": "RoyalNavy",
       "imageName": "Hood",
+      "prefabName": "CharaPrefab_Hood",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -263,6 +271,7 @@
       "rarity": "SSR",
       "faction": "RoyalNavy",
       "imageName": "PrinceOfWales",
+      "prefabName": "CharaPrefab_PrinceOfWales",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -292,6 +301,7 @@
       "rarity": "SR",
       "faction": "EagleUnion",
       "imageName": "MaryLand",
+      "prefabName": "CharaPrefab_MaryLand",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -321,6 +331,7 @@
       "rarity": "R",
       "faction": "SakuraEmpire",
       "imageName": "Fusou",
+      "prefabName": "CharaPrefab_Fusou",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -351,6 +362,7 @@
       "rarity": "SR",
       "faction": "META",
       "imageName": "FusouMETA",
+      "prefabName": "CharaPrefab_FusouMETA",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -386,6 +398,7 @@
       "rarity": "SSR",
       "faction": "SakuraEmpire",
       "imageName": "Atago",
+      "prefabName": "CharaPrefab_Atago",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -418,6 +431,7 @@
       "rarity": "SSR",
       "faction": "EagleUnion",
       "imageName": "Minneapolis",
+      "prefabName": "CharaPrefab_Minneapolis",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -450,6 +464,7 @@
       "rarity": "SSR",
       "faction": "IronBlood",
       "imageName": "PrinzEugen",
+      "prefabName": "CharaPrefab_PrinzEugen",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -482,6 +497,7 @@
       "rarity": "SR",
       "faction": "RoyalNavy",
       "imageName": "Sheffield",
+      "prefabName": "CharaPrefab_Sheffield",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -514,6 +530,7 @@
       "rarity": "R",
       "faction": "EagleUnion",
       "imageName": "Northampton",
+      "prefabName": "CharaPrefab_Northampton",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -546,6 +563,7 @@
       "rarity": "SR",
       "faction": "META",
       "imageName": "SheffieldMETA",
+      "prefabName": "CharaPrefab_SheffieldMETA",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -583,6 +601,7 @@
       "rarity": "SSR",
       "faction": "SakuraEmpire",
       "imageName": "Kawakaze",
+      "prefabName": "CharaPrefab_Kawakaze",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -615,6 +634,7 @@
       "rarity": "SR",
       "faction": "SakuraEmpire",
       "imageName": "Ayanami",
+      "prefabName": "CharaPrefab_Ayanami",
       "hasUniqueModule": true,
       "stats": {
         "HP": 2007,
@@ -644,6 +664,7 @@
       "rarity": "SR",
       "faction": "RoyalNavy",
       "imageName": "Icarus",
+      "prefabName": "CharaPrefab_Icarus",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -676,6 +697,7 @@
       "rarity": "R",
       "faction": "EagleUnion",
       "imageName": "Aylwin",
+      "prefabName": "CharaPrefab_Aylwin",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -708,6 +730,7 @@
       "rarity": "R",
       "faction": "EagleUnion",
       "imageName": "Hammann",
+      "prefabName": "CharaPrefab_Hammann",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,
@@ -740,6 +763,7 @@
       "rarity": "SR",
       "faction": "META",
       "imageName": "KasumiMETA",
+      "prefabName": "CharaPrefab_KasumiMETA",
       "hasUniqueModule": true,
       "stats": {
         "HP": 100,

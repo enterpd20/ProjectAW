@@ -20,7 +20,8 @@ public class Character
     public string shipType;
     public string rarity;
     public string faction;
-    public string imageName;   
+    public string imageName;
+    public string prefabName;
     public bool hasUniqueModule;
     public CharacterStats stats;
 

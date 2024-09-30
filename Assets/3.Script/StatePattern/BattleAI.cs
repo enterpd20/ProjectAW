@@ -9,7 +9,6 @@ using UnityEngine.AI;
 이동속도 - 여기서 씀
 공격력 - BulletControl에서 장비 데이터 받아와서 씀
 재장전 - BulletControl에서 장비 데이터 받아와서 씀
-
 */
 
 public class BattleAI : MonoBehaviour
@@ -36,12 +35,38 @@ public class BattleAI : MonoBehaviour
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
     public SphereCollider characterSight, min_EngageRange, MAX_EngageRange;
-    private NavMeshAgent AutoBattleAgent;
+    private bool isMoving = false;
+    //private NavMeshAgent AutoBattleAgent;
+
+    public GameObject mapObject;
+    private Vector3 mapMinBounds;
+    private Vector3 mapMaxBounds;
 
     void Start()
     {
         currentState = State.Patrol;  // 초기 상태 설정
-        AutoBattleAgent = GetComponent<NavMeshAgent>();
+        //AutoBattleAgent = GetComponent<NavMeshAgent>();
+
+        mapObject = FindObjectOfType<MeshCollider>().gameObject;    // 맵 오브젝트 경계 값 가져옴
+
+        // 맵 오브젝트의 경계 값을 가져옴
+        if (mapObject != null)
+        {
+            Renderer mapRenderer = mapObject.GetComponent<Renderer>();
+            if (mapRenderer != null)
+            {
+                mapMinBounds = mapRenderer.bounds.min;
+                mapMaxBounds = mapRenderer.bounds.max;
+            }
+            else
+            {
+                Debug.LogError("Map object does not have a Renderer component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Map object is not assigned.");
+        }
 
         Debug.Log("Trying to get finalCharacterStats from Player.Instance...");
 
@@ -64,12 +89,13 @@ public class BattleAI : MonoBehaviour
         {
             Debug.LogWarning("Selected character index is out of range or invalid.");
         }
+
     }
 
     public void InitializeCharacterStats(CharacterStats stats)
     {       
         maxHealth = stats.HP;
-        moveSpeed = stats.SPD;
+        moveSpeed = stats.SPD * 0.5f;
         Debug.Log($"Initialized Character Stats: HP = {stats.HP}, SPD = {stats.SPD}");
     }
 
@@ -80,12 +106,15 @@ public class BattleAI : MonoBehaviour
         {
             case State.Patrol:
                 HandlePatrolState();
+                //Debug.Log($"Patrol State!");
                 break;
             case State.Engage:
                 HandleEngageState();
+                //Debug.Log($"Engage State!");
                 break;
             case State.Retreat:
                 HandleRetreatState();
+                //Debug.Log($"Retreat State!");
                 break;
         }
     }
@@ -95,7 +124,7 @@ public class BattleAI : MonoBehaviour
     {
         ScanEnemy();            // 시야 범위 내의 적 스캔 메서드
 
-        if (target == null)     // 일정 시간 후 이동
+        if (target == null && !isMoving)     // 이동 중이 아닐 때만 랜덤 위치 지정
         {
             RandomPositioning();
         }
@@ -122,27 +151,68 @@ public class BattleAI : MonoBehaviour
     private void RandomPositioning()
     {
         Vector3 randomDirection = Random.insideUnitSphere * characterSight.radius;
-        randomDirection += transform.position;
+        randomDirection += transform.position;        
+        randomDirection.y = transform.position.y;   // Y 값을 고정
 
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, characterSight.radius, 1))
+        Vector3 finalPosition = randomDirection;        
+        Vector3 direction = (finalPosition - transform.position).normalized;    // 현재 위치에서 목표 위치로 이동
+
+        //transform.position += direction * moveSpeed * Time.deltaTime;
+        // Rigidbody를 통해 이동
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            Vector3 finalPosition = hit.position;
+            // Y 방향 이동을 방지하기 위해 Y 값을 0으로 설정
+            direction.y = 0;
+            //rb.velocity = direction * moveSpeed;
+            //rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+            isMoving = true;  // 이동 시작
+            StartCoroutine(MoveToPosition(rb, finalPosition));  // 이동을 코루틴으로 실행
+        }
 
-            AutoBattleAgent.SetDestination(finalPosition);
+        // 이동 방향에 따라 스프라이트 뒤집기
+        if (direction.x > 0)
+        {
+            transform.GetChild(0).localScale = new Vector3(1, 1, 1);
+        }
+        else if (direction.x < 0)
+        {
+            transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
+        }
+    }
 
-            Vector3 direction = finalPosition - transform.position;     // 이동 방향에 따라 스프라이트 뒤집기
+    private IEnumerator MoveToPosition(Rigidbody rb, Vector3 targetPosition)
+    {
+        while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        {
+            Vector3 direction = (targetPosition - transform.position).normalized;
+            direction.y = 0;
 
-            if (direction.x > 0)
+            Vector3 nextPosition = transform.position + direction * moveSpeed * Time.deltaTime;
+
+            //rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+
+            // 이동 범위 제한: 맵의 경계 값을 사용하여 제한
+            nextPosition.x = Mathf.Clamp(nextPosition.x, mapMinBounds.x, mapMaxBounds.x);
+            nextPosition.z = Mathf.Clamp(nextPosition.z, mapMinBounds.z, mapMaxBounds.z);
+            rb.MovePosition(nextPosition);
+            yield return null;  // 다음 프레임까지 대기
+        }
+
+        isMoving = false;  // 이동 완료
+    }
+
+    // 맵 가장자리에 닿았을 때 무작위 위치 다시 지정
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == mapObject)
+        {
+            // 이동 중이 아니라면 무작위 위치 다시 지정
+            if (!isMoving)
             {
-                transform.localScale = new Vector3(1, 1, 1);            // 이동 방향에 따라 스프라이트 뒤집기
+                RandomPositioning();
+                Debug.Log($"이동지점 재설정!");
             }
-            else if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);           // 이동 방향에 따라 스프라이트 뒤집기
-            }
-
-            //animator.SetBool("move", true);  - 애니메이션 나중에
         }
     }
 
@@ -181,11 +251,30 @@ public class BattleAI : MonoBehaviour
         Vector3 randomDirection = Random.insideUnitSphere * MAX_EngageRange.radius;
         randomDirection += transform.position;
 
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, MAX_EngageRange.radius, 1))
+        //NavMeshHit hit;
+        //if (NavMesh.SamplePosition(randomDirection, out hit, MAX_EngageRange.radius, 1))
+        //{
+        //    Vector3 finalPosition = hit.position;
+        //    AutoBattleAgent.SetDestination(finalPosition);
+        //}
+
+        // Y 값을 고정
+        randomDirection.y = transform.position.y;
+
+        Vector3 finalPosition = randomDirection;
+
+        // 현재 위치에서 목표 위치로 이동
+        Vector3 direction = (finalPosition - transform.position).normalized;
+
+        //transform.position += direction * moveSpeed * Time.deltaTime;
+        // Rigidbody를 통해 이동
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            Vector3 finalPosition = hit.position;
-            AutoBattleAgent.SetDestination(finalPosition);
+            // Y 방향 이동을 방지하기 위해 Y 값을 0으로 설정
+            direction.y = 0;
+            rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+            //rb.velocity = direction * moveSpeed;
         }
     }
 
@@ -213,6 +302,10 @@ public class BattleAI : MonoBehaviour
     void RetreatFromTarget()
     {
         Vector3 direction = (transform.position - target.position).normalized;
+
+        // Y 방향 이동을 방지하기 위해 Y 값을 0으로 설정
+        direction.y = 0;
+
         transform.position += direction * moveSpeed * Time.deltaTime;
     }
 

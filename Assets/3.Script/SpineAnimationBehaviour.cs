@@ -22,7 +22,7 @@
 //        {
 //            animationClips = new string[motion.Length];
 //        }
-//        for(int i = 0; i < motion.Length; i++)
+//        for (int i = 0; i < motion.Length; i++)
 //        {
 //            animationClips[i] = motion[i].name;
 //            Debug.Log("AnimationClip : " + animationClips[i]);
@@ -31,13 +31,13 @@
 
 //    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 //    {
-//        if(skeletonAnimation == null)
+//        if (skeletonAnimation == null)
 //        {
 //            skeletonAnimation = animator.GetComponentInChildren<SkeletonAnimation>();
 //            spineAnimationState = skeletonAnimation.state;
 //        }
 
-//        if(animationClips != null && animationClips.Length > 0)
+//        if (animationClips != null && animationClips.Length > 0)
 //        {
 //            int animationIndex = GetAnimationIndexFromInput(animator);
 //            loop = stateInfo.loop;
@@ -50,7 +50,7 @@
 //    private int GetAnimationIndexFromInput(Animator animator)
 //    {
 //        float input = animator.GetFloat("InputDirection");
-//        if(input > 0)
+//        if (input > 0)
 //        {
 //            return 0;
 //        }

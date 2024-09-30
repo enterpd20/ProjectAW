@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public static Player Instance { get; private set; }
 
+    public List<Character> enemyCharacter;
     public List<Character> ownedCharacter;
     public List<Gear> gears;
     //public List<Stage> clearedStage;  // 스테이지 작성해야함 240919
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
         PlayerData data = new PlayerData
         {
             ownedCharacter = this.ownedCharacter,
+            enemyCharacter = this.enemyCharacter,
             gears = this.gears,
             selectedCharacterIndex = this.selectedCharacterIndex,
             selectedCharacterIndices = this.selectedCharacterIndices,
@@ -81,6 +83,7 @@ public class Player : MonoBehaviour
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
 
             ownedCharacter = playerData.ownedCharacter;
+            enemyCharacter = playerData.enemyCharacter;
             gears = playerData.gears;
             selectedCharacterIndex = playerData.selectedCharacterIndex;
             selectedCharacterIndices = playerData.selectedCharacterIndices;
@@ -103,6 +106,7 @@ public class Player : MonoBehaviour
             Debug.LogWarning("No save data file found at: " + path);
 
             ownedCharacter = new List<Character>();
+            enemyCharacter = new List<Character>();
             gears = new List<Gear>();
 
             SavePlayerData();
@@ -140,6 +144,7 @@ public class Player : MonoBehaviour
 public class PlayerData
 {
     public List<Character> ownedCharacter;
+    public List<Character> enemyCharacter;
     public List<Gear> gears;
     public int selectedCharacterIndex;
     public int[] selectedCharacterIndices;
