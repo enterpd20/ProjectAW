@@ -28,15 +28,13 @@ public class BattleAI : MonoBehaviour
 
     private float currentHealth;    // 현재 체력 (Dock UI에서 최종 스탯을 받아올 것)
     private float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
-    private float moveSpeed;         // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)
-    private float attackCooldown; // 공격 쿨타임
-
-    private float attackCooldownTimer = 0f; // 공격 타이머
+    private float moveSpeed;        // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
     public SphereCollider characterSight, min_EngageRange, MAX_EngageRange;
     private bool isMoving = false;
-    //private NavMeshAgent AutoBattleAgent;
+
+    private float attackCooldownTimer = 0f;
 
     public GameObject mapObject;
     private Vector3 mapMinBounds;
@@ -45,7 +43,6 @@ public class BattleAI : MonoBehaviour
     void Start()
     {
         currentState = State.Patrol;  // 초기 상태 설정
-        //AutoBattleAgent = GetComponent<NavMeshAgent>();
 
         mapObject = FindObjectOfType<MeshCollider>().gameObject;    // 맵 오브젝트 경계 값 가져옴
 
@@ -67,39 +64,8 @@ public class BattleAI : MonoBehaviour
         {
             Debug.LogError("Map object is not assigned.");
         }
-
-        Debug.Log("Trying to get finalCharacterStats from Player.Instance...");
-
-        if (Player.Instance == null)
-        {
-            Debug.LogError("Player.Instance is null!");
-            return;
-        }
-
-        int selectedIndex = Player.Instance.selectedCharacterIndex;
-        if(selectedIndex >= 0 && selectedIndex < Player.Instance.ownedCharacter.Count)
-        {
-            CharacterStats battleStats = Player.Instance.ownedCharacter[selectedIndex].stats;
-
-            maxHealth = battleStats.HP;
-            moveSpeed = battleStats.SPD;
-            Debug.Log($"Character Stats: HP = {battleStats.HP}, SPD = {battleStats.SPD}");
-        }
-        else
-        {
-            Debug.LogWarning("Selected character index is out of range or invalid.");
-        }
-
     }
 
-    public void InitializeCharacterStats(CharacterStats stats)
-    {       
-        maxHealth = stats.HP;
-        moveSpeed = stats.SPD * 0.5f;
-        Debug.Log($"Initialized Character Stats: HP = {stats.HP}, SPD = {stats.SPD}");
-    }
-
-    // Update is called once per frame
     void Update()
     {
         switch (currentState)
@@ -118,6 +84,25 @@ public class BattleAI : MonoBehaviour
                 break;
         }
     }
+
+    // 캐릭터 스탯 불러오기
+    public void InitializeCharacterStats(CharacterStats stats)
+    {
+        int selectedIndex = Player.Instance.selectedCharacterIndex;
+        if (selectedIndex >= 0 && selectedIndex < Player.Instance.ownedCharacter.Count)
+        {
+            CharacterStats battleStats = Player.Instance.ownedCharacter[selectedIndex].stats;
+
+            maxHealth = battleStats.HP;
+            moveSpeed = battleStats.SPD * 0.5f;
+            Debug.Log($"Character Stats: HP = {battleStats.HP}, SPD = {battleStats.SPD}");
+        }
+        else
+        {
+            Debug.LogWarning("Selected character index is out of range or invalid.");
+        }
+    }
+
 
     // 정찰 상태 처리
     void HandlePatrolState()    // [[[[[시야범위 내에 적이 있다면, 적이 최대 교전범위 내에 들어올 때까지 추격 -> 구현돼있는지 확인]]]]]
@@ -148,24 +133,26 @@ public class BattleAI : MonoBehaviour
         }
     }
 
+    // 이동 지점 무작위로 지정
     private void RandomPositioning()
     {
         Vector3 randomDirection = Random.insideUnitSphere * characterSight.radius;
         randomDirection += transform.position;        
         randomDirection.y = transform.position.y;   // Y 값을 고정
 
-        Vector3 finalPosition = randomDirection;        
+        Vector3 finalPosition = randomDirection;
+
+        finalPosition.x = Mathf.Clamp(finalPosition.x, mapMinBounds.x, mapMaxBounds.x);
+        finalPosition.z = Mathf.Clamp(finalPosition.z, mapMinBounds.z, mapMaxBounds.z);
+
         Vector3 direction = (finalPosition - transform.position).normalized;    // 현재 위치에서 목표 위치로 이동
 
-        //transform.position += direction * moveSpeed * Time.deltaTime;
         // Rigidbody를 통해 이동
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
             // Y 방향 이동을 방지하기 위해 Y 값을 0으로 설정
-            direction.y = 0;
-            //rb.velocity = direction * moveSpeed;
-            //rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+            direction.y = 0;            
             isMoving = true;  // 이동 시작
             StartCoroutine(MoveToPosition(rb, finalPosition));  // 이동을 코루틴으로 실행
         }
@@ -202,25 +189,9 @@ public class BattleAI : MonoBehaviour
         isMoving = false;  // 이동 완료
     }
 
-    // 맵 가장자리에 닿았을 때 무작위 위치 다시 지정
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == mapObject)
-        {
-            // 이동 중이 아니라면 무작위 위치 다시 지정
-            if (!isMoving)
-            {
-                RandomPositioning();
-                Debug.Log($"이동지점 재설정!");
-            }
-        }
-    }
-
     // 전투 상태 처리
     void HandleEngageState()
     {
-        attackCooldownTimer += Time.deltaTime;          // [[[[[공격 쿨타임 -> 캐릭터가 장착한 장비의 RLD 받아올 것]]]]]
-
         if (target != null)
         {
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -235,6 +206,18 @@ public class BattleAI : MonoBehaviour
                 MovingInEngageRange();
             }
 
+            // 공격 로직 - BulletManager의 ReloadTime 사용
+            if (attackCooldownTimer <= 0)
+            {
+                Attack();
+                attackCooldownTimer = BulletManager.Instance.ReloadTime; // BulletManager의 재장전 시간 사용
+            }
+            else
+            {
+                attackCooldownTimer -= Time.deltaTime;
+            }
+
+            // 일정 체력 이하일 경우, 퇴각 상태로 변경
             if (currentHealth <= retreatHealthThreshold)
             {
                 currentState = State.Retreat;
@@ -250,13 +233,6 @@ public class BattleAI : MonoBehaviour
     {
         Vector3 randomDirection = Random.insideUnitSphere * MAX_EngageRange.radius;
         randomDirection += transform.position;
-
-        //NavMeshHit hit;
-        //if (NavMesh.SamplePosition(randomDirection, out hit, MAX_EngageRange.radius, 1))
-        //{
-        //    Vector3 finalPosition = hit.position;
-        //    AutoBattleAgent.SetDestination(finalPosition);
-        //}
 
         // Y 값을 고정
         randomDirection.y = transform.position.y;
@@ -325,11 +301,57 @@ public class BattleAI : MonoBehaviour
         return false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == mapObject)
+        {
+            if (!isMoving)
+            {
+                RandomPositioning();
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == mapObject)
+        {
+            if (!isMoving)
+            {
+                RandomPositioning();
+            }
+        }
+    }
+
     // 적을 공격하는 함수
     void Attack()
     {
         Debug.Log("Attack target!");
-        // 실제 공격 로직 구현 필요
+
+        Character currentCharacter = Player.Instance.ownedCharacter[Player.Instance.selectedCharacterIndex];
+
+        // 장착된 장비 가져오기 (equippedGears 리스트의 첫 번째 장비 사용)
+        Gear equippedGear = null;
+        if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
+        {
+            string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
+            equippedGear = Player.Instance.gears.Find(gear => gear.name == equippedGearName); // 장비 이름으로 장비 검색
+        }
+
+        // 오브젝트 풀에서 총알 가져오기
+        GameObject bullet = BulletManager.Instance.GetPooledBullet();
+        if (bullet != null)
+        {
+            bullet.transform.position = transform.position; // 발사 위치 설정
+            bullet.SetActive(true);
+
+            // 총알 초기화
+            BulletManager bulletManager = bullet.GetComponent<BulletManager>();
+            if (bulletManager != null && equippedGear != null)
+            {
+                bulletManager.InitializeBullet(equippedGear, BulletManager.BulletType.DD_Gun);
+            }
+        }
     }
 
     // 체력 감소 처리 (공격 받았을 때)
@@ -342,34 +364,6 @@ public class BattleAI : MonoBehaviour
             // 사망 처리 로직 추가 필요
         }
     }
-
-    // 이동 상태 처리
-    //void HandleMoveState()
-    //{
-    //    if (target == null)
-    //    {
-    //        currentState = State.Patrol;
-    //        return;
-    //    }
-    //
-    //    // 적과의 거리를 확인하고 가까워질 때까지 이동
-    //    float distance = Vector3.Distance(transform.position, target.position);
-    //    if (distance > engageRange)
-    //    {
-    //        MoveTowardsTarget();
-    //    }
-    //    else
-    //    {
-    //        currentState = State.Engage; // 적과 가까워지면 전투 상태로 전환
-    //    }
-    //}
-
-    // 적을 향해 이동
-    //void MoveTowardsTarget()
-    //{
-    //    Vector3 direction = (target.position - transform.position).normalized;
-    //    transform.position += direction * moveSpeed * Time.deltaTime;
-    //}    
 }
 
 public class TeamManager : MonoBehaviour
