@@ -16,31 +16,6 @@ public class CharacterButton : MonoBehaviour
 
     public void SetCharacterData(Character character, Sprite[] rarityBackground)
     {
-        //if (character == null)
-        //{
-        //    Debug.LogError("Character is null");
-        //    return;
-        //}
-        //
-        //if (rarityBackground == null || rarityBackground.Length < 4)
-        //{
-        //    Debug.LogError("Rarity backgrounds array is null or has insufficient elements");
-        //    return;
-        //}
-        //
-        //// 확인: backgroundImage와 characterImage가 null인지 확인
-        //if (backgroundImage == null)
-        //{
-        //    Debug.LogError("BackgroundImage is not assigned");
-        //    return;
-        //}
-        //
-        //if (characterImage == null)
-        //{
-        //    Debug.LogError("CharacterImage is not assigned");
-        //    return;
-        //}
-
         characterData = character;
 
         // 희귀도에 따라 배경 설정
@@ -83,6 +58,13 @@ public class CharacterButton : MonoBehaviour
         {
             Player.Instance.selectedCharacterIndex = Player.Instance.ownedCharacter.IndexOf(characterData);
             SceneManager.LoadScene("02_DockDetail");
+
+            // DockDetailUI_Character에 캐릭터 데이터를 로드하는 메서드 호출
+            var dockDetailUI = GameObject.FindObjectOfType<DockDetailUI_Character>();
+            if (dockDetailUI != null)
+            {
+                dockDetailUI.LoadCharacterData();
+            }
         }
         else if(currentScene == "03_SelectStage")
         {

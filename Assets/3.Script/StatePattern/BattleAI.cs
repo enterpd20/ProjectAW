@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
 /*
 캐릭터가 가져야하는 스탯
@@ -40,10 +38,11 @@ public class BattleAI : MonoBehaviour
     private Vector3 mapMinBounds;
     private Vector3 mapMaxBounds;
 
+    private TeamManager teamManager;
+
     void Start()
     {
         currentState = State.Patrol;  // 초기 상태 설정
-
         mapObject = FindObjectOfType<MeshCollider>().gameObject;    // 맵 오브젝트 경계 값 가져옴
 
         // 맵 오브젝트의 경계 값을 가져옴
@@ -63,6 +62,15 @@ public class BattleAI : MonoBehaviour
         else
         {
             Debug.LogError("Map object is not assigned.");
+        }
+
+        teamManager = GetComponent<TeamManager>();
+
+        // 장비 데이터 로드 확인
+        Debug.Log($"Gears count in Player: {Player.Instance.gears.Count}");
+        foreach (var gear in Player.Instance.gears)
+        {
+            Debug.Log($"Gear in Player: {gear.name}, Type: {gear.gearType}");
         }
     }
 
@@ -122,22 +130,44 @@ public class BattleAI : MonoBehaviour
     void ScanEnemy()    // 시야 범위 내의 적 스캔 메서드
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, characterSight.radius);
+        float closestDistance = float.MaxValue;
+        Transform closestTarget = null;
+
         foreach (var hitCol in hitColliders)
         {
-            TeamManager charaTeam = hitCol.GetComponent<TeamManager>();
-            if (charaTeam != null && charaTeam.team == TeamManager.Team.Enemy)
+            //TeamManager charaTeam = hitCol.GetComponent<TeamManager>();
+            //if (charaTeam != null && charaTeam.team == TeamManager.Team.Enemy)
+            //{
+            //    target = hitCol.transform;
+            //    break;
+            //}
+            
+            TeamManager otherTeamManager = hitCol.GetComponent<TeamManager>();
+
+            // 자기 자신이나 팀 정보가 없으면 스킵
+            if (otherTeamManager == null || otherTeamManager == teamManager) continue;
+
+            // 적대 관계 식별
+            if ((teamManager.team == TeamManager.Team.Ally && otherTeamManager.team == TeamManager.Team.Enemy) ||
+                (teamManager.team == TeamManager.Team.Enemy && otherTeamManager.team == TeamManager.Team.Ally))
             {
-                target = hitCol.transform;
-                break;
+                float distanceToTarget = Vector3.Distance(transform.position, hitCol.transform.position);
+                if (distanceToTarget < closestDistance)
+                {
+                    closestDistance = distanceToTarget;
+                    closestTarget = hitCol.transform;
+                }
             }
         }
+
+        target = closestTarget; // 가장 가까운 적을 타겟으로 설정
     }
 
     // 이동 지점 무작위로 지정
     private void RandomPositioning()
     {
         Vector3 randomDirection = Random.insideUnitSphere * characterSight.radius;
-        randomDirection += transform.position;        
+        randomDirection += transform.position;
         randomDirection.y = transform.position.y;   // Y 값을 고정
 
         Vector3 finalPosition = randomDirection;
@@ -152,7 +182,7 @@ public class BattleAI : MonoBehaviour
         if (rb != null)
         {
             // Y 방향 이동을 방지하기 위해 Y 값을 0으로 설정
-            direction.y = 0;            
+            direction.y = 0;
             isMoving = true;  // 이동 시작
             StartCoroutine(MoveToPosition(rb, finalPosition));  // 이동을 코루틴으로 실행
         }
@@ -210,7 +240,6 @@ public class BattleAI : MonoBehaviour
             if (attackCooldownTimer <= 0)
             {
                 Attack();
-                attackCooldownTimer = BulletManager.Instance.ReloadTime; // BulletManager의 재장전 시간 사용
             }
             else
             {
@@ -257,7 +286,7 @@ public class BattleAI : MonoBehaviour
     // 후퇴 상태 처리
     void HandleRetreatState()
     {
-        if(target != null)
+        if (target != null)
         {
             // 적과 반대 방향으로 이동
             RetreatFromTarget();
@@ -328,28 +357,76 @@ public class BattleAI : MonoBehaviour
     {
         Debug.Log("Attack target!");
 
-        Character currentCharacter = Player.Instance.ownedCharacter[Player.Instance.selectedCharacterIndex];
+        // selectedCharacterIndices 배열에서 유효한 캐릭터 인덱스를 찾음
+        int currentCharacterIndex = -1;
+        foreach (int index in Player.Instance.selectedCharacterIndices)
+        {
+            if (index >= 0 && index < Player.Instance.ownedCharacter.Count)
+            {
+                currentCharacterIndex = index;
+                break;
+            }
+        }
+
+        // 유효한 캐릭터 인덱스가 없을 경우 경고 메시지 출력 후 반환
+        if (currentCharacterIndex == -1)
+        {
+            Debug.LogWarning("No valid character index found in selectedCharacterIndices.");
+            return;
+        }
+
+        Character currentCharacter = Player.Instance.ownedCharacter[currentCharacterIndex];
 
         // 장착된 장비 가져오기 (equippedGears 리스트의 첫 번째 장비 사용)
         Gear equippedGear = null;
         if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
         {
             string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
-            equippedGear = Player.Instance.gears.Find(gear => gear.name == equippedGearName); // 장비 이름으로 장비 검색
+            Debug.Log($"Equipped gear name: {equippedGearName}");
+
+            // foreach를 사용해 gears 리스트에서 장비 검색
+            //foreach (Gear gear in Player.Instance.gears)
+            //{
+            //    if (gear.name == equippedGearName)
+            //    {
+            //        equippedGear = gear;
+            //        break;
+            //    }
+            //}
+
+            // GearDataLoader를 통해 장비 찾기
+            equippedGear = GearDataLoader.GetGearByName(equippedGearName);
+
+            if (equippedGear == null)
+            {
+                Debug.LogWarning($"No gear found with the name: {equippedGearName}");
+                return;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No equipped gears found for this character.");
+            return;
         }
 
+        // 총알 타입 결정
+        BulletController.BulletType bulletType = BulletController.DetermineBulletType(equippedGear);
+
         // 오브젝트 풀에서 총알 가져오기
-        GameObject bullet = BulletManager.Instance.GetPooledBullet();
+        GameObject bullet = BulletManager.Instance.GetPooledBullet(bulletType);
         if (bullet != null)
         {
-            bullet.transform.position = transform.position; // 발사 위치 설정
+            Vector3 bulletPosition = transform.position + transform.forward * 1f;
+            bulletPosition.y = 1.0f; // 원하는 y축 높이로 고정
+            bullet.transform.position = bulletPosition; // 발사 위치 설정
             bullet.SetActive(true);
 
             // 총알 초기화
-            BulletManager bulletManager = bullet.GetComponent<BulletManager>();
-            if (bulletManager != null && equippedGear != null)
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (bulletController != null)
             {
-                bulletManager.InitializeBullet(equippedGear, BulletManager.BulletType.DD_Gun);
+                bulletController.InitializeBullet(equippedGear, bulletType, teamManager, target);
+                attackCooldownTimer = bulletController.ReloadTime; // ReloadTime을 BulletController에서 가져옴
             }
         }
     }

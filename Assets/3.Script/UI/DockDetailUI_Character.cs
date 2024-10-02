@@ -23,6 +23,13 @@ public class DockDetailUI_Character : MonoBehaviour
     // UI 표현을 위함
     [SerializeField] private RectTransform Rect_StatusUI;
 
+    private DockDetailUI_EquipSlot equipSlot;
+
+    private void Awake()
+    {
+        equipSlot = FindObjectOfType<DockDetailUI_EquipSlot>();
+    }
+
     private void Start()
     {
         LoadCharacterData();
@@ -31,6 +38,7 @@ public class DockDetailUI_Character : MonoBehaviour
     public void LoadCharacterData()
     {
         Character character = Player.Instance.GetSelectedCharacter_DockUI();
+        equipSlot.SetEquipSlots();
 
         if (character != null)
         {
@@ -38,6 +46,7 @@ public class DockDetailUI_Character : MonoBehaviour
             character_Image.sprite = Resources.Load<Sprite>($"Images_Character/{character.imageName}");
             character_Name.text = character.name;
             character_ShipType.text = character.shipType;
+            Debug.Log($"Loaded character ship type: {character.shipType}");
 
             backgroundImage.sprite = GetRarityBackground(character.rarity);
 

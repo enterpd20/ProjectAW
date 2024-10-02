@@ -12,6 +12,9 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     [SerializeField] private Text character_ShipType;   // 캐릭터 함종 받아오기     
     [SerializeField] private GameObject[] equipSlot;    // UI_EquipSlot 1~4 배열로 할당  
 
+    // `DockDetailUI_Character` 스크립트에 대한 참조
+    private DockDetailUI_Character dockDetailUICharacter;
+
     // JSON 데이터를 통해 로드된 장비 정보 리스트
     private List<Gear> loadedGears;
 
@@ -25,7 +28,8 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     {
         Rect_GearUI = GetComponent<RectTransform>();
 
-        
+        dockDetailUICharacter = FindObjectOfType<DockDetailUI_Character>();
+
         currentCharacter = Player.Instance.GetSelectedCharacter_DockUI();  // 현재 선택된 캐릭터
         //equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
         equippedGears = new List<Gear>();             // equippedGears 리스트 초기화, 현재 선택된 캐릭터가 장착중인 장비       
@@ -47,38 +51,17 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
     {
-        string shipType = character_ShipType.text; // 캐릭터 함종 파악
+        //string shipType = character_ShipType.text; // 캐릭터 함종 파악
+        string shipType = Player.Instance.GetSelectedCharacter_DockUI().shipType; // 캐릭터 함종 파악
+        Debug.Log($"Character ship type: {shipType}");
 
         for (int i = 0; i < equipSlot.Length; i++)
         {
             if (equipTypeText[i] != null)
             {
                 equipTypeText[i].text = GetGearType(shipType, i);
+                Debug.Log($"Slot {i}: Set equip type text to {equipTypeText[i].text}");
             }
-
-            // 캐릭터가 장착한 장비를 기반으로 장비 이름과 이미지를 설정
-            //if(i < equippedGears.Count)
-            //{
-            //    Gear currentGear = equippedGears[i];
-            //
-            //    if (equipNameText[i] != null)
-            //    {
-            //        equipNameText[i].text = currentGear.name;   // 장착한 장비의 이름을 UI에 표시
-            //    }
-            //
-            //    if (equipImage[i] != null)
-            //    {
-            //        equipImage[i].sprite = GetGearSprite(currentGear);  // 장착한 장비의 이미지를 UI에 표시
-            //        equipImage[i].enabled = true;
-            //    }
-            //}
-            //else
-            //{
-            //    if (equipImage[i] != null)
-            //    {
-            //        equipImage[i].enabled = false;
-            //    }
-            //}
 
             // 캐릭터가 장착한 장비를 기반으로 장비 이름과 이미지를 설정
             if (i < currentCharacter.eqiuppedGears.Count)
@@ -122,10 +105,12 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     private string GetGearType(string shipType, int index)
     {
-        switch(index)
+        Debug.Log($"GetGearType called with shipType: {shipType}, index: {index}");
+
+        switch (index)
         {
-            case 0: return (shipType == "CV") ? "Main Gun" : "Torpedo Bomber";
-            case 1: return (shipType == "CV") ? "Secondary Weapon" : "Dive Bomber";
+            case 0: return (shipType == "CV") ? "Torpedo Bomber" : "Main Gun";
+            case 1: return (shipType == "CV") ? "Dive Bomber" : "Secondary Weapon";
             case 2: return "AntiAir";
             case 3: return "Auxiliary";
             default: return "";
@@ -134,20 +119,6 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     public void DisplayGearInfo(int slotIndex, Gear gear)
     {
-        //스탯의 정보 표시
-        //for (int i = 0; i < equippedGears.Count; i++)
-        //{
-        //    if (i < equipSlot.Length)
-        //    {
-        //        //DockDetailUI_EquipStat equipStat = equipSlots[i].GetComponent<DockDetailUI_EquipStat>();
-        //        DockDetailUI_EquipStat equipStat = GetComponent<DockDetailUI_EquipStat>();
-        //        if (equipStat != null)
-        //        {
-        //            equipStat.SetGearInfo(equippedGears[i]);
-        //        }              
-        //    }
-        //}
-
         // 스탯 정보 표시
         if(slotIndex < equipSlot.Length)
         {

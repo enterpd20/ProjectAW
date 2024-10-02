@@ -5,9 +5,13 @@ using System.IO;
 
 public static class GearDataLoader
 {
-    public static List<Gear> LoadAllGears()
+    private static List<Gear> gears = new List<Gear>(); // 모든 장비 데이터를 담을 리스트
+
+    public static void LoadAllGears()
     {
-        List<Gear> allGears = new List<Gear>();
+        //List<Gear> allGears = new List<Gear>();
+
+        gears.Clear(); // 기존 장비 데이터를 지우고 새로 로드
 
         string[] gearFiles =
         {
@@ -33,7 +37,7 @@ public static class GearDataLoader
             {
                 string jsonContent = File.ReadAllText(filePath);
                 GearList gearList = JsonUtility.FromJson<GearList>(jsonContent);
-                allGears.AddRange(gearList.gears);
+                gears.AddRange(gearList.gears);
 
                 Debug.Log($"Loading file from path: {filePath}");
                 Debug.Log($"Loaded JSON content from {file}: {jsonContent}");   // JSON 내용을 출력
@@ -45,29 +49,36 @@ public static class GearDataLoader
             }
         }
 
-        foreach(var gear in allGears)
-        {
-            Debug.Log($"Loaded gear: {gear.name}, Type: {gear.gearType}");
-        }
+        // 로드된 장비 개수 출력
+        Debug.Log($"Total gears loaded: {gears.Count}");
 
-        return allGears;
+        //return allGears;
     }
 
     // 이름을 기반으로 장비를 검색
     public static Gear GetGearByName(string gearName)
     {
-        List<Gear> allGears = LoadAllGears();
-        //Gear findGear = allGears.Find(gear => gear.name == gearName);        
-        Gear findGear = allGears.Find(gear => gear.name.Equals(
-            gearName, System.StringComparison.OrdinalIgnoreCase));        
+        //List<Gear> allGears = LoadAllGears();
 
-        if(findGear != null)
+        // 모든 장비 데이터가 이미 로드되었는지 확인
+        if (gears.Count == 0)
         {
-            Debug.Log($"Find gear: {findGear.name}, Type: {findGear.gearType}");
+            Debug.LogWarning("Gear data not loaded. Loading now...");
+            LoadAllGears();
+        }
+
+        Debug.Log($"Attempting to find gear: {gearName}");
+
+        //Gear findGear = allGears.Find(gear => gear.name.Equals(gearName, System.StringComparison.OrdinalIgnoreCase));        
+        Gear findGear = gears.Find(gear => gear.name.Equals(gearName, System.StringComparison.OrdinalIgnoreCase));
+
+        if (findGear != null)
+        {
+            Debug.Log($"Found gear: {findGear.name}");
         }
         else
         {
-            Debug.LogWarning($"Gear with name {gearName} not found!");
+            Debug.LogWarning($"Gear not found: {gearName}");
         }
 
         return findGear;

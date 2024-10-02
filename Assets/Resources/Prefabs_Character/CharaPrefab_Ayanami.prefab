@@ -264,10 +264,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4865309696224022755}
-  - component: {fileID: 4865309696224022754}
   - component: {fileID: 4865309696224022756}
-  - component: {fileID: 4865309696224022757}
   - component: {fileID: 4865309696224022758}
+  - component: {fileID: 4865309696224022757}
   m_Layer: 0
   m_Name: CharaPrefab_Ayanami
   m_TagString: Untagged
@@ -290,19 +289,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4865309696224022754
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4865309696224022753}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2.5}
-  m_Center: {x: 0, y: 1, z: 1.3}
 --- !u!54 &4865309696224022756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -319,6 +305,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &4865309696224022758
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865309696224022753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1, z: 1}
 --- !u!114 &4865309696224022757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,16 +335,3 @@ MonoBehaviour:
   min_EngageRange: {fileID: 4805175978199523889}
   MAX_EngageRange: {fileID: 4805175976700502840}
   mapObject: {fileID: 0}
---- !u!135 &4865309696224022758
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4865309696224022753}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 1, z: 1}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1237,7 +1237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584384867}
   m_Layer: 0
-  m_Name: ChacterSpawnPoint_Ally
+  m_Name: CharacterSpawnPoint_Ally
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2407,6 +2407,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179088023}
   m_CullTransparentMesh: 1
+--- !u!1 &1183195549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183195551}
+  - component: {fileID: 1183195550}
+  m_Layer: 0
+  m_Name: BulletManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1183195550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183195549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e0da06cf0543444a8e51c90a2328ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: 0
+  bulletSpeed: 0
+  Damage: 0
+  ReloadTime: 0
+  bulletPrefabs:
+  - {fileID: 473178163435549771, guid: b6259558ccfe03749aa4ca37e5322177, type: 3}
+  - {fileID: 6355276024545717915, guid: b86cac0f6ab4157408f5a3be9a9a0a4c, type: 3}
+  - {fileID: 473178163435549771, guid: b6259558ccfe03749aa4ca37e5322177, type: 3}
+  - {fileID: 5027778998574194646, guid: b133130899d6920468c68cb08c8140cf, type: 3}
+  - {fileID: 473178163435549771, guid: b6259558ccfe03749aa4ca37e5322177, type: 3}
+  - {fileID: 7178550750922549864, guid: ce63bc92afefcb54e8a8fc785b6047e1, type: 3}
+  - {fileID: 7178550750922549864, guid: ce63bc92afefcb54e8a8fc785b6047e1, type: 3}
+--- !u!4 &1183195551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183195549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1195323916
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,17 +59,18 @@ public class EnemySpawner : MonoBehaviour
                         battleAI.InitializeCharacterStats(characterData.stats);
                     }
 
+                    // TeamManager 설정
                     TeamManager teamManager = characterObject.GetComponent<TeamManager>();
-                    if (teamManager != null)
+                    if (teamManager == null)
                     {
-                        teamManager.team = TeamManager.Team.Enemy;
+                        teamManager = characterObject.AddComponent<TeamManager>(); // TeamManager 컴포넌트가 없을 경우 추가
                     }
+                    teamManager.team = TeamManager.Team.Enemy;
                 }
                 else
                 {
                     Debug.LogError($"Prefab with name {characterData.prefabName} not found in Resources/Prefabs.");
                 }
-
             }
             else
             {

@@ -31,7 +31,7 @@ public class CharacterSpawner : MonoBehaviour
                 Transform spawnPoint = null;
                 if(characterData.shipType == "BB" || characterData.shipType == "CV")
                 {
-                    if(mainFleetSpawnIndex < mainFleetSpawnPoints.Length/*mainFleetSpawnIndex < 3*/)
+                    if(mainFleetSpawnIndex < mainFleetSpawnPoints.Length)
                     {
                         spawnPoint = mainFleetSpawnPoints[mainFleetSpawnIndex];
                         mainFleetSpawnIndex++;
@@ -39,7 +39,7 @@ public class CharacterSpawner : MonoBehaviour
                 }
                 else if(characterData.shipType == "DD" || characterData.shipType == "CLCA")
                 {
-                    if(vanguardFleetSpawnIndex < vanguardFleetSpawnPoints.Length/*vanguardFleetSpawnIndex < 6*/)
+                    if(vanguardFleetSpawnIndex < vanguardFleetSpawnPoints.Length)
                     {
                         spawnPoint = vanguardFleetSpawnPoints[vanguardFleetSpawnIndex];
                         vanguardFleetSpawnIndex++;
@@ -49,22 +49,6 @@ public class CharacterSpawner : MonoBehaviour
                 // 캐릭터 프리팹을 생성하고 배치하기
                 if(spawnPoint != null)
                 {
-                    //GameObject characterPrefab = characterPrefabs[characterIndex];
-                    //GameObject characterObject = Instantiate(characterPrefab, spawnPoint.position, spawnPoint.rotation);
-                    //characterObject.name = characterData.name;
-                    //
-                    //BattleAI battleAI = characterObject.GetComponent<BattleAI>();
-                    //if (battleAI != null)
-                    //{
-                    //    battleAI.InitializeCharacterStats(characterData.stats);
-                    //}
-                    //
-                    //TeamManager teamManager = characterObject.GetComponent<TeamManager>();
-                    //if(teamManager != null)
-                    //{
-                    //    teamManager.team = TeamManager.Team.Ally;
-                    //}
-
                     // 프리팹 이름을 통해 프리팹을 로드
                     GameObject characterPrefab = Resources.Load<GameObject>($"Prefabs_Character/{characterData.prefabName}");
 
@@ -79,11 +63,13 @@ public class CharacterSpawner : MonoBehaviour
                             battleAI.InitializeCharacterStats(characterData.stats);
                         }
 
+                        // TeamManager 설정
                         TeamManager teamManager = characterObject.GetComponent<TeamManager>();
-                        if (teamManager != null)
+                        if (teamManager == null)
                         {
-                            teamManager.team = TeamManager.Team.Ally;
+                            teamManager = characterObject.AddComponent<TeamManager>(); // TeamManager 컴포넌트가 없을 경우 추가
                         }
+                        teamManager.team = TeamManager.Team.Ally;
                     }
                     else
                     {

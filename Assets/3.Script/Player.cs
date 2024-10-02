@@ -22,15 +22,19 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Player Awake called");
+        //Debug.Log("Player Awake called");
 
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            GearDataLoader.LoadAllGears(); // 모든 장비 데이터 로드
+
             LoadPlayerData();   // 게임 시작 시 저장된 데이터를 불러움
             InitializePlayerData(); // 캐릭터 배치 버튼 배열 초기화
-            Debug.Log("Player Initialized and Data Loaded");
+
+            Debug.Log($"Gears count in Player after loading: {gears.Count}");
         }
         else
         {
@@ -92,6 +96,13 @@ public class Player : MonoBehaviour
             //isFormationUIActive = playerData.isFormationUIActive;
 
             Debug.Log("Player data loaded from file: " + json);
+
+            Debug.Log($"Loaded gears count: {gears.Count}");
+            foreach (var gear in gears)
+            {
+                Debug.Log($"Loaded gear: {gear.name}, Type: {gear.gearType}");
+            }
+
             if (finalCharacterStats != null)
             {
                 Debug.Log($"Loaded final stats: HP = {finalCharacterStats.HP}, FP = {finalCharacterStats.FP}, SPD = {finalCharacterStats.SPD}");

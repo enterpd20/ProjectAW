@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5764922499783469868}
   - component: {fileID: 5764922499783469867}
   - component: {fileID: 5764922499783469866}
+  - component: {fileID: -1944640858999987656}
   m_Layer: 0
-  m_Name: CharaPrefab_ArkRoyalMETA
+  m_Name: 1CharaPrefab_ArkRoyalMETA
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,3 +121,20 @@ MonoBehaviour:
   _animationName: 
   loop: 1
   timeScale: 1
+--- !u!114 &-1944640858999987656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764922499783469865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e69c382a2a3073479076be189128940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retreatHealthThreshold: 30
+  characterSight: {fileID: 4805175976724728620, guid: b139df643758b1048b2bf8da3e6c631f, type: 3}
+  min_EngageRange: {fileID: 4805175978199523889, guid: b139df643758b1048b2bf8da3e6c631f, type: 3}
+  MAX_EngageRange: {fileID: 4805175976700502840, guid: b139df643758b1048b2bf8da3e6c631f, type: 3}
+  mapObject: {fileID: 0}
