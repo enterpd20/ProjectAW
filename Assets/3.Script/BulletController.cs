@@ -24,7 +24,20 @@ public class BulletController : MonoBehaviour
     private Rigidbody rb;
     private TeamManager teamManager;
 
-    public void InitializeBullet(Gear gear, BulletType type, TeamManager ownerTeamManager, Transform targetTransform)
+    private Vector3 mapMinBounds;
+    private Vector3 mapMaxBounds;
+
+    private void Update()
+    {
+        // 총알이 맵 경계를 벗어났는지 체크
+        if (transform.position.x < mapMinBounds.x || transform.position.x > mapMaxBounds.x ||
+            transform.position.z < mapMinBounds.z || transform.position.z > mapMaxBounds.z)
+        {
+            DeactivateBullet();
+        }
+    }
+
+    public void InitializeBullet(Gear gear, BulletType type, TeamManager ownerTeamManager, Transform targetTransform, Vector3 minBounds, Vector3 maxBounds)
     {
         if (gear != null)
         {
@@ -43,61 +56,22 @@ public class BulletController : MonoBehaviour
         bulletType = type;
         bulletSpeed = BulletSpeed(bulletType);
         Debug.Log($"Bullet Type: {bulletType}, Speed: {bulletSpeed}");
-        //rb.isKinematic = true;
     
         // 타겟 방향 설정
         if (targetTransform != null)
         {
             Vector3 direction = (targetTransform.position - transform.position).normalized;
+
+            // 회전 설정: 포탄이 날아가는 방향으로 회전
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+
             rb.velocity = direction * bulletSpeed;
         }
+
+        // 맵 경계 설정
+        mapMinBounds = minBounds;
+        mapMaxBounds = maxBounds;
     }
-
-    private float BulletSpeed(BulletType type)  // 포탄이 날아가는 속도
-    {
-        switch (type)
-        {
-            case BulletType.DD_Gun:      return 50f;
-            case BulletType.CLCA_Gun:    return 40f;
-            case BulletType.CLCA_SubGun: return 50f;
-            case BulletType.BB_Gun:      return 35f;
-            case BulletType.BB_SubGun:   return 50f;
-            case BulletType.Torpedo:     return 40f;
-            case BulletType.Bomb:        return 50f;
-            default:                     return 1f;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // 충돌한 오브젝트의 TeamManager 컴포넌트를 가져옴
-        TeamManager targetTeamManager = other.GetComponent<TeamManager>();
-
-        if (targetTeamManager != null)
-        {
-            if ((teamManager.team == TeamManager.Team.Ally && targetTeamManager.team == TeamManager.Team.Enemy) ||
-                (teamManager.team == TeamManager.Team.Enemy && targetTeamManager.team == TeamManager.Team.Ally))
-            {
-                // 적에게 데미지를 주는 로직
-                BattleAI enemyAI = other.GetComponent<BattleAI>();
-                if (enemyAI != null)
-                {
-                    enemyAI.TakeDamage(Damage);
-                }
-
-                // 총알을 비활성화
-                gameObject.SetActive(false);
-            }
-        }
-
-        // 물리적 상호작용 차단
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-    }
-
     public static BulletType DetermineBulletType(Gear gear)
     {
         switch (gear.gearType)
@@ -120,5 +94,52 @@ public class BulletController : MonoBehaviour
                 Debug.LogWarning($"Unknown gear type: {gear.gearType}");
                 return BulletType.DD_Gun;
         }
+    }
+
+    private float BulletSpeed(BulletType type)  // 포탄이 날아가는 속도
+    {
+        switch (type)
+        {
+            case BulletType.DD_Gun:      return 30f;
+            case BulletType.CLCA_Gun:    return 30f;
+            case BulletType.CLCA_SubGun: return 30f;
+            case BulletType.BB_Gun:      return 25f;
+            case BulletType.BB_SubGun:   return 30f;
+            case BulletType.Torpedo:     return 30f;
+            case BulletType.Bomb:        return 50f;
+            default:                     return 1f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        // 충돌한 오브젝트의 TeamManager 컴포넌트를 가져옴
+        TeamManager targetTeamManager = collision.GetComponent<TeamManager>();
+
+        if (targetTeamManager != null)
+        {
+            if ((teamManager.team == TeamManager.Team.Ally && targetTeamManager.team == TeamManager.Team.Enemy) ||
+                (teamManager.team == TeamManager.Team.Enemy && targetTeamManager.team == TeamManager.Team.Ally))
+            {
+                // 데미지를 주는 로직
+                BattleAI enemyAI = collision.GetComponent<BattleAI>();
+                if (enemyAI != null)
+                {
+                    enemyAI.TakeDamage(Damage);
+                    DeactivateBullet();
+                }                
+            }
+        }
+
+    }
+
+    private void DeactivateBullet()
+    {
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        gameObject.SetActive(false); // 총알을 비활성화
     }
 }

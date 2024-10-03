@@ -67,14 +67,14 @@ public static class GearDataLoader
             LoadAllGears();
         }
 
-        Debug.Log($"Attempting to find gear: {gearName}");
+        //Debug.Log($"Attempting to find gear: {gearName}");
 
         //Gear findGear = allGears.Find(gear => gear.name.Equals(gearName, System.StringComparison.OrdinalIgnoreCase));        
         Gear findGear = gears.Find(gear => gear.name.Equals(gearName, System.StringComparison.OrdinalIgnoreCase));
 
         if (findGear != null)
         {
-            Debug.Log($"Found gear: {findGear.name}");
+            //Debug.Log($"Found gear: {findGear.name}");
         }
         else
         {
