@@ -8,9 +8,15 @@ public class CharacterSpawner : MonoBehaviour
     public Transform[] mainFleetSpawnPoints;      // BB, CV용 스폰 지점 배열
     public Transform[] vanguardFleetSpawnPoints;  // DD, CLCA용 스폰 지점 배열
 
+    public delegate void OnSpawnComplete();
+    public static event OnSpawnComplete SpawnComplete; // 스폰 완료 이벤트
+
     private void Start()
     {
         SpawnCharacters();
+
+        // 캐릭터 스폰이 완료되었음을 알림
+        SpawnComplete?.Invoke();
     }
 
     private void SpawnCharacters()

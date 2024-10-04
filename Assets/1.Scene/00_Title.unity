@@ -417,9 +417,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -698,9 +698,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a60413a721c124db40a870f07bc9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCharacter: []
   ownedCharacter: []
   gears: []
   selectedCharacterIndex: -1
+  selectedCharacterIndices: 000000000000000000000000000000000000000000000000
+  finalCharacterStats:
+    HP: 0
+    FP: 0
+    TRP: 0
+    AVI: 0
+    AA: 0
+    SPD: 0
 --- !u!1 &1747028785
 GameObject:
   m_ObjectHideFlags: 0

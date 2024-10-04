@@ -6,9 +6,15 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] enemy_mainFleetSpawnPoints;      // BB, CV용 스폰 지점 배열
     public Transform[] enemy_vanguardFleetSpawnPoints;  // DD, CLCA용 스폰 지점 배열
 
+    public delegate void OnEnemySpawnComplete();
+    public static event OnEnemySpawnComplete EnemySpawnComplete; // 적군 스폰 완료 이벤트
+
     private void Start()
     {
         SpawnEnemies();
+
+        // 적군 스폰이 완료되었음을 알림
+        EnemySpawnComplete?.Invoke();
     }
 
     private void SpawnEnemies()

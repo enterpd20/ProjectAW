@@ -22,7 +22,7 @@ public class BattleAI : MonoBehaviour
     private State currentState = State.Patrol;   // 초기 상태는 대기 상태로 설정
 
     private Transform target;                    // 타겟(적) 위치
-    public float retreatHealthThreshold = 30f;  // 후퇴할 체력 임계값
+    //public float retreatHealthThreshold = 30f;  // 후퇴할 체력 임계값
 
     public float currentHealth;    // 현재 체력 (Dock UI에서 최종 스탯을 받아올 것)
     private float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
@@ -101,6 +101,12 @@ public class BattleAI : MonoBehaviour
                 patrolMoveTimer = 0f; // 타이머 초기화
             }
         }
+
+        // 공격 재장전 타이머 감소 로직을 항상 수행
+        if (attackCooldownTimer > 0)
+        {
+            attackCooldownTimer -= Time.deltaTime;
+        }
     }
 
     // 캐릭터 스탯 불러오기
@@ -114,7 +120,7 @@ public class BattleAI : MonoBehaviour
             maxHealth = battleStats.HP;
             currentHealth = maxHealth;
             moveSpeed = battleStats.SPD * 0.3f;
-            //Debug.Log($"Character Stats: HP = {battleStats.HP}, SPD = {battleStats.SPD}");
+            Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
         }
         else
         {
@@ -140,7 +146,7 @@ public class BattleAI : MonoBehaviour
             currentState = State.Retreat;
         }
 
-        Debug.Log($"{gameObject.name} - Patrol State!");
+        //Debug.Log($"{gameObject.name} - Patrol State!");
     }
 
     void ScanEnemy()    // 시야 범위 내의 적 스캔 메서드
@@ -273,7 +279,7 @@ public class BattleAI : MonoBehaviour
             }
 
             // 일정 체력 이하일 경우, 퇴각 상태로 변경
-            if (currentHealth <= retreatHealthThreshold)
+            if (currentHealth <= maxHealth * 0.35f)
             {
                 currentState = State.Retreat;
             }
@@ -338,7 +344,7 @@ public class BattleAI : MonoBehaviour
             transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
         }
 
-        Debug.Log($"{gameObject.name} - Maintaining distance from target!");
+        //Debug.Log($"{gameObject.name} - Maintaining distance from target!");
 
         // 거리를 최대 교전 범위 내, 최소 교전 범위 밖으로 조절했는지 확인
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -375,13 +381,13 @@ public class BattleAI : MonoBehaviour
             transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
         }
 
-        Debug.Log($"{gameObject.name} - Chasing target!");
+        //Debug.Log($"{gameObject.name} - Chasing target!");
     }
 
     // 적을 공격하는 함수
     void Attack()
     {
-        Debug.Log("Attack target!");
+        //Debug.Log("Attack target!");
 
         // selectedCharacterIndices 배열에서 유효한 캐릭터 인덱스를 찾음
         int currentCharacterIndex = -1;
@@ -466,7 +472,7 @@ public class BattleAI : MonoBehaviour
             currentState = State.Patrol;
         }
 
-        Debug.Log($"{gameObject.name} - Retreat State!");
+        //Debug.Log($"{gameObject.name} - Retreat State!");
     }
 
     // 적으로부터 후퇴하는 함수
@@ -488,7 +494,7 @@ public class BattleAI : MonoBehaviour
             nextPosition.z == mapMinBounds.z || nextPosition.z == mapMaxBounds.z)
         {
             currentState = State.Patrol;
-            Debug.Log("Reached map boundary, switching to Patrol state.");
+            //Debug.Log("Reached map boundary, switching to Patrol state.");
 
             // 경계에 도달한 후 랜덤한 위치로 이동하도록 함
             RandomPositioning();
@@ -517,7 +523,7 @@ public class BattleAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{gameObject.name} - Collided with: {other.gameObject.name}");
+        //Debug.Log($"{gameObject.name} - Collided with: {other.gameObject.name}");
 
         if (other.gameObject == mapObject)
         {
@@ -537,9 +543,7 @@ public class BattleAI : MonoBehaviour
                 RandomPositioning();
             }
         }
-    }
-
-    
+    }    
 
     // 체력 감소 처리 (공격 받았을 때)
     public void TakeDamage(float damage)
