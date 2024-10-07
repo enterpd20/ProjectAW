@@ -154,7 +154,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Battle Over: Defeat");
             isBattleOver = true;
-            ShowBattleResult("Defeat (Time's Up)", Color.red);
+            ShowBattleResult("Defeat", Color.red);
             // 추가적인 패배 처리 로직
         }
         // 2. 적군 캐릭터가 모두 사망하고 아군이 살아있다면 승리
@@ -162,7 +162,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Battle Over: Victory");
             isBattleOver = true;
-            ShowBattleResult("Victory (Time's Up)", Color.yellow);
+            ShowBattleResult("Victory", Color.yellow);
             // 추가적인 승리 처리 로직
         }
         // 3. 양측 모두 살아있는 캐릭터가 없거나 같은 경우 무승부
@@ -170,7 +170,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Battle Over: Draw");
             isBattleOver = true;
-            ShowBattleResult("Draw (Time's Up)", Color.gray);
+            ShowBattleResult("Draw", Color.gray);
             // 추가적인 무승부 처리 로직
         }
         // 4. 시간이 다 되었을 경우, 그 시점에 살아있는 캐릭터 수로 결과 결정

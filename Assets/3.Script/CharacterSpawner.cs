@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    // 스폰된 아군 캐릭터들을 저장할 리스트
-    public List<Character> spawnedAlliedCharacters = new List<Character>();
 
     //public GameObject[] characterPrefabs;  // 캐릭터 프리팹 배열
     public Transform[] mainFleetSpawnPoints;      // BB, CV용 스폰 지점 배열
@@ -13,6 +11,8 @@ public class CharacterSpawner : MonoBehaviour
 
     public delegate void OnSpawnComplete();
     public static event OnSpawnComplete SpawnComplete; // 스폰 완료 이벤트
+
+    public List<Character> spawnedAllies = new List<Character>(); // 스폰된 아군 캐릭터 리스트
 
     private void Start()
     {
@@ -66,8 +66,8 @@ public class CharacterSpawner : MonoBehaviour
                         GameObject characterObject = Instantiate(characterPrefab, spawnPoint.position, spawnPoint.rotation);
                         characterObject.name = characterData.name;
 
-                        // 스폰된 캐릭터 정보를 리스트에 저장
-                        spawnedAlliedCharacters.Add(characterData);
+                        // 스폰된 아군 캐릭터 데이터 저장
+                        spawnedAllies.Add(characterData);
 
                         BattleAI battleAI = characterObject.GetComponent<BattleAI>();
                         if (battleAI != null)
@@ -95,11 +95,5 @@ public class CharacterSpawner : MonoBehaviour
                 }
             }
         }
-    }
-
-    // 스폰된 아군 캐릭터 데이터를 가져오는 메서드
-    public List<Character> GetSpawnedAlliedCharacters()
-    {
-        return spawnedAlliedCharacters;
     }
 }

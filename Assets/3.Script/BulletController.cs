@@ -37,12 +37,15 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    public void InitializeBullet(Gear gear, BulletType type, TeamManager ownerTeamManager, Transform targetTransform, Vector3 minBounds, Vector3 maxBounds)
+    public void InitializeBullet(Gear gear/*, BulletType type*/, TeamManager ownerTeamManager, Transform targetTransform, Vector3 minBounds, Vector3 maxBounds)
     {
         if (gear != null)
         {
             Damage = gear.stats.DMG;        // 장비의 공격력 그대로 받아오기
             ReloadTime = gear.stats.RLD;    // 장비의 재장전 그대로 받아오기
+
+            bulletType = DetermineBulletType(gear);
+
             //Debug.Log($"Bullet Initialized: Damage = {Damage}, ReloadTime = {ReloadTime}");
         }
         else
@@ -53,10 +56,10 @@ public class BulletController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         teamManager = ownerTeamManager;
     
-        bulletType = type;
+        //bulletType = type;
         bulletSpeed = BulletSpeed(bulletType);
-        Debug.Log($"Bullet Type: {bulletType}, Speed: {bulletSpeed}");
-    
+        Debug.Log($"Bullet Initialized: Type = {bulletType}, Damage = {Damage}, Speed = {bulletSpeed}");
+
         // 타겟 방향 설정
         if (targetTransform != null)
         {
@@ -130,7 +133,6 @@ public class BulletController : MonoBehaviour
                 }                
             }
         }
-
     }
 
     private void DeactivateBullet()
@@ -140,6 +142,7 @@ public class BulletController : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+
         gameObject.SetActive(false); // 총알을 비활성화
     }
 }

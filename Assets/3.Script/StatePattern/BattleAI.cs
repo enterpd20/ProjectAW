@@ -432,10 +432,12 @@ public class BattleAI : MonoBehaviour
         }
 
         // 총알 타입 결정
-        BulletController.BulletType bulletType = BulletController.DetermineBulletType(equippedGear);
+        //BulletController.BulletType bulletType = BulletController.DetermineBulletType(equippedGear);
 
         // 오브젝트 풀에서 총알 가져오기
-        GameObject bullet = BulletManager.Instance.GetPooledBullet(bulletType);
+        //GameObject bullet = BulletManager.Instance.GetPooledBullet(bulletType);
+        GameObject bullet = BulletManager.Instance.GetPooledBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
+
         if (bullet != null)
         {
             Vector3 bulletPosition = transform.position + transform.forward * 1f;
@@ -447,7 +449,7 @@ public class BattleAI : MonoBehaviour
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)
             {
-                bulletController.InitializeBullet(equippedGear, bulletType, teamManager, target, mapMinBounds, mapMaxBounds);
+                bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
                 attackCooldownTimer = bulletController.ReloadTime; // ReloadTime을 BulletController에서 가져옴
             }
         }
