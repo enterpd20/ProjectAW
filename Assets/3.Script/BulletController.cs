@@ -63,7 +63,7 @@ public class BulletController : MonoBehaviour
             Vector3 direction = (targetTransform.position - transform.position).normalized;
 
             // 회전 설정: 포탄이 날아가는 방향으로 회전
-            transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+            transform.rotation = Quaternion.LookRotation(direction);
 
             rb.velocity = direction * bulletSpeed;
         }
