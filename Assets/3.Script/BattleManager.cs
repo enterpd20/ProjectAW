@@ -7,11 +7,11 @@ public class BattleManager : MonoBehaviour
 {
     public float battleTimeLimit = 180f; // 전투 시간 제한 (3분)
     private float battleTimer;
+    private bool isBattleOver = false;
 
     private List<BattleAI> allyCharacters;
     private List<BattleAI> enemyCharacters;
 
-    private bool isBattleOver = false;
 
     // 전투 결과 UI
     public GameObject resultPanel;  // 결과를 표시할 패널
@@ -30,44 +30,16 @@ public class BattleManager : MonoBehaviour
 
     void Start()
     {
-        //InitializeBattle();
-
         resultPanel.transform.localScale = Vector3.zero;
 
         pausePanel.transform.localScale = Vector3.zero;
         pauseButton.onClick.AddListener(PauseGame);
         resumeButton.onClick.AddListener(ResumeGame);
 
-        // 캐릭터 스폰 후 초기화를 기다림
-        //StartCoroutine(WaitForSpawnAndInitialize());
-
         // CharacterSpawner의 스폰 완료 이벤트에 구독
         CharacterSpawner.SpawnComplete += OnCharacterSpawnComplete;
         EnemySpawner.EnemySpawnComplete += OnEnemySpawnComplete;
     }
-
-    //private IEnumerator WaitForSpawnAndInitialize()
-    //{
-    //    // 캐릭터 스폰이 완료되었는지 대기 (1초 대기 또는 원하는 조건 추가)
-    //    //yield return new WaitForSeconds(1f);
-    //
-    //    // 캐릭터가 스폰될 때까지 대기
-    //    while (FindObjectsOfType<BattleAI>().Length == 0)
-    //    {
-    //        yield return null; // 한 프레임 대기
-    //    }
-    //
-    //    // 스폰된 모든 캐릭터의 체력을 초기화
-    //    BattleAI[] allCharacters = FindObjectsOfType<BattleAI>();
-    //    foreach (BattleAI character in allCharacters)
-    //    {
-    //        // 캐릭터의 스탯을 가져와 초기화
-    //        character.InitializeCharacterStats(character.GetComponent<CharacterStats>());
-    //    }
-    //
-    //    // 스폰이 완료되었으므로 전투 초기화
-    //    InitializeBattle();
-    //}
 
     private void OnCharacterSpawnComplete()
     {
