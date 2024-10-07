@@ -43,6 +43,8 @@ public class BattleAI : MonoBehaviour
 
     private TeamManager teamManager;
 
+    private Gear equippedGear; // 추가: 캐릭터의 장착된 장비 캐싱
+
     void Start()
     {
         currentState = State.Patrol;  // 초기 상태 설정
@@ -110,6 +112,24 @@ public class BattleAI : MonoBehaviour
     }
 
     // 캐릭터 스탯 불러오기
+    //public void InitializeCharacterStats(CharacterStats stats)
+    //{
+    //    int selectedIndex = Player.Instance.selectedCharacterIndex;
+    //    if (selectedIndex >= 0 && selectedIndex < Player.Instance.ownedCharacter.Count)
+    //    {
+    //        CharacterStats battleStats = Player.Instance.ownedCharacter[selectedIndex].stats;
+    //
+    //        maxHealth = battleStats.HP;
+    //        currentHealth = maxHealth;
+    //        moveSpeed = battleStats.SPD * 0.3f;
+    //        Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Selected character index is out of range or invalid.");
+    //    }
+    //}
+
     public void InitializeCharacterStats(CharacterStats stats)
     {
         int selectedIndex = Player.Instance.selectedCharacterIndex;
@@ -121,6 +141,10 @@ public class BattleAI : MonoBehaviour
             currentHealth = maxHealth;
             moveSpeed = battleStats.SPD * 0.3f;
             Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
+
+            // 장비 정보 캐싱
+            string equippedGearName = Player.Instance.ownedCharacter[selectedIndex].eqiuppedGears[0];
+            equippedGear = GearDataLoader.GetGearByName(equippedGearName);
         }
         else
         {
@@ -385,75 +409,118 @@ public class BattleAI : MonoBehaviour
     }
 
     // 적을 공격하는 함수
+    //void Attack()
+    //{
+    //    // selectedCharacterIndices 배열에서 유효한 캐릭터 인덱스를 찾음
+    //    int currentCharacterIndex = -1;
+    //    foreach (int index in Player.Instance.selectedCharacterIndices)
+    //    {
+    //        if (index >= 0 && index < Player.Instance.ownedCharacter.Count)
+    //        {
+    //            currentCharacterIndex = index;
+    //            break;
+    //        }
+    //    }
+    //
+    //    // 유효한 캐릭터 인덱스가 없을 경우 경고 메시지 출력 후 반환
+    //    //if (currentCharacterIndex == -1)
+    //    //{
+    //    //    Debug.LogWarning("No valid character index found in selectedCharacterIndices.");
+    //    //    return;
+    //    //}
+    //
+    //    Character currentCharacter = Player.Instance.ownedCharacter[currentCharacterIndex];
+    //
+    //    // 장착된 장비 가져오기 (equippedGears 리스트의 첫 번째 장비 사용)
+    //    Gear equippedGear = null;
+    //    if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
+    //    {
+    //        string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
+    //        //Debug.Log($"Equipped gear name: {equippedGearName}");
+    //
+    //        // GearDataLoader를 통해 장비 찾기
+    //        equippedGear = GearDataLoader.GetGearByName(equippedGearName);
+    //
+    //        if (equippedGear == null)
+    //        {
+    //            Debug.LogWarning($"No gear found with the name: {equippedGearName}");
+    //            return;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("No equipped gears found for this character.");
+    //        return;
+    //    }
+    //
+    //    // 총알 타입 결정
+    //    //BulletController.BulletType bulletType = BulletController.DetermineBulletType(equippedGear);
+    //
+    //    // 오브젝트 풀에서 총알 가져오기
+    //    //GameObject bullet = BulletManager.Instance.GetPooledBullet(bulletType);
+    //    GameObject bullet = BulletManager.Instance.GetPooledBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
+    //
+    //    if (bullet != null)
+    //    {
+    //        Vector3 bulletPosition = transform.position + transform.forward * 1f;
+    //        bulletPosition.y = 1.3f; // 원하는 y축 높이로 고정
+    //        bullet.transform.position = bulletPosition; // 발사 위치 설정
+    //        bullet.SetActive(true);
+    //
+    //        // 총알 초기화
+    //        BulletController bulletController = bullet.GetComponent<BulletController>();
+    //        if (bulletController != null)
+    //        {
+    //            bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
+    //            attackCooldownTimer = bulletController.ReloadTime; // ReloadTime을 BulletController에서 가져옴
+    //        }
+    //    }
+    //}
+
     void Attack()
     {
-        //Debug.Log("Attack target!");
-
-        // selectedCharacterIndices 배열에서 유효한 캐릭터 인덱스를 찾음
-        int currentCharacterIndex = -1;
-        foreach (int index in Player.Instance.selectedCharacterIndices)
-        {
-            if (index >= 0 && index < Player.Instance.ownedCharacter.Count)
-            {
-                currentCharacterIndex = index;
-                break;
-            }
-        }
-
-        // 유효한 캐릭터 인덱스가 없을 경우 경고 메시지 출력 후 반환
-        //if (currentCharacterIndex == -1)
-        //{
-        //    Debug.LogWarning("No valid character index found in selectedCharacterIndices.");
-        //    return;
-        //}
-
-        Character currentCharacter = Player.Instance.ownedCharacter[currentCharacterIndex];
-
-        // 장착된 장비 가져오기 (equippedGears 리스트의 첫 번째 장비 사용)
+        // 현재 캐릭터의 장착된 장비 가져오기
         Gear equippedGear = null;
-        if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
+        if (teamManager != null && teamManager.team == TeamManager.Team.Ally) // 아군의 경우만
         {
-            string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
-            //Debug.Log($"Equipped gear name: {equippedGearName}");
-
-            // GearDataLoader를 통해 장비 찾기
-            equippedGear = GearDataLoader.GetGearByName(equippedGearName);
-
-            if (equippedGear == null)
+            // BattleAI에 적용된 캐릭터의 장비를 가져옴
+            int characterIndex = Player.Instance.ownedCharacter.FindIndex(character => character.name == this.gameObject.name);
+            if (characterIndex >= 0)
             {
-                Debug.LogWarning($"No gear found with the name: {equippedGearName}");
-                return;
+                Character currentCharacter = Player.Instance.ownedCharacter[characterIndex];
+                if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
+                {
+                    string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
+                    equippedGear = GearDataLoader.GetGearByName(equippedGearName);
+                }
             }
         }
-        else
+
+        if (equippedGear == null)
         {
-            Debug.LogWarning("No equipped gears found for this character.");
+            Debug.LogWarning($"No valid gear found for character: {gameObject.name}");
             return;
         }
 
-        // 총알 타입 결정
-        //BulletController.BulletType bulletType = BulletController.DetermineBulletType(equippedGear);
-
-        // 오브젝트 풀에서 총알 가져오기
-        //GameObject bullet = BulletManager.Instance.GetPooledBullet(bulletType);
+        // 총알 생성
         GameObject bullet = BulletManager.Instance.GetPooledBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
-
         if (bullet != null)
         {
             Vector3 bulletPosition = transform.position + transform.forward * 1f;
-            bulletPosition.y = 1.3f; // 원하는 y축 높이로 고정
-            bullet.transform.position = bulletPosition; // 발사 위치 설정
+            bulletPosition.y = 1.3f;
+            bullet.transform.position = bulletPosition;
             bullet.SetActive(true);
 
-            // 총알 초기화
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)
             {
                 bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
-                attackCooldownTimer = bulletController.ReloadTime; // ReloadTime을 BulletController에서 가져옴
+                attackCooldownTimer = bulletController.ReloadTime;
             }
         }
     }
+
+
 
     // 후퇴 상태 처리
     void HandleRetreatState()
