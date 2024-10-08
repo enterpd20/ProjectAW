@@ -13,6 +13,7 @@ public class CharacterSpawner : MonoBehaviour
     public static event OnSpawnComplete SpawnComplete; // 스폰 완료 이벤트
 
     public List<Character> spawnedAllies = new List<Character>(); // 스폰된 아군 캐릭터 리스트
+    public List<GameObject> spawnedAllyObjects = new List<GameObject>(); // 스폰된 아군 캐릭터 '오브젝트' 리스트
 
     private void Start()
     {
@@ -68,6 +69,7 @@ public class CharacterSpawner : MonoBehaviour
 
                         // 스폰된 아군 캐릭터 데이터 저장
                         spawnedAllies.Add(characterData);
+                        spawnedAllyObjects.Add(characterObject); // 캐릭터 오브젝트 저장
 
                         BattleAI battleAI = characterObject.GetComponent<BattleAI>();
                         if (battleAI != null)

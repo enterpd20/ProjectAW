@@ -29,6 +29,9 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
+        // 포탄의 현재 회전 각도 디버그 로그
+        //Debug.Log($"Update - Bullet Rotation: {transform.rotation.eulerAngles}");
+
         // 총알이 맵 경계를 벗어났는지 체크
         if (transform.position.x < mapMinBounds.x || transform.position.x > mapMaxBounds.x ||
             transform.position.z < mapMinBounds.z || transform.position.z > mapMaxBounds.z)
@@ -58,7 +61,7 @@ public class BulletController : MonoBehaviour
     
         //bulletType = type;
         bulletSpeed = BulletSpeed(bulletType);
-        Debug.Log($"Bullet Initialized: Type = {bulletType}, Damage = {Damage}, Speed = {bulletSpeed}");
+        //Debug.Log($"Bullet Initialized: Type = {bulletType}, Damage = {Damage}, Speed = {bulletSpeed}");
 
         // 타겟 방향 설정
         if (targetTransform != null)
@@ -68,9 +71,17 @@ public class BulletController : MonoBehaviour
             // 회전 설정: 포탄이 날아가는 방향으로 회전
             //transform.rotation = Quaternion.LookRotation(direction);
 
-            // 포탄이 날아가는 방향에 따라 회전하도록 설정
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle)); // Z축 회전을 적용
+            // 포탄의 스프라이트만 회전하도록 설정
+            SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                spriteRenderer.transform.rotation = Quaternion.Euler(57, angle - 90f, 0); // Z축 회전만 적용
+
+                // InitializeBullet 메서드에서 회전 각도 디버그 로그
+                //Debug.Log($"InitializeBullet - Set Bullet Rotation: {spriteRenderer.transform.rotation.eulerAngles}");
+            }
+
 
             rb.velocity = direction * bulletSpeed;
         }

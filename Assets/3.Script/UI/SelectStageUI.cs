@@ -27,7 +27,7 @@ public class SelectStageUI : MonoBehaviour
         }
 
         //Player.Instance.InitializeIndices(characterSelectButton.Length);
-        Debug.Log("selectedCharacterIndices Length: " + Player.Instance.selectedCharacterIndices.Length);
+        //Debug.Log("selectedCharacterIndices Length: " + Player.Instance.selectedCharacterIndices.Length);
 
         UpdateAllCharacterSelections();
         characterFormationUI.SetActive(true);   // 캐릭터 편성 UI를 활성화하여 보이게 설정
@@ -85,7 +85,7 @@ public class SelectStageUI : MonoBehaviour
     public void SetSelectedCharacter(Character character)
     {
         int characterIndex = Player.Instance.ownedCharacter.IndexOf(character);
-        Debug.Log($"Character index for {character.name}: {characterIndex}");
+        //Debug.Log($"Character index for {character.name}: {characterIndex}");
 
         if (characterIndex != -1 && currentSelectedButtonIndex != -1)
         {
@@ -142,7 +142,7 @@ public class SelectStageUI : MonoBehaviour
     public void SelectButton(int buttonIndex)   // 버튼 오브젝트의 인스펙터에서 OnClick에 할당할 메서드
     {
         currentSelectedButtonIndex = buttonIndex;
-        Debug.Log($"Selected button index: {currentSelectedButtonIndex}");
+        //Debug.Log($"Selected button index: {currentSelectedButtonIndex}");
         Open_CharacterSelectUI();
 
         // 캐릭터 목록을 필터링하여 UI 업데이트

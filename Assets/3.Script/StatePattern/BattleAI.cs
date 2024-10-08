@@ -1,13 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-/*
-캐릭터가 가져야하는 스탯
-체력 - 여기서 씀
-이동속도 - 여기서 씀
-공격력 - BulletControl에서 장비 데이터 받아와서 씀
-재장전 - BulletControl에서 장비 데이터 받아와서 씀
-*/
 
 public class BattleAI : MonoBehaviour
 {
@@ -22,11 +15,12 @@ public class BattleAI : MonoBehaviour
     private State currentState = State.Patrol;   // 초기 상태는 대기 상태로 설정
 
     private Transform target;                    // 타겟(적) 위치
-    //public float retreatHealthThreshold = 30f;  // 후퇴할 체력 임계값
 
+    private float attackCooldownTimer = 0f;
+    private int damageIgnoreChance = 0;
+    public float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
     public float currentHealth;    // 현재 체력 (Dock UI에서 최종 스탯을 받아올 것)
-    private float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
-    private float moveSpeed;        // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)
+    public float moveSpeed;        // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)    
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
     public SphereCollider characterSight, min_EngageRange, MAX_EngageRange;
@@ -35,15 +29,13 @@ public class BattleAI : MonoBehaviour
     private float patrolMoveTimer = 0f;
     private bool isMoving = false;
 
-    private float attackCooldownTimer = 0f;
-
     public GameObject mapObject;
     private Vector3 mapMinBounds;
     private Vector3 mapMaxBounds;
 
     private TeamManager teamManager;
 
-    private Gear equippedGear; // 추가: 캐릭터의 장착된 장비 캐싱
+    private Gear equippedGear; // 캐릭터에 장착된 장비 캐싱
 
     void Start()
     {
@@ -56,7 +48,7 @@ public class BattleAI : MonoBehaviour
             Renderer mapRenderer = mapObject.GetComponent<Renderer>();
             if (mapRenderer != null)
             {
-                float offset = 0.5f;
+                float offset = 5f;
                 mapMinBounds = mapRenderer.bounds.min + new Vector3(offset, 0, offset);
                 mapMaxBounds = mapRenderer.bounds.max - new Vector3(offset, 0, offset);
             }
@@ -140,7 +132,7 @@ public class BattleAI : MonoBehaviour
             maxHealth = battleStats.HP;
             currentHealth = maxHealth;
             moveSpeed = battleStats.SPD * 0.3f;
-            Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
+            //Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
 
             // 장비 정보 캐싱
             string equippedGearName = Player.Instance.ownedCharacter[selectedIndex].eqiuppedGears[0];
@@ -592,7 +584,7 @@ public class BattleAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log($"{gameObject.name} - Collided with: {other.gameObject.name}");
+        //Debug.Log($"{gameObject.name} collided with: {other.gameObject.name}"); // 충돌 디버그
 
         if (other.gameObject == mapObject)
         {
@@ -612,20 +604,35 @@ public class BattleAI : MonoBehaviour
                 RandomPositioning();
             }
         }
-    }    
+    }
+
+    public void DamageIgnore(int chance)
+    {
+        // damageIgnoreChance 변수는 BattleAI 클래스의 멤버 변수로 선언되어 있어야 합니다.
+        damageIgnoreChance = Mathf.Clamp(chance, 0, 100);
+    }
 
     // 체력 감소 처리 (공격 받았을 때)
     public void TakeDamage(float damage)
     {
+        // 30% 확률로 대미지를 무시하는 로직
+        if (Random.Range(0, 100) < damageIgnoreChance)
+        {
+            Debug.Log($"{gameObject.name}이(가) 대미지를 무시했습니다!");
+            return;
+        }
+
         currentHealth -= damage;
+        //Debug.Log($"{gameObject.name} current health: {currentHealth}");
+
         if (currentHealth <= 0)
         {
-            OnDeath(); // 사망 처리
+            OnDie(); // 사망 처리
         }
     }
 
     // 캐릭터 사망 처리
-    private void OnDeath()
+    private void OnDie()
     {
         Debug.Log($"{gameObject.name} has died.");
         gameObject.SetActive(false); // 캐릭터 비활성화 (사망)

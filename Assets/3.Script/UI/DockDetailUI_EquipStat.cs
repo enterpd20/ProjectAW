@@ -7,6 +7,7 @@ public class DockDetailUI_EquipStat : MonoBehaviour
 {    
     [SerializeField] private StatBG[] statBGs;      // UI_StatBG 0~3 배열로 할당
     [SerializeField] private Text equipNameText;    // 장비의 이름을 받아와 스탯을 찾고 배정
+    //[SerializeField] private GameObject depotGearButton;
 
     [System.Serializable]
     public class StatBG

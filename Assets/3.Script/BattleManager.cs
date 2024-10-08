@@ -12,6 +12,8 @@ public class BattleManager : MonoBehaviour
     private List<BattleAI> allyCharacters;
     private List<BattleAI> enemyCharacters;
 
+    // 전투 시간 타이머 UI
+    public Text battleTimerText;
 
     // 전투 결과 UI
     public GameObject resultPanel;  // 결과를 표시할 패널
@@ -64,6 +66,12 @@ public class BattleManager : MonoBehaviour
 
         // 타이머 감소
         battleTimer -= Time.unscaledDeltaTime;
+
+        // 타이머 UI 업데이트
+        int minutes = Mathf.FloorToInt(battleTimer / 60f);
+        int seconds = Mathf.FloorToInt(battleTimer % 60f);
+        battleTimerText.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
+
         if (battleTimer <= 0)
         {
             CheckBattleResult();
@@ -103,17 +111,17 @@ public class BattleManager : MonoBehaviour
         }
 
         // 디버그 로그 추가: 스폰된 아군/적군 캐릭터 수 및 이름 확인
-        Debug.Log($"[InitializeBattle] 스폰된 아군 캐릭터 수: {allyCharacters.Count}");
-        foreach (BattleAI ally in allyCharacters)
-        {
-            Debug.Log($"[InitializeBattle] 아군 캐릭터: {ally.gameObject.name}");
-        }
-
-        Debug.Log($"[InitializeBattle] 스폰된 적군 캐릭터 수: {enemyCharacters.Count}");
-        foreach (BattleAI enemy in enemyCharacters)
-        {
-            Debug.Log($"[InitializeBattle] 적군 캐릭터: {enemy.gameObject.name}");
-        }
+        //Debug.Log($"[InitializeBattle] 스폰된 아군 캐릭터 수: {allyCharacters.Count}");
+        //foreach (BattleAI ally in allyCharacters)
+        //{
+        //    Debug.Log($"[InitializeBattle] 아군 캐릭터: {ally.gameObject.name}");
+        //}
+        //
+        //Debug.Log($"[InitializeBattle] 스폰된 적군 캐릭터 수: {enemyCharacters.Count}");
+        //foreach (BattleAI enemy in enemyCharacters)
+        //{
+        //    Debug.Log($"[InitializeBattle] 적군 캐릭터: {enemy.gameObject.name}");
+        //}
     }
 
     private void ResetBattleTimer()
@@ -147,7 +155,7 @@ public class BattleManager : MonoBehaviour
         }
 
         // 디버그 로그: 현재 살아있는 아군/적군의 수를 출력
-        Debug.Log($"[CheckBattleResult] 살아있는 아군 수: {aliveAllies}, 살아있는 적군 수: {aliveEnemies}");
+        //Debug.Log($"[CheckBattleResult] 살아있는 아군 수: {aliveAllies}, 살아있는 적군 수: {aliveEnemies}");
 
         // 1. 아군 캐릭터가 모두 사망하고 적군이 살아있다면 패배
         if (aliveAllies == 0 && aliveEnemies > 0)
@@ -166,7 +174,7 @@ public class BattleManager : MonoBehaviour
             // 추가적인 승리 처리 로직
         }
         // 3. 양측 모두 살아있는 캐릭터가 없거나 같은 경우 무승부
-        else if ((aliveAllies == 0 && aliveEnemies == 0) || aliveAllies == aliveEnemies)
+        else if ((aliveAllies == 0 && aliveEnemies == 0) /*|| aliveAllies == aliveEnemies*/)
         {
             Debug.Log("Battle Over: Draw");
             isBattleOver = true;

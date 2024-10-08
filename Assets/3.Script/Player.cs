@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
             LoadPlayerData();   // 게임 시작 시 저장된 데이터를 불러움
             InitializePlayerData(); // 캐릭터 배치 버튼 배열 초기화
 
-            Debug.Log($"Gears count in Player after loading: {gears.Count}");
+            //Debug.Log($"Gears count in Player after loading: {gears.Count}");
         }
         else
         {
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
             selectedCharacterIndices[i] = -1;
         }
 
-        Debug.Log("selectedCharacterIndices initialized with length: " + selectedCharacterIndices.Length);
+        //Debug.Log("selectedCharacterIndices initialized with length: " + selectedCharacterIndices.Length);
     }
 
     public void LoadPlayerData()
@@ -95,17 +95,17 @@ public class Player : MonoBehaviour
             //returnToScene = playerData.returnToScene;
             //isFormationUIActive = playerData.isFormationUIActive;
 
-            Debug.Log("Player data loaded from file: " + json);
+            //Debug.Log("Player data loaded from file: " + json);
 
-            Debug.Log($"Loaded gears count: {gears.Count}");
+            //Debug.Log($"Loaded gears count: {gears.Count}");
             foreach (var gear in gears)
             {
-                Debug.Log($"Loaded gear: {gear.name}, Type: {gear.gearType}");
+                //Debug.Log($"Loaded gear: {gear.name}, Type: {gear.gearType}");
             }
 
             if (finalCharacterStats != null)
             {
-                Debug.Log($"Loaded final stats: HP = {finalCharacterStats.HP}, FP = {finalCharacterStats.FP}, SPD = {finalCharacterStats.SPD}");
+                //Debug.Log($"Loaded final stats: HP = {finalCharacterStats.HP}, FP = {finalCharacterStats.FP}, SPD = {finalCharacterStats.SPD}");
             }
             else
             {

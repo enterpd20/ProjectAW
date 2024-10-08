@@ -39,9 +39,9 @@ public static class GearDataLoader
                 GearList gearList = JsonUtility.FromJson<GearList>(jsonContent);
                 gears.AddRange(gearList.gears);
 
-                Debug.Log($"Loading file from path: {filePath}");
-                Debug.Log($"Loaded JSON content from {file}: {jsonContent}");   // JSON 내용을 출력
-                Debug.Log($"Successfully loaded gears from {file}");
+                //Debug.Log($"Loading file from path: {filePath}");
+                //Debug.Log($"Loaded JSON content from {file}: {jsonContent}");   // JSON 내용을 출력
+                //Debug.Log($"Successfully loaded gears from {file}");
             }
             else
             {
@@ -50,7 +50,7 @@ public static class GearDataLoader
         }
 
         // 로드된 장비 개수 출력
-        Debug.Log($"Total gears loaded: {gears.Count}");
+        //Debug.Log($"Total gears loaded: {gears.Count}");
 
         //return allGears;
     }
