@@ -217,7 +217,8 @@ public class SelectStageUI : MonoBehaviour
     {
         if (IsAnyCharacterAssigned())
         {
-            SceneManager.LoadScene("04_Battle");
+            // 로딩 씬으로 전환 후, 로딩 완료되면 04_Battle 씬을 로드
+            LoadingSceneController.LoadScene("04_Battle");
         }
         else
         {

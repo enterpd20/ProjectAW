@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 43c1b8b8e7b011648a713ab5cb83775d
+guid: 91538ec9fdd5be14a8b3ae8e5db7e419
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1144187371117575822
-    second: Button_Setting
-  - first:
-      213: 7851478794100723490
-    second: UI_Loading
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -119,53 +113,11 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Button_Setting
-      rect:
-        serializedVersion: 2
-        x: 761
-        y: 8
-        width: 54
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8e73f31a58f0ef00800000000000000
-      internalID: 1144187371117575822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Loading
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 321
-        width: 225
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22fc2e34d5e06fc60800000000000000
-      internalID: 7851478794100723490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 28ddd9c50ad77234fb959398da332437
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

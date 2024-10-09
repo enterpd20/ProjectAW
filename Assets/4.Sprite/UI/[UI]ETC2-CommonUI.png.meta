@@ -38,6 +38,9 @@ TextureImporter:
   - first:
       213: -2461937877645649683
     second: UI_IndexSelected
+  - first:
+      213: 1909900317599615283
+    second: Button_ScrollBarHorizontal
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -390,7 +393,7 @@ TextureImporter:
         width: 263
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -398,6 +401,27 @@ TextureImporter:
       bones: []
       spriteID: de81adf4b8075ddd0800000000000000
       internalID: -2461937877645649683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_ScrollBarHorizontal
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1192
+        width: 50
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 0, z: 6, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3394ee24834518a10800000000000000
+      internalID: 1909900317599615283
       vertices: []
       indices: 
       edges: []
