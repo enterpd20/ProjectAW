@@ -8,9 +8,10 @@ public class CharacterGacha : MonoBehaviour
 {
     public GameObject characterButtonPrefab; // 캐릭터 버튼 프리팹
     public Transform GridLayoutParent; // Grid Layout Group의 부모 오브젝트
-    public Button buildUIButton; // Build UI 버튼
     public GameObject resultPanel; // 뽑기 결과 패널
     public Button closeResultButton; // 결과 패널 닫기 버튼
+    public Button buildUIButton; // Build UI 버튼
+    public GameObject scrapUI;
 
     private List<Character> allCharacters; // 모든 캐릭터 데이터
 
@@ -124,5 +125,15 @@ public class CharacterGacha : MonoBehaviour
     void HideResultPanel()
     {
         resultPanel.transform.localScale = Vector3.zero; // 패널 숨기기
+    }
+
+    public void ShowScrapUIPanel()
+    {
+        scrapUI.transform.localScale = Vector3.one;
+    }
+
+    public void HideScrapUIPanel()
+    {
+        scrapUI.transform.localScale = Vector3.zero;
     }
 }

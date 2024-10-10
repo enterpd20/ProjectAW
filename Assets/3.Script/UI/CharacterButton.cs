@@ -75,5 +75,24 @@ public class CharacterButton : MonoBehaviour
                 selectStageUI.Close_CharacterSelectUI();
             }
         }
+        else if (currentScene == "02_Build")
+        {
+            if (Player.Instance.ownedCharacter.Contains(characterData))
+            {
+                Player.Instance.ownedCharacter.Remove(characterData); // 캐릭터 제거
+                Player.Instance.SavePlayerData(); // 변경된 데이터 저장
+                Debug.Log($"{characterData.name}이(가) ownedCharacter에서 제거되었습니다.");
+
+                // 버튼 비활성화 혹은 UI 업데이트
+                //gameObject.SetActive(false); // 버튼을 비활성화하여 더 이상 선택되지 않도록 함
+
+                // 캐릭터 버튼을 완전히 삭제 (비활성화가 아닌 삭제)
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.LogWarning($"{characterData.name}이(가) ownedCharacter 리스트에 없습니다.");
+            }
+        }
     }
 }
