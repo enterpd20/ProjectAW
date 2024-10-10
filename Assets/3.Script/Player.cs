@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }        
+        }
     }
 
     public void SavePlayerData()
@@ -64,12 +63,12 @@ public class Player : MonoBehaviour
     public void InitializePlayerData()
     {
         // 배열이 초기화되지 않았을 경우 -1로 초기화
-        if(selectedCharacterIndices == null || selectedCharacterIndices.Length != -6)
+        if (selectedCharacterIndices == null || selectedCharacterIndices.Length != -6)
         {
             selectedCharacterIndices = new int[6];
         }
 
-        for(int i = 0; i < selectedCharacterIndices.Length; i++)
+        for (int i = 0; i < selectedCharacterIndices.Length; i++)
         {
             selectedCharacterIndices[i] = -1;
         }
@@ -92,8 +91,6 @@ public class Player : MonoBehaviour
             selectedCharacterIndex = playerData.selectedCharacterIndex;
             selectedCharacterIndices = playerData.selectedCharacterIndices;
             finalCharacterStats = playerData.finalCharacterStats;
-            //returnToScene = playerData.returnToScene;
-            //isFormationUIActive = playerData.isFormationUIActive;
 
             //Debug.Log("Player data loaded from file: " + json);
 
@@ -116,7 +113,57 @@ public class Player : MonoBehaviour
         {
             Debug.LogWarning("No save data file found at: " + path);
 
-            ownedCharacter = new List<Character>();
+            //ownedCharacter = new List<Character>();
+            // 기본 캐릭터 추가
+            ownedCharacter = new List<Character>
+            {
+                new Character
+                {
+                    name = "Ayanami",
+                    shipType = "DD",
+                    rarity = "SR",
+                    faction = "SakuraEmpire",
+                    imageName = "Ayanami",
+                    prefabName = "CharaPrefab_Ayanami",
+                    hasUniqueModule = true,
+                    stats = new CharacterStats
+                    {
+                        HP = 2007,
+                        FP = 76,
+                        TRP = 576,
+                        AVI = 0,
+                        AA = 149,
+                        SPD = 48
+                    },
+                    eqiuppedGears = new List<string> { "Twin 127mm (Type 3)",
+                                                       "610mm Quadruple Torpedo Mount",
+                                                       "Twin 25mm AA (Type 96)",
+                                                       "Type 93 Pure Oxygen Torpedo" }
+                },
+                new Character
+                {
+                    name = "Fusou",
+                    shipType = "BB",
+                    rarity = "R",
+                    faction = "SakuraEmpire",
+                    imageName = "Fusou",
+                    prefabName = "CharaPrefab_Fusou",
+                    hasUniqueModule = false,
+                    stats = new CharacterStats
+                    {
+                        HP = 100,
+                        FP = 0,
+                        TRP = 0,
+                        AVI = 200,
+                        AA = 200,
+                        SPD = 50
+                    },
+                    eqiuppedGears = new List<string> { "Twin 356mm (41st Year Type)",
+                                                       "Single 152mm (41st Year Type)",
+                                                       "Twin 127mm AA (Type 89)",
+                                                       "Fire Control Radar" }
+                }
+            };
             enemyCharacter = new List<Character>();
             gears = new List<Gear>();
 
@@ -127,7 +174,7 @@ public class Player : MonoBehaviour
 
     public Character GetSelectedCharacter_DockUI()
     {
-        if(selectedCharacterIndex >= 0 && selectedCharacterIndex < ownedCharacter.Count)
+        if (selectedCharacterIndex >= 0 && selectedCharacterIndex < ownedCharacter.Count)
         {
             return ownedCharacter[selectedCharacterIndex];
         }
@@ -136,7 +183,7 @@ public class Player : MonoBehaviour
 
     public Character GetSelectedCharacter_SelectStage(int index)
     {
-        if(index >= 0 && index < ownedCharacter.Count)
+        if (index >= 0 && index < ownedCharacter.Count)
         {
             return ownedCharacter[index];
         }

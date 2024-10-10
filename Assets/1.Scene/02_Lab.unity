@@ -738,6 +738,7 @@ GameObject:
   - component: {fileID: 278774613}
   - component: {fileID: 278774612}
   - component: {fileID: 278774611}
+  - component: {fileID: 278774615}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -827,6 +828,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &278774615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278774610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bab33f5e2d150438fb0b6306ce795f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326368543
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +968,7 @@ GameObject:
   - component: {fileID: 373025651}
   - component: {fileID: 373025650}
   - component: {fileID: 373025649}
+  - component: {fileID: 373025652}
   m_Layer: 5
   m_Name: Button_Back
   m_TagString: Untagged
@@ -1025,7 +1039,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 278774615}
         m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
         m_MethodName: To_Lobby
         m_Mode: 1
@@ -1075,6 +1089,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373025647}
   m_CullTransparentMesh: 1
+--- !u!114 &373025652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373025647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e6323b3d2f11b4587e0c9e7a41486f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxIndex: 1
 --- !u!1 &457041494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2604,7 @@ GameObject:
   - component: {fileID: 1824134755}
   - component: {fileID: 1824134754}
   - component: {fileID: 1824134753}
+  - component: {fileID: 1824134756}
   m_Layer: 5
   m_Name: Button_Home
   m_TagString: Untagged
@@ -2647,7 +2675,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 278774615}
         m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
         m_MethodName: To_Lobby
         m_Mode: 1
@@ -2697,6 +2725,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824134751}
   m_CullTransparentMesh: 1
+--- !u!114 &1824134756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824134751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e6323b3d2f11b4587e0c9e7a41486f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxIndex: 1
 --- !u!1 &1848133839
 GameObject:
   m_ObjectHideFlags: 0
