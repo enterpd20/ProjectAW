@@ -84,13 +84,39 @@ public class BulletManager : MonoBehaviour
         }
 
         // 풀에 사용 가능한 총알이 없다면 새로운 총알을 생성
+        //int bulletIndex = (int)bulletType;
+        //if (bulletIndex >= 0 && bulletIndex < bulletPrefabs.Length)
+        //{
+        //    GameObject newBullet = Instantiate(bulletPrefabs[bulletIndex]);
+        //    BulletController bulletController = newBullet.GetComponent<BulletController>();
+        //    bulletController.bulletType = bulletType;
+        //    bulletController.InitializeBullet(gear, ownerTeamManager, targetTransform, minBounds, maxBounds); // 초기화
+        //    bulletPool.Add(newBullet);
+        //    return newBullet;
+        //}
+        //
+        //Debug.LogError($"No bullet prefab found for type: {bulletType}");
+        //return null;
+
+        // 비활성화된 포탄이 없으면 새로운 포탄을 생성
+        return CreateNewBullet(bulletType, gear, ownerTeamManager, targetTransform, minBounds, maxBounds);
+    }
+
+    // 새로운 포탄을 생성하는 함수
+    private GameObject CreateNewBullet(BulletController.BulletType bulletType, Gear gear, TeamManager ownerTeamManager, Transform targetTransform, Vector3 minBounds, Vector3 maxBounds)
+    {
         int bulletIndex = (int)bulletType;
+
+        // bulletPrefabs 배열 내에 해당 타입의 포탄이 있는지 확인
         if (bulletIndex >= 0 && bulletIndex < bulletPrefabs.Length)
         {
+            // 새로운 포탄 생성 및 초기화
             GameObject newBullet = Instantiate(bulletPrefabs[bulletIndex]);
             BulletController bulletController = newBullet.GetComponent<BulletController>();
             bulletController.bulletType = bulletType;
             bulletController.InitializeBullet(gear, ownerTeamManager, targetTransform, minBounds, maxBounds); // 초기화
+
+            // 풀에 새로 생성한 포탄을 추가
             bulletPool.Add(newBullet);
             return newBullet;
         }

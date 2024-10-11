@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3059769c4fdcfa7498e73c8ae8691d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleTimeLimit: 10
+  battleTimeLimit: 180
   battleTimerText: {fileID: 2129922333}
   resultPanel: {fileID: 658603633}
   resultText: {fileID: 1757521344}

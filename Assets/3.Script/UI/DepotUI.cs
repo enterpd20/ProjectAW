@@ -67,8 +67,7 @@ public class DepotUI : MonoBehaviour
                 //equipmentNameText.text = gearName;
 
                 // 버튼 클릭 이벤트 추가
-                equipmentButton.GetComponent<Button>().onClick.AddListener(() 
-                    => OnEquipmentButtonClicked(gearName));
+                //equipmentButton.GetComponent<Button>().onClick.AddListener(() => OnEquipmentButtonClicked(gearName));
             }
         }
     }

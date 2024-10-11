@@ -7,29 +7,29 @@
       "faction": "SakuraEmpire",
       "imageName": "Twin 203mm (3rd Year Type)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 92,
+        "RLD": 2
       }
     },
     {
-      "name": "Triple 203mm (8inch/55 Mk 9)",
+      "name": "Triple 203mm (8inch 55 Mk 9)",
       "gearType": "CLCA Gun",
       "rarity": "R",
       "faction": "EagleUnion",
-      "imageName": "Triple 203mm (8inch/55 Mk 9)",
+      "imageName": "Triple 203mm (8inch 55 Mk 9)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 12,
+        "DMG": 78,
+        "RLD": 2
       }
     },
     {
-      "name": "Triple 203mm (8inch/55 Mk 15)",
+      "name": "Triple 203mm (8inch 55 Mk 15)",
       "gearType": "CLCA Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
-      "imageName": "Triple 203mm (8inch/55 Mk 15)",
+      "imageName": "Triple 203mm (8inch 55 Mk 15)",
       "stats": {
         "FP": 132,
         "DMG": 150,
@@ -37,15 +37,15 @@
       }
     },
     {
-      "name": "Twin 203mm (SK C/34)",
+      "name": "Twin 203mm (SK C 34)",
       "gearType": "CLCA Gun",
       "rarity": "SSR",
       "faction": "IronBlood",
-      "imageName": "Twin 203mm (SK C/34)",
+      "imageName": "Twin 203mm (SK C 34)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 45,
+        "DMG": 100,
+        "RLD": 3
       }
     },
     {
@@ -55,21 +55,21 @@
       "faction": "RoyalNavy",
       "imageName": "Triple 152mm (BL 6inch Mk XXIII)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 52,
+        "RLD": 2
       }
     },
     {
-      "name": "Triple 203mm (8inch/55 Mk 15)",
+      "name": "Triple 203mm (8inch 55 Mk 15)",
       "gearType": "CLCA Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
-      "imageName": "Triple 203mm (8inch/55 Mk 15)",
+      "imageName": "Triple 203mm (8inch 55 Mk 15)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 104,
+        "RLD": 3
       }
     }
 

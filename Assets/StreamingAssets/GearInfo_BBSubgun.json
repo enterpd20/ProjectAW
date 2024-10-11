@@ -1,39 +1,39 @@
 {
   "gears": [
     {
-      "name": "Twin 150mm (TbtsK C/36)",
+      "name": "Twin 150mm (TbtsK C 36)",
       "gearType": "BB Sub Gun",
       "rarity": "SR",
       "faction": "IronBlood",
-      "imageName": "Twin 150mm (TbtsK C/36)",
+      "imageName": "Twin 150mm (TbtsK C 36)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 26,
+        "RLD": 3
       }
     },
     {
-      "name": "Twin 102mm (QF Mk XVI*)",
+      "name": "Twin 102mm (QF Mk XVI)",
       "gearType": "BB Sub Gun",
       "rarity": "SR",
       "faction": "RoyalNavy",
-      "imageName": "Twin 381mm (BL 15inch Mk I)",
+      "imageName": "Twin 102mm (QF Mk XVI)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 10,
+        "RLD": 1.5
       }
     },
     {
-      "name": "Single 127mm (5inch/38 Mk 30)",
+      "name": "Single 127mm (5inch 38 Mk 30)",
       "gearType": "BB Sub Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
-      "imageName": "Single 127mm (5inch/38 Mk 30)",
+      "imageName": "Single 127mm (5inch 38 Mk 30)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 15,
+        "RLD": 1
       }
     },
     {
@@ -43,9 +43,9 @@
       "faction": "SakuraEmpire",
       "imageName": "Single 152mm (41st Year Type)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 12,
+        "DMG": 19,
+        "RLD": 2.5
       }
     }
   ]

@@ -32,9 +32,11 @@ public class BulletController : MonoBehaviour
         // 포탄의 현재 회전 각도 디버그 로그
         //Debug.Log($"Update - Bullet Rotation: {transform.rotation.eulerAngles}");
 
+        float offset = 5f;
+
         // 총알이 맵 경계를 벗어났는지 체크
-        if (transform.position.x < mapMinBounds.x || transform.position.x > mapMaxBounds.x ||
-            transform.position.z < mapMinBounds.z || transform.position.z > mapMaxBounds.z)
+        if (transform.position.x < mapMinBounds.x - offset || transform.position.x > mapMaxBounds.x + offset ||
+            transform.position.z < mapMinBounds.z - offset || transform.position.z > mapMaxBounds.z + offset)
         {
             DeactivateBullet();
         }
@@ -68,9 +70,6 @@ public class BulletController : MonoBehaviour
         {
             Vector3 direction = (targetTransform.position - transform.position).normalized;
 
-            // 회전 설정: 포탄이 날아가는 방향으로 회전
-            //transform.rotation = Quaternion.LookRotation(direction);
-
             // 포탄의 스프라이트만 회전하도록 설정
             SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             if (spriteRenderer != null)
@@ -81,7 +80,6 @@ public class BulletController : MonoBehaviour
                 // InitializeBullet 메서드에서 회전 각도 디버그 로그
                 //Debug.Log($"InitializeBullet - Set Bullet Rotation: {spriteRenderer.transform.rotation.eulerAngles}");
             }
-
 
             rb.velocity = direction * bulletSpeed;
         }
@@ -118,10 +116,10 @@ public class BulletController : MonoBehaviour
     {
         switch (type)
         {
-            case BulletType.DD_Gun:      return 30f;
-            case BulletType.CLCA_Gun:    return 30f;
+            case BulletType.DD_Gun:      return 50f;
+            case BulletType.CLCA_Gun:    return 45f;
             case BulletType.CLCA_SubGun: return 30f;
-            case BulletType.BB_Gun:      return 25f;
+            case BulletType.BB_Gun:      return 35f;
             case BulletType.BB_SubGun:   return 30f;
             case BulletType.Torpedo:     return 30f;
             case BulletType.Bomb:        return 50f;

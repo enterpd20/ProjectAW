@@ -1,16 +1,20 @@
 using System.Collections;
 using UnityEngine;
-
+using Spine.Unity;
 
 public class BattleAI : MonoBehaviour
 {
     // 캐릭터의 상태 정의
     enum State
     {
-        Patrol,       // 대기 상태
+        Patrol,     // 대기 상태
         Engage,     // 전투 상태
-        Retreat     // 후퇴 상태
+        Retreat,    // 후퇴 상태
+        Dead        // 사망 상태
     }
+
+    public SkeletonAnimation skeletonAnimation;
+    public AnimationReferenceAsset normal, move, attack, dead;
 
     private State currentState = State.Patrol;   // 초기 상태는 대기 상태로 설정
 
@@ -24,6 +28,7 @@ public class BattleAI : MonoBehaviour
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
     public SphereCollider characterSight, min_EngageRange, MAX_EngageRange;
+    private Rigidbody rb;
 
     private float patrolMoveCooldown = 1f; // 이동 재개까지 대기 시간
     private float patrolMoveTimer = 0f;
@@ -39,8 +44,13 @@ public class BattleAI : MonoBehaviour
 
     void Start()
     {
+        skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
+
         currentState = State.Patrol;  // 초기 상태 설정
         mapObject = FindObjectOfType<MeshCollider>().gameObject;    // 맵 오브젝트 경계 값 가져옴
+
+        // 초기 애니메이션 상태 설정
+        SetCharacterState("Idle");
 
         // 맵 오브젝트의 경계 값을 가져옴
         if (mapObject != null)
@@ -63,11 +73,18 @@ public class BattleAI : MonoBehaviour
         }
 
         teamManager = GetComponent<TeamManager>();
+
+        //rb.constraints = RigidbodyConstraints.FreezePositionY;
     }
 
     void Update()
     {
-        if (currentHealth <= 0) return; // 체력이 0 이하면 더 이상 Update 실행하지 않음 (사망 상태)
+        if (currentHealth <= 0 && currentState != State.Dead)   // 체력이 0 이하면 더 이상 Update 실행하지 않음 (사망 상태)
+        {
+            SetCharacterState("Dead");
+            currentState = State.Dead;
+            return; 
+        }
 
         switch (currentState)
         {
@@ -144,14 +161,45 @@ public class BattleAI : MonoBehaviour
         }
     }
 
+    public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timeScale)
+    {
+        skeletonAnimation.state.SetAnimation(0, animation, loop).TimeScale = timeScale;
+    }
+
+    public void SetCharacterState(string state)
+    {
+        // 같은 상태로 전환되지 않도록 현재 상태와 비교
+        if (skeletonAnimation.AnimationName == state) return;
+
+        switch (state)
+        {
+            case "Idle":
+                SetAnimation(normal, true, 1f);
+                break;
+            case "Move":
+                SetAnimation(move, true, 1f);
+                break;
+            case "Attack":
+                SetAnimation(attack, true, 1f);
+                break;
+            case "Dead":
+                SetAnimation(dead, false, 1f);
+                break;
+        }
+    }
+
     // 정찰 상태 처리
     void HandlePatrolState()
     {
+        if (!isMoving) SetCharacterState("Idle");
+        // 이동 시작 시 애니메이션 변경
+
         ScanEnemy();    // 시야 범위 내의 적 스캔 메서드
 
         if (target == null && !isMoving)     // 이동 중이 아닐 때만 랜덤 위치 지정
         {
             RandomPositioning();
+            SetCharacterState("Move");
         }
         else if (target != null)
         {
@@ -239,7 +287,7 @@ public class BattleAI : MonoBehaviour
         while (Vector3.Distance(transform.position, targetPosition) > 0.2f)
         {
             Vector3 direction = (targetPosition - transform.position).normalized;
-            direction.y = 0;
+            //direction.y = 0;
 
             Vector3 nextPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
@@ -261,6 +309,8 @@ public class BattleAI : MonoBehaviour
     {
         if (target != null)
         {
+            
+
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
             // 적이 최대 교전범위를 벗어나고, 시야 범위도 벗어난다면
@@ -287,6 +337,7 @@ public class BattleAI : MonoBehaviour
             // 공격 로직 - BulletManager의 ReloadTime 사용
             if (attackCooldownTimer <= 0)
             {
+                SetCharacterState("Attack");
                 Attack();
             }
             else
@@ -400,75 +451,6 @@ public class BattleAI : MonoBehaviour
         //Debug.Log($"{gameObject.name} - Chasing target!");
     }
 
-    // 적을 공격하는 함수
-    //void Attack()
-    //{
-    //    // selectedCharacterIndices 배열에서 유효한 캐릭터 인덱스를 찾음
-    //    int currentCharacterIndex = -1;
-    //    foreach (int index in Player.Instance.selectedCharacterIndices)
-    //    {
-    //        if (index >= 0 && index < Player.Instance.ownedCharacter.Count)
-    //        {
-    //            currentCharacterIndex = index;
-    //            break;
-    //        }
-    //    }
-    //
-    //    // 유효한 캐릭터 인덱스가 없을 경우 경고 메시지 출력 후 반환
-    //    //if (currentCharacterIndex == -1)
-    //    //{
-    //    //    Debug.LogWarning("No valid character index found in selectedCharacterIndices.");
-    //    //    return;
-    //    //}
-    //
-    //    Character currentCharacter = Player.Instance.ownedCharacter[currentCharacterIndex];
-    //
-    //    // 장착된 장비 가져오기 (equippedGears 리스트의 첫 번째 장비 사용)
-    //    Gear equippedGear = null;
-    //    if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
-    //    {
-    //        string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
-    //        //Debug.Log($"Equipped gear name: {equippedGearName}");
-    //
-    //        // GearDataLoader를 통해 장비 찾기
-    //        equippedGear = GearDataLoader.GetGearByName(equippedGearName);
-    //
-    //        if (equippedGear == null)
-    //        {
-    //            Debug.LogWarning($"No gear found with the name: {equippedGearName}");
-    //            return;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("No equipped gears found for this character.");
-    //        return;
-    //    }
-    //
-    //    // 총알 타입 결정
-    //    //BulletController.BulletType bulletType = BulletController.DetermineBulletType(equippedGear);
-    //
-    //    // 오브젝트 풀에서 총알 가져오기
-    //    //GameObject bullet = BulletManager.Instance.GetPooledBullet(bulletType);
-    //    GameObject bullet = BulletManager.Instance.GetPooledBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
-    //
-    //    if (bullet != null)
-    //    {
-    //        Vector3 bulletPosition = transform.position + transform.forward * 1f;
-    //        bulletPosition.y = 1.3f; // 원하는 y축 높이로 고정
-    //        bullet.transform.position = bulletPosition; // 발사 위치 설정
-    //        bullet.SetActive(true);
-    //
-    //        // 총알 초기화
-    //        BulletController bulletController = bullet.GetComponent<BulletController>();
-    //        if (bulletController != null)
-    //        {
-    //            bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
-    //            attackCooldownTimer = bulletController.ReloadTime; // ReloadTime을 BulletController에서 가져옴
-    //        }
-    //    }
-    //}
-
     void Attack()
     {
         // 현재 캐릭터의 장착된 장비 가져오기
@@ -517,6 +499,8 @@ public class BattleAI : MonoBehaviour
     // 후퇴 상태 처리
     void HandleRetreatState()
     {
+        SetCharacterState("Move");
+
         if (target != null)
         {
             // 적과 반대 방향으로 이동
@@ -635,7 +619,22 @@ public class BattleAI : MonoBehaviour
     private void OnDie()
     {
         Debug.Log($"{gameObject.name} has died.");
-        gameObject.SetActive(false); // 캐릭터 비활성화 (사망)
+        SetCharacterState("Dead");
+        // 사망 애니메이션이 끝난 후 캐릭터를 비활성화
+        skeletonAnimation.state.Complete += OnAnimationComplete;
+    }
+
+    // 사망 애니메이션이 끝난 후 호출되는 이벤트 핸들러
+    private void OnAnimationComplete(Spine.TrackEntry trackEntry)
+    {
+        // 사망 애니메이션이 끝났을 때만 비활성화
+        if (trackEntry.Animation.Name == dead.name)
+        {
+            gameObject.SetActive(false); // 캐릭터 비활성화 (사망)
+
+            // 애니메이션 완료 이벤트를 더 이상 감지하지 않도록 핸들러 제거
+            skeletonAnimation.state.Complete -= OnAnimationComplete;
+        }
     }
 }
 

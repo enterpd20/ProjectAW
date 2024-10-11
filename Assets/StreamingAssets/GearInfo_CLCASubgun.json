@@ -7,9 +7,9 @@
       "faction": "EagleUnion",
       "imageName": "Single 127mm (5inch/38 Mk 30)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 15,
+        "RLD": 1
       }
     },
     {
@@ -19,9 +19,9 @@
       "faction": "RoyalNavy",
       "imageName": "Twin 102mm (QF Mk XVI*)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 10,
+        "RLD": 1
       }
     },
     {
@@ -31,9 +31,9 @@
       "faction": "EagleUnion",
       "imageName": "Single 127mm (5inch/38 Mk 30)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 25,
+        "DMG": 15,
+        "RLD": 1
       }
     }
 

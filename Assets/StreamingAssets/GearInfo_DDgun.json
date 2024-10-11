@@ -8,8 +8,8 @@
       "imageName": "Twin 127mm (Type 3)",
       "stats": {
         "FP": 25,
-        "DMG": 12,
-        "RLD": 1.5
+        "DMG": 24,
+        "RLD": 1
       }
     },
     {
@@ -19,21 +19,21 @@
       "faction": "RoyalNavy",
       "imageName": "Single 120mm (QF Mark IX)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 12,
+        "DMG": 22,
+        "RLD": 0.3
       }
     },
     {
-      "name": "Twin 127mm (5inch/38 Mk 38)",
+      "name": "Twin 127mm (5inch 38 Mk 38)",
       "gearType": "DD Gun",
       "rarity": "SR",
       "faction": "EagleUnion",
-      "imageName": "Twin 127mm (5inch/38 Mk 38)",
+      "imageName": "Twin 127mm (5inch 38 Mk 38)",
       "stats": {
-        "FP": 132,
-        "DMG": 150,
-        "RLD": 18
+        "FP": 11,
+        "DMG": 28,
+        "RLD": 0.65
       }
     }
   ]

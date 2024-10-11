@@ -21,16 +21,6 @@
         "SBD Dauntless",
         "Quadruple 28mm Chicago Piano",
         "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
       ]
     },
     {
@@ -54,16 +44,6 @@
         "SBD Dauntless",
         "Quadruple 28mm Chicago Piano",
         "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "B-25 Mitchell",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
       ]
     },
     {
@@ -87,16 +67,6 @@
         "Aichi D3A Type 99",
         "Triple 25mm AA (Type 96)",
         "Drop Tank"
-      ],
-      "availableGears": [
-        "Nakajima B5N Type 97",
-        "Aichi D3A Type 99",
-        "Triple 25mm AA (Type 96)",
-        "Drop Tank",
-        "Aichi B7A Ryuusei",
-        "Aichi D3A2 Type 99",
-        "Twin 127mm AA (Type 89)",
-        "Steam Catapult"
       ]
     },
     {
@@ -120,17 +90,6 @@
         "Aichi D3A Type 99",
         "Triple 25mm AA (Type 96)",
         "Drop Tank"
-
-      ],
-      "availableGears": [
-        "Nakajima B5N Type 97",
-        "Aichi D3A Type 99",
-        "Triple 25mm AA (Type 96)",
-        "Drop Tank",
-        "Aichi B7A Ryuusei",
-        "Aichi D3A2 Type 99",
-        "Twin 127mm AA (Type 89)",
-        "Steam Catapult"
       ]
     },
     {
@@ -154,16 +113,6 @@
         "Blackburn Skua",
         "Quadruple 40mm Pom-Pom",
         "Drop Tank"
-      ],
-      "availableGears": [
-        "Fairey Swordfish",
-        "Blackburn Skua",
-        "Quadruple 40mm Pom-Pom",
-        "Drop Tank",
-        "Fairey Swordfish (818 Squadron)",
-        "Fairey Fulmar",
-        "Twin 113mm AA (QF Mark I)",
-        "Steam Catapult"
       ]
     },
     {
@@ -187,16 +136,6 @@
         "Blackburn Skua",
         "Quadruple 40mm Pom-Pom",
         "Drop Tank"
-      ],
-      "availableGears": [
-        "Fairey Swordfish",
-        "Blackburn Skua",
-        "Quadruple 40mm Pom-Pom",
-        "Drop Tank",
-        "Fairey Swordfish (818 Squadron)",
-        "Fairey Fulmar",
-        "Twin 113mm AA (QF Mark I)",
-        "Steam Catapult"
       ]
     },
 
@@ -213,25 +152,18 @@
       "prefabName": "CharaPrefab_Bismarck",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 200,
+        "HP": 8970,
+        "FP": 428,
         "TRP": 0,
         "AVI": 0,
-        "AA": 200,
-        "SPD": 50
+        "AA": 212,
+        "SPD": 30
       },
       "eqiuppedGears": [
-        "Twin 380mm (SK C/34)",
-        "Twin 150mm (TbtsK C/36)",
-        "Twin 105mm AA (SK C/33)",
+        "Twin 380mm (SK C 34)",
+        "Twin 150mm (TbtsK C 36)",
+        "Twin 105mm AA (SK C 33)",
         "Fire Control Radar"
-      ],
-      "availableGears": [
-        "Twin 380mm (SK C/34)",
-        "Twin 150mm (TbtsK C/36)",
-        "Twin 105mm AA (SK C/33)",
-        "Fire Control Radar",
-        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -243,26 +175,18 @@
       "prefabName": "CharaPrefab_Hood",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 8637,
+        "FP": 347,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 330,
+        "SPD": 31
       },
       "eqiuppedGears": [
         "Twin 381mm (BL 15inch Mk I)",
-        "Twin 102mm (QF Mk XVI*)",
+        "Twin 102mm (QF Mk XVI)",
         "Octuple 40mm Pom-Pom",
         "Fire Control Radar"
-      ],
-      "availableGears": [
-        "Twin 381mm (BL 15inch Mk I)",
-        "Twin 102mm (QF Mk XVI*)",
-        "Octuple 40mm Pom-Pom",
-        "Fire Control Radar",
-        "Twin 381mm (BL 15inch Mk II)",
-        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -274,25 +198,18 @@
       "prefabName": "CharaPrefab_PrinceOfWales",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 8155,
+        "FP": 428,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 235,
+        "SPD": 28
       },
       "eqiuppedGears": [
         "Quadruple 356mm (BL 14inch Mk VII)",
-        "Twin 102mm (QF Mk XVI*)",
+        "Twin 102mm (QF Mk XVI)",
         "Octuple 40mm Pom-Pom",
         "Fire Control Radar"
-      ],
-      "availableGears": [
-        "Quadruple 356mm (BL 14inch Mk VII)",
-        "Twin 102mm (QF Mk XVI*)",
-        "Octuple 40mm Pom-Pom",
-        "Fire Control Radar",
-        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -304,25 +221,18 @@
       "prefabName": "CharaPrefab_MaryLand",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 7932,
+        "FP": 440,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 251,
+        "SPD": 21
       },
       "eqiuppedGears": [
-        "Twin 406mm (16inch/45 Mk 8)",
-        "Single 127mm (5inch/38 Mk 30)",
+        "Twin 406mm (16inch 45 Mk 8)",
+        "Single 127mm (5inch 38 Mk 30)",
         "Single 76mm AA (Mk 22 Mount)",
         "Fire Control Radar"
-      ],
-      "availableGears": [
-        "Twin 406mm (16inch/45 Mk 8)",
-        "Single 127mm (5inch/38 Mk 30)",
-        "Single 76mm AA (Mk 22 Mount)",
-        "Fire Control Radar",
-        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -334,26 +244,18 @@
       "prefabName": "CharaPrefab_Fusou",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 7081,
+        "FP": 394,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 309,
+        "SPD": 23
       },
       "eqiuppedGears": [
         "Twin 356mm (41st Year Type)",
         "Single 152mm (41st Year Type)",
         "Twin 127mm AA (Type 89)",
         "Fire Control Radar"
-      ],
-      "availableGears": [
-        "Twin 356mm (41st Year Type)",
-        "Single 152mm (41st Year Type)",
-        "Twin 127mm AA (Type 89)",
-        "Fire Control Radar",
-        "Twin 356mm (41st Year Type) Kai",
-        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -365,26 +267,18 @@
       "prefabName": "CharaPrefab_FusouMETA",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 7421,
+        "FP": 405,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 238,
+        "SPD": 23
       },
       "eqiuppedGears": [
         "Twin 356mm (41st Year Type)",
         "Single 152mm (41st Year Type)",
         "Twin 127mm AA (Type 89)",
         "Fire Control Radar"
-      ],
-      "availableGears": [
-        "Twin 356mm (41st Year Type)",
-        "Single 152mm (41st Year Type)",
-        "Twin 127mm AA (Type 89)",
-        "Fire Control Radar",
-        "Twin 356mm (41st Year Type) Kai",
-        "Anti-Torpedo Bulge"
       ]
     },
 
@@ -401,28 +295,18 @@
       "prefabName": "CharaPrefab_Atago",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 100,
-        "TRP": 100,
+        "HP": 4394,
+        "FP": 274,
+        "TRP": 248,
         "AVI": 0,
-        "AA": 100,
-        "SPD": 100
+        "AA": 182,
+        "SPD": 31
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Twin 203mm (3rd Year Type)",
+        "610mm Twin Torpedo Mount",
+        "Twin 127mm AA (Type 89)",
+        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -434,28 +318,18 @@
       "prefabName": "CharaPrefab_Minneapolis",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 4248,
+        "FP": 262,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 253,
+        "SPD": 26
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
+        "Triple 203mm (8inch 55 Mk 9)",
+        "Single 127mm (5inch 38 Mk 30)",
         "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -467,28 +341,18 @@
       "prefabName": "CharaPrefab_PrinzEugen",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 6394,
+        "FP": 230,
+        "TRP": 155,
+        "AVI": 0,
+        "AA": 209,
+        "SPD": 25
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Twin 203mm (SK C 34)",
+        "533mm Triple Homing Torpedo Mount",
+        "Twin 105mm AA (SK C 33)",
+        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -500,28 +364,18 @@
       "prefabName": "CharaPrefab_Sheffield",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 3884,
+        "FP": 158,
+        "TRP": 299,
+        "AVI": 0,
+        "AA": 358,
+        "SPD": 32
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Triple 152mm (BL 6inch Mk XXIII)",
+        "Twin 102mm (QF Mk XVI)",
+        "Octuple 40mm Pom-Pom",
+        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -533,28 +387,18 @@
       "prefabName": "CharaPrefab_Northampton",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
+        "HP": 3424,
+        "FP": 243,
         "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "AVI": 0,
+        "AA": 209,
+        "SPD": 26
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
+        "Triple 203mm (8inch 55 Mk 15)",
+        "Single 127mm (5inch 38 Mk 30)",
         "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Anti-Torpedo Bulge"
       ]
     },
     {
@@ -566,28 +410,18 @@
       "prefabName": "CharaPrefab_SheffieldMETA",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 3851,
+        "FP": 163,
+        "TRP": 304,
+        "AVI": 0,
+        "AA": 353,
+        "SPD": 32
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Triple 152mm (BL 6inch Mk XXIII)",
+        "Twin 102mm (QF Mk XVI*)",
+        "Octuple 40mm Pom-Pom",
+        "Anti-Torpedo Bulge"
       ]
     },
 
@@ -604,28 +438,18 @@
       "prefabName": "CharaPrefab_Kawakaze",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 1875,
+        "FP": 70,
+        "TRP": 551,
+        "AVI": 0,
+        "AA": 164,
+        "SPD": 40
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Twin 127mm (Type 3)",
+        "610mm Quadruple Torpedo Mount",
+        "Twin 25mm AA (Type 96)",
+        "Type 93 Pure Oxygen Torpedo"
       ]
     },
     {
@@ -649,13 +473,6 @@
         "610mm Quadruple Torpedo Mount",
         "Twin 25mm AA (Type 96)",
         "Type 93 Pure Oxygen Torpedo"
-      ],
-      "availableGears": [
-        "Twin 127mm (Type 3)",
-        "610mm Quadruple Torpedo Mount",
-        "Twin 25mm AA (Type 96)",
-        "Type 93 Pure Oxygen Torpedo",
-        "Gyroscope"
       ]
     },
     {
@@ -667,28 +484,18 @@
       "prefabName": "CharaPrefab_Icarus",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 1710,
+        "FP": 80,
+        "TRP": 381,
+        "AVI": 0,
+        "AA": 160,
+        "SPD": 42
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Single 120mm (QF Mark IX)",
+        "533mm Quintuple Torpedo Mount Mk IX",
+        "Quadruple 40mm Pom-Pom",
+        "Gyroscope"
       ]
     },
     {
@@ -700,28 +507,18 @@
       "prefabName": "CharaPrefab_Aylwin",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 1720,
+        "FP": 82,
+        "TRP": 282,
+        "AVI": 0,
+        "AA": 186,
+        "SPD": 44
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Twin 127mm (5inch 38 Mk 38)",
+        "533mm Quadruple Torpedo Mount Mk 17",
+        "Twin 40mm Bofors (Mk 1 Mount)",
+        "Gyroscope"
       ]
     },
     {
@@ -733,28 +530,18 @@
       "prefabName": "CharaPrefab_Hammann",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 2069,
+        "FP": 97,
+        "TRP": 290,
+        "AVI": 0,
+        "AA": 265,
+        "SPD": 45
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Twin 127mm (5inch 38 Mk 38)",
+        "533mm Quadruple Torpedo Mount Mk 17",
+        "Twin 40mm Bofors (Mk 1 Mount)",
+        "Gyroscope"
       ]
     },
     {
@@ -766,28 +553,18 @@
       "prefabName": "CharaPrefab_KasumiMETA",
       "hasUniqueModule": true,
       "stats": {
-        "HP": 100,
-        "FP": 0,
-        "TRP": 0,
-        "AVI": 200,
-        "AA": 200,
-        "SPD": 50
+        "HP": 2469,
+        "FP": 77,
+        "TRP": 607,
+        "AVI": 0,
+        "AA": 178,
+        "SPD": 42
       },
       "eqiuppedGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank"
-      ],
-      "availableGears": [
-        "TBD Devastator",
-        "SBD Dauntless",
-        "Quadruple 28mm Chicago Piano",
-        "Drop Tank",
-        "TBM Avenger (VT-18 Squadron)",
-        "SB2C HellDiver",
-        "Quadruple 40mm Bofors (Mk 2 Mount)",
-        "Steam Catapult"
+        "Twin 127mm (Type 3)",
+        "610mm Quadruple Torpedo Mount",
+        "Twin 25mm AA (Type 96)",
+        "Type 93 Pure Oxygen Torpedo"
       ]
     }
   ]

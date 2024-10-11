@@ -73,11 +73,11 @@
       }
     },
     {
-      "name": "Twin 105mm AA (SK C/33)",
+      "name": "Twin 105mm AA (SK C 33)",
       "gearType": "AntiAir",
       "rarity": "SSR",
       "faction": "IronBlood",
-      "imageName": "Twin 105mm AA (SK C/33)",
+      "imageName": "Twin 105mm AA (SK C 33)",
       "stats": {
         "AA": 45,
         "DMG": 122,

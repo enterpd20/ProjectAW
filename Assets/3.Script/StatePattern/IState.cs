@@ -1,18 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
 
-public interface IState 
+public class PlayerController : MonoBehaviour
 {
-    // 상태가 시작될 때 호출
-    // 상태로 전환될 때 초기 설정을 수행
-    public void EnterState();
+    public SkeletonAnimation skeletonAnimation;
+    public AnimationReferenceAsset idle, walking;
+    public string currentState;
+    public float speed;
+    public float movement;
+    private Rigidbody rb;
 
-    // 매 프레임마다 호출
-    // 상태가 활성 중일 때 실행되는 로직
-    public void UpdateState();
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        currentState = "Idle";
+        SetCharacterState(currentState);
+    }
 
-    // 상태가 종료될 때 호출
-    // 상태를 빠져나올 때 필요한 정리 작업을 수행
-    public void ExitState();
+    private void Update()
+    {
+        Move();
+    }
+
+    public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timeScale)
+    {
+        skeletonAnimation.state.SetAnimation(0, animation, loop).TimeScale = timeScale;
+    }
+
+    public void SetCharacterState(string state)
+    {
+        if(state.Equals("Idle"))
+        {
+            SetAnimation(idle, true, 1f);
+        }
+        else if(state.Equals("walking"))
+        {
+            SetAnimation(walking, true, 1f);
+        }
+    }
+
+    public void Move()
+    {
+        movement = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector3(movement * speed, rb.velocity.y);
+        if(movement != 0)
+        {
+            SetCharacterState("walking");
+        }
+        else
+        {
+            SetCharacterState("Idle");
+        }
+    }
 }
