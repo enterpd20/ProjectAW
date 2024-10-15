@@ -19,10 +19,8 @@ public class DockUI : MonoBehaviour
             return;
         }
 
-        //characterList = CharacterDataLoader.LoadCharaters();
         characterList = Player.Instance.ownedCharacter;
 
-        //CreateCharacterButtons();
         StartCoroutine(LoadAndCreateButtons());
     }
 

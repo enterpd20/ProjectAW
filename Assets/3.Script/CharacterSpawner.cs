@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-
-    //public GameObject[] characterPrefabs;  // 캐릭터 프리팹 배열
     public Transform[] mainFleetSpawnPoints;      // BB, CV용 스폰 지점 배열
     public Transform[] vanguardFleetSpawnPoints;  // DD, CLCA용 스폰 지점 배열
 
@@ -89,7 +87,6 @@ public class CharacterSpawner : MonoBehaviour
                     {
                         Debug.LogError($"Prefab with name {characterData.prefabName} not found in Resources/Prefabs.");
                     }
-
                 }
                 else
                 {

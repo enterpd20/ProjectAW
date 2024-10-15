@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
 
-public class CharacterGacha : MonoBehaviour/*, IPointerClickHandler*/
+public class CharacterGacha : MonoBehaviour
 {
     public GameObject characterButtonPrefab; // 캐릭터 버튼 프리팹
     public Transform GridLayoutParent; // Grid Layout Group의 부모 오브젝트
@@ -67,11 +67,6 @@ public class CharacterGacha : MonoBehaviour/*, IPointerClickHandler*/
         // 결과 패널을 나타냄
         ShowResultPanel();
     }
-
-    //public void OnPointerClick(PointerEventData eventData)
-    //{
-    //    // 빈 메서드로 클릭 이벤트를 막음
-    //}
 
     // 캐릭터 뽑기 메서드
     List<Character> DrawCharacters(int count)

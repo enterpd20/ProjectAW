@@ -11,11 +11,9 @@ public class Player : MonoBehaviour
     public List<Character> enemyCharacter;
     public List<Character> ownedCharacter;
     public List<Gear> gears;
-    //public List<Stage> clearedStage;  // 스테이지 작성해야함 240919
 
     public int selectedCharacterIndex = -1;             // Dock에서 사용할 캐릭터 인덱스
     public int[] selectedCharacterIndices = new int[6]; //SelectStage의 캐릭터 편성에 사용할 인덱스
-    //public int[] selectedCharacterIndices; //SelectStage의 캐릭터 편성에 사용할 인덱스
 
     public CharacterStats finalCharacterStats;
 
@@ -52,8 +50,6 @@ public class Player : MonoBehaviour
             selectedCharacterIndex = this.selectedCharacterIndex,
             selectedCharacterIndices = this.selectedCharacterIndices,
             finalCharacterStats = this.finalCharacterStats
-            //returnToScene = this.returnToScene,
-            //isFormationUIActive = this.isFormationUIActive
         };
         string json = JsonUtility.ToJson(this);
         File.WriteAllText(path, json);
@@ -95,19 +91,19 @@ public class Player : MonoBehaviour
             //Debug.Log("Player data loaded from file: " + json);
 
             //Debug.Log($"Loaded gears count: {gears.Count}");
-            foreach (var gear in gears)
-            {
-                //Debug.Log($"Loaded gear: {gear.name}, Type: {gear.gearType}");
-            }
-
-            if (finalCharacterStats != null)
-            {
-                //Debug.Log($"Loaded final stats: HP = {finalCharacterStats.HP}, FP = {finalCharacterStats.FP}, SPD = {finalCharacterStats.SPD}");
-            }
-            else
-            {
-                Debug.LogWarning("Final character stats are null in the loaded data.");
-            }
+            //foreach (var gear in gears)
+            //{
+            //    Debug.Log($"Loaded gear: {gear.name}, Type: {gear.gearType}");
+            //}
+            //
+            //if (finalCharacterStats != null)
+            //{
+            //    Debug.Log($"Loaded final stats: HP = {finalCharacterStats.HP}, FP = {finalCharacterStats.FP}, SPD = {finalCharacterStats.SPD}");
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("Final character stats are null in the loaded data.");
+            //}
         }
         else
         {
@@ -208,6 +204,4 @@ public class PlayerData
     public int[] selectedCharacterIndices;
 
     public CharacterStats finalCharacterStats;
-    //public string returnToScene;
-    //public bool isFormationUIActive;
 }

@@ -120,25 +120,6 @@ public class BattleAI : MonoBehaviour
         }
     }
 
-    // 캐릭터 스탯 불러오기
-    //public void InitializeCharacterStats(CharacterStats stats)
-    //{
-    //    int selectedIndex = Player.Instance.selectedCharacterIndex;
-    //    if (selectedIndex >= 0 && selectedIndex < Player.Instance.ownedCharacter.Count)
-    //    {
-    //        CharacterStats battleStats = Player.Instance.ownedCharacter[selectedIndex].stats;
-    //
-    //        maxHealth = battleStats.HP;
-    //        currentHealth = maxHealth;
-    //        moveSpeed = battleStats.SPD * 0.3f;
-    //        Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Selected character index is out of range or invalid.");
-    //    }
-    //}
-
     public void InitializeCharacterStats(CharacterStats stats)
     {
         int selectedIndex = Player.Instance.selectedCharacterIndex;
@@ -291,8 +272,6 @@ public class BattleAI : MonoBehaviour
 
             Vector3 nextPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
-            //rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
-
             // 이동 범위 제한: 맵의 경계 값을 사용하여 제한
             nextPosition.x = Mathf.Clamp(nextPosition.x, mapMinBounds.x, mapMaxBounds.x);
             nextPosition.z = Mathf.Clamp(nextPosition.z, mapMinBounds.z, mapMaxBounds.z);
@@ -309,8 +288,6 @@ public class BattleAI : MonoBehaviour
     {
         if (target != null)
         {
-            
-
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
             // 적이 최대 교전범위를 벗어나고, 시야 범위도 벗어난다면
@@ -559,9 +536,6 @@ public class BattleAI : MonoBehaviour
 
         // 2. 체력이 40% 미만이고, 전체 아군의 수가 전체 적군의 수보다 2명 이상 적은 경우
         if (currentHealth < maxHealth * 0.4f /*&& GetAllyCount() + 2 < GetEnemyCount()*/) return true;
-
-        // 3. 체력이 50% 미만이고 적이 우위 상성에 있는 경우
-        // 4. 캐릭터 자신의 함종이 항공모함(CV)인 경우
 
         return false;
     }

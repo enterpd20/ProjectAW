@@ -26,8 +26,6 @@ public class Character
     public CharacterStats stats;
 
     public List<string> eqiuppedGears;
-    //public List<Gear> availableGears;
-
 }
 
 [System.Serializable]

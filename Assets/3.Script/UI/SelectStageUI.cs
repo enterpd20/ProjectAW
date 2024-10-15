@@ -26,9 +26,6 @@ public class SelectStageUI : MonoBehaviour
             Player.Instance.InitializePlayerData();  // 배열이 null이면 초기화
         }
 
-        //Player.Instance.InitializeIndices(characterSelectButton.Length);
-        //Debug.Log("selectedCharacterIndices Length: " + Player.Instance.selectedCharacterIndices.Length);
-
         UpdateAllCharacterSelections();
         characterFormationUI.SetActive(true);   // 캐릭터 편성 UI를 활성화하여 보이게 설정
     }
@@ -36,18 +33,6 @@ public class SelectStageUI : MonoBehaviour
     // 선택된 버튼의 인덱스를 사용해 해당 버튼에 캐릭터 이미지를 업데이트
     private void UpdateCharacterSelection(int buttonIndex)
     {
-        //if (Player.Instance.selectedCharacterIndices == null)
-        //{
-        //    Debug.LogError("selectedCharacterIndices is not initialized properly.");
-        //    Debug.LogError("selectedCharacterIndices == null");
-        //    return;
-        //}
-        //if(Player.Instance.selectedCharacterIndices.Length != 6)
-        //{
-        //    Debug.LogError("selectedCharacterIndices.Length != 6");
-        //    return;
-        //}
-
         int characterIndex = Player.Instance.selectedCharacterIndices[buttonIndex];
         //Debug.Log($"Button {buttonIndex} - characterIndex: {characterIndex}");
 
@@ -68,10 +53,6 @@ public class SelectStageUI : MonoBehaviour
                 Debug.LogError($"No character found for index {characterIndex}");
             } 
         }
-        //else
-        //{
-        //    Debug.LogWarning($"No character assigned to button {buttonIndex}");
-        //}
     }
 
     private void UpdateAllCharacterSelections()
@@ -89,20 +70,6 @@ public class SelectStageUI : MonoBehaviour
 
         if (characterIndex != -1 && currentSelectedButtonIndex != -1)
         {
-            //// 현재 버튼에 올바른 함종만 배치할 수 있도록 검사
-            //if (IsValidShipTypeForButton(character.shipType, currentSelectedButtonIndex))
-            //{
-            //    Debug.Log($"Assigning {character.name} to button {currentSelectedButtonIndex}");
-            //    Player.Instance.selectedCharacterIndices[currentSelectedButtonIndex] = characterIndex;
-            //    Player.Instance.SavePlayerData();
-            //    UpdateCharacterSelection(currentSelectedButtonIndex);
-            //    Close_CharacterSelectUI();
-            //}
-            //else
-            //{
-            //    Debug.LogError($"Cannot assign {character.shipType} to button {currentSelectedButtonIndex}");
-            //}
-
             // 현재 버튼에 올바른 함종만 배치할 수 있도록 검사
             if (IsValidShipTypeForButton(character.shipType, currentSelectedButtonIndex))
             {

@@ -7,7 +7,6 @@ public class DockDetailUI_EquipStat : MonoBehaviour
 {    
     [SerializeField] private StatBG[] statBGs;      // UI_StatBG 0~3 배열로 할당
     [SerializeField] private Text equipNameText;    // 장비의 이름을 받아와 스탯을 찾고 배정
-    //[SerializeField] private GameObject depotGearButton;
 
     [System.Serializable]
     public class StatBG
@@ -32,18 +31,8 @@ public class DockDetailUI_EquipStat : MonoBehaviour
 
     public void SetGearInfo(Gear gear)
     {
-        //DisplayGearName(gear.name);
         DisplayStats(gear);
     }
-
-    //private void DisplayGearName(string gearName)
-    //{
-    //    Text equipNameText = transform.Find("UI_EquipName").GetComponent<Text>();
-    //    if(equipNameText != null)
-    //    {
-    //        equipNameText.text = gearName;
-    //    }
-    //}
 
     private void DisplayStats(Gear gear)
     {
@@ -84,17 +73,11 @@ public class DockDetailUI_EquipStat : MonoBehaviour
         {
             if (i < validStats.Count)
             {
-                //Text statTypeText = statBGs[i].transform.Find("Text_StatType").GetComponent<Text>();
-                //Text statValueText = statBGs[i].transform.Find("Text_StatValue").GetComponent<Text>();
-
                 statBGs[i].statTypeText.text = validStats[i].Item1;
                 statBGs[i].statValueText.text = validStats[i].Item2.ToString();
             }
             else
             {
-                //Text statTypeText = statBGs[i].transform.Find("Text_StatType").GetComponent<Text>();
-                //Text statValueText = statBGs[i].transform.Find("Text_StatValue").GetComponent<Text>();
-
                 statBGs[i].statTypeText.text = "";
                 statBGs[i].statValueText.text = "";
             }

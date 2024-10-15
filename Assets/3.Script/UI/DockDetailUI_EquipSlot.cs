@@ -12,7 +12,6 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     [SerializeField] private Text character_ShipType;   // 캐릭터 함종 받아오기     
     [SerializeField] private GameObject[] equipSlot;    // UI_EquipSlot 1~4 배열로 할당  
 
-    // `DockDetailUI_Character` 스크립트에 대한 참조
     private DockDetailUI_Character dockDetailUICharacter;
 
     // JSON 데이터를 통해 로드된 장비 정보 리스트
@@ -31,7 +30,6 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
         dockDetailUICharacter = FindObjectOfType<DockDetailUI_Character>();
 
         currentCharacter = Player.Instance.GetSelectedCharacter_DockUI();  // 현재 선택된 캐릭터
-        //equippedGears = currentCharacter.eqiuppedGears;             // 현재 선택된 캐릭터가 장착중인 장비       
         equippedGears = new List<Gear>();             // equippedGears 리스트 초기화, 현재 선택된 캐릭터가 장착중인 장비       
 
         foreach (var gearName in currentCharacter.eqiuppedGears)
@@ -51,7 +49,6 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     public void SetEquipSlots()     // 각 장비 슬롯에 장착 가능한 장비 유형 설정
     {
-        //string shipType = character_ShipType.text; // 캐릭터 함종 파악
         string shipType = Player.Instance.GetSelectedCharacter_DockUI().shipType; // 캐릭터 함종 파악
         Debug.Log($"Character ship type: {shipType}");
 
@@ -134,7 +131,6 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
     // 장비 데이터를 기반으로 적절한 장비를 장착
     public void AssignGearToSlot(int slotIndex, string gearType)
     {
-        //Gear matchingGear = loadedGears.Find(g => g.gearType == gearType); // gearType에 맞는 장비 찾기
         Gear matchingGear = GearDataLoader.GetGearByName(gearType); // gearType에 맞는 장비 찾기
         if(matchingGear != null)
         {

@@ -60,8 +60,7 @@ public class BulletController : MonoBehaviour
     
         rb = GetComponent<Rigidbody>();
         teamManager = ownerTeamManager;
-    
-        //bulletType = type;
+
         bulletSpeed = BulletSpeed(bulletType);
         //Debug.Log($"Bullet Initialized: Type = {bulletType}, Damage = {Damage}, Speed = {bulletSpeed}");
 

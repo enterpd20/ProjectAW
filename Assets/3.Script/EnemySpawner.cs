@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
             Transform spawnPoint = null;
             if (characterData.shipType == "BB" || characterData.shipType == "CV")
             {
-                if (enemy_mainFleetSpawnIndex < enemy_mainFleetSpawnPoints.Length/*mainFleetSpawnIndex < 3*/)
+                if (enemy_mainFleetSpawnIndex < enemy_mainFleetSpawnPoints.Length)
                 {
                     spawnPoint = enemy_mainFleetSpawnPoints[enemy_mainFleetSpawnIndex];
                     enemy_mainFleetSpawnIndex++;
@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (characterData.shipType == "DD" || characterData.shipType == "CLCA")
             {
-                if (enemy_vanguardFleetSpawnIndex < enemy_vanguardFleetSpawnPoints.Length/*vanguardFleetSpawnIndex < 6*/)
+                if (enemy_vanguardFleetSpawnIndex < enemy_vanguardFleetSpawnPoints.Length)
                 {
                     spawnPoint = enemy_vanguardFleetSpawnPoints[enemy_vanguardFleetSpawnIndex];
                     enemy_vanguardFleetSpawnIndex++;

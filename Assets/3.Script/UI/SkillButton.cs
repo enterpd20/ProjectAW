@@ -53,16 +53,6 @@ public class SkillButton : MonoBehaviour
 
             Button skillButton = skillButtonObject.GetComponentInChildren<Button>();
 
-            // 장착된 장비의 RLD 값 디버깅
-            //foreach (string gearName in ally.eqiuppedGears)
-            //{
-            //    Gear gear = GearDataLoader.GetGearByName(gearName);
-            //    if (gear != null)
-            //    {
-            //        Debug.Log($"[InitializeSkillButtons] {ally.name}의 장비 {gearName}의 RLD 값: {gear.stats.RLD}");
-            //    }
-            //}
-
             // SkillData 객체를 한 번만 생성하여 리스트에 추가
             SkillData skillData = new SkillData
             {
@@ -98,7 +88,6 @@ public class SkillButton : MonoBehaviour
 
         // 스킬 버튼을 비활성화
         skillData.skillButton.interactable = false;
-        //skillButtonImage.color = new Color(0.5f, 0.5f, 0.5f, 1.0f); // 버튼 이미지 어둡게
 
         // 쿨타임 동안 슬라이더 값을 증가시킴
         float elapsedTime = 0;
@@ -129,57 +118,8 @@ public class SkillButton : MonoBehaviour
     // DD 스킬: 어뢰 3발 발사
     private void UseDDSkill(SkillData skillData)
     {
-        // Torpedo 장비의 DMG 값 가져오기
-        //Gear torpedoGear = null;
-        //foreach (string gearName in ally.eqiuppedGears)
-        //{
-        //    Gear gear = GearDataLoader.GetGearByName(gearName);
-        //    if (gear != null && gear.gearType == "Torpedo")
-        //    {
-        //        torpedoGear = gear;
-        //        break;
-        //    }
-        //}
-
-        //if (torpedoGear != null && cooldownSlider.value >= 1.0f) // 쿨타임이 다 찼을 때만 스킬 사용 가능
-        //{
-        //    float torpedoDamage = torpedoGear.stats.DMG;
-        //    float reloadTime = torpedoGear.stats.RLD;
-        //
-        //    // 어뢰 발사 로직 구현
-        //    Debug.Log($"{ally.name}이(가) 어뢰 3발을 발사합니다! DMG: {torpedoDamage}");
-        //
-        //    // 스킬 쿨타임 설정
-        //    Debug.Log("Starting SkillCooldown Coroutine"); // 코루틴 시작 전 로그 추가
-        //    StartCoroutine(SkillCooldown(skillButton, cooldownSlider, skillButtonImage, reloadTime));
-        //}
-
         // 이미 스킬이 활성화 중인지 확인
         if (skillData.cooldownSlider.value < 1.0f) return;
-
-        // 캐릭터의 BattleAI 스크립트를 이름으로 가져오기
-        //GameObject allyObject = GameObject.Find(ally.name);
-        //if (allyObject == null)
-        //{
-        //    Debug.LogWarning($"No GameObject found with name: {ally.name}");
-        //    return;
-        //}
-        //
-        //BattleAI battleAI = allyObject.GetComponent<BattleAI>();
-        //if (battleAI == null)
-        //{
-        //    Debug.LogWarning($"BattleAI component not found on {ally.name}");
-        //    return;
-        //}
-        //
-        //// 스킬 효과 적용: SPD 10% 증가
-        //float originalSPD = ally.stats.SPD;
-        //ally.stats.SPD *= 1.1f;
-        //battleAI.DamageIgnore(30);
-        //
-        //// 10초 동안 유지될 효과를 위한 타이머 설정
-        //float skillDuration = 10f;
-        //StartCoroutine(SkillCooldown(ally, battleAI, skillButton, cooldownSlider, skillButtonImage, skillDuration, originalSPD));
 
         // 스킬 효과 적용: SPD 10% 증가
         skillData.ally.stats.SPD *= 1.1f;
