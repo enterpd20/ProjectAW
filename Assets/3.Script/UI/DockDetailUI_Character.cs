@@ -17,7 +17,7 @@ public class DockDetailUI_Character : MonoBehaviour
     [SerializeField] private Text finalCharacterStats_AA;
     [SerializeField] private Text finalCharacterStats_SPD;
 
-    [SerializeField] private Image backgroundImage;
+    [SerializeField] private Image backgroundImage;     // 캐릭터 희귀도 등급 배경
 
     // UI 표현을 위함
     [SerializeField] private RectTransform Rect_StatusUI;

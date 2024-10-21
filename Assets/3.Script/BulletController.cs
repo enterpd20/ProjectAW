@@ -42,7 +42,7 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    public void InitializeBullet(Gear gear/*, BulletType type*/, TeamManager ownerTeamManager, Transform targetTransform, Vector3 minBounds, Vector3 maxBounds)
+    public void InitializeBullet(Gear gear, TeamManager ownerTeamManager, Transform targetTransform, Vector3 minBounds, Vector3 maxBounds)
     {
         if (gear != null)
         {

@@ -205,7 +205,7 @@ public class BattleManager : MonoBehaviour
     private void ShowBattleResult(string resultMessage, Color textColor)
     {
         // 1초 후에 결과 패널 표시
-        StartCoroutine(DisplayResult(resultMessage, textColor));
+        StartCoroutine(DisplayResult(resultMessage, textColor));        
     }
 
     private IEnumerator DisplayResult(string resultMessage, Color textColor)
@@ -217,6 +217,12 @@ public class BattleManager : MonoBehaviour
 
         // 결과 패널의 크기를 설정하여 나타나게 함
         resultPanel.transform.localScale = Vector3.one;
+
+        SkillButton skillButtonManager = FindObjectOfType<SkillButton>();
+        if (skillButtonManager != null)
+        {
+            skillButtonManager.DisableSkullButtons();
+        }
 
         Time.timeScale = 0f;
     }

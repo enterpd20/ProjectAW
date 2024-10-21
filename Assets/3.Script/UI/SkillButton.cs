@@ -50,6 +50,7 @@ public class SkillButton : MonoBehaviour
             // 슬라이더 설정
             Slider cooldownSlider = skillButtonObject.GetComponentInChildren<Slider>();
             cooldownSlider.value = 1; // 초기 쿨타임 값
+            cooldownSlider.interactable = false; // 슬라이더 조작을 방지하기 위해 비활성화
 
             Button skillButton = skillButtonObject.GetComponentInChildren<Button>();
 
@@ -115,7 +116,7 @@ public class SkillButton : MonoBehaviour
         Debug.Log("SkillCooldown 완료"); // 디버그 로그로 코루틴 완료 확인
     }
 
-    // DD 스킬: 어뢰 3발 발사
+    // DD 스킬: 이동속도 10% 증가, 회피율 30%
     private void UseDDSkill(SkillData skillData)
     {
         // 이미 스킬이 활성화 중인지 확인
@@ -164,5 +165,13 @@ public class SkillButton : MonoBehaviour
         }
     }
 
-    
+    public void DisableSkullButtons()
+    {
+        foreach (SkillData skillData in skillDataList)
+        {
+            gameObject.SetActive(false);
+            skillData.cooldownSlider.gameObject.SetActive(false);
+
+        }
+    }
 }

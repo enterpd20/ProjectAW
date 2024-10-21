@@ -1,14 +1,14 @@
+using Spine.Unity;
 using System.Collections;
 using UnityEngine;
-using Spine.Unity;
 
 public class BattleAI : MonoBehaviour
 {
     // 캐릭터의 상태 정의
     enum State
     {
-        Patrol,     // 대기 상태
-        Engage,     // 전투 상태
+        Patrol,     // 정찰 상태
+        Engage,     // 교전 상태
         Retreat,    // 후퇴 상태
         Dead        // 사망 상태
     }
@@ -20,11 +20,11 @@ public class BattleAI : MonoBehaviour
 
     private Transform target;                    // 타겟(적) 위치
 
-    private float attackCooldownTimer = 0f;
     private int damageIgnoreChance = 0;
+    private float attackCooldownTimer = 0f;
+    public float moveSpeed;        // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)    
     public float maxHealth;        // 최대 체력 (Dock UI에서 최종 스탯을 받아올 것)
     public float currentHealth;    // 현재 체력 (Dock UI에서 최종 스탯을 받아올 것)
-    public float moveSpeed;        // 이동 속도 (Dock UI에서 최종 스탯을 받아올 것)    
 
     // 캐릭터 시야 범위, 최소 교전범위, 최대 교전범위
     public SphereCollider characterSight, min_EngageRange, MAX_EngageRange;
@@ -46,6 +46,8 @@ public class BattleAI : MonoBehaviour
     {
         skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
 
+        rb = GetComponent<Rigidbody>();
+
         currentState = State.Patrol;  // 초기 상태 설정
         mapObject = FindObjectOfType<MeshCollider>().gameObject;    // 맵 오브젝트 경계 값 가져옴
 
@@ -58,7 +60,7 @@ public class BattleAI : MonoBehaviour
             Renderer mapRenderer = mapObject.GetComponent<Renderer>();
             if (mapRenderer != null)
             {
-                float offset = 5f;
+                float offset = 7f;
                 mapMinBounds = mapRenderer.bounds.min + new Vector3(offset, 0, offset);
                 mapMaxBounds = mapRenderer.bounds.max - new Vector3(offset, 0, offset);
             }
@@ -73,8 +75,6 @@ public class BattleAI : MonoBehaviour
         }
 
         teamManager = GetComponent<TeamManager>();
-
-        //rb.constraints = RigidbodyConstraints.FreezePositionY;
     }
 
     void Update()
@@ -83,7 +83,7 @@ public class BattleAI : MonoBehaviour
         {
             SetCharacterState("Dead");
             currentState = State.Dead;
-            return; 
+            return;
         }
 
         switch (currentState)
@@ -211,11 +211,17 @@ public class BattleAI : MonoBehaviour
             if ((teamManager.team == TeamManager.Team.Ally && otherTeamManager.team == TeamManager.Team.Enemy) ||
                 (teamManager.team == TeamManager.Team.Enemy && otherTeamManager.team == TeamManager.Team.Ally))
             {
-                float distanceToTarget = Vector3.Distance(transform.position, hitCol.transform.position);
-                if (distanceToTarget < closestDistance)
+                // 적 캐릭터의 BattleAI 컴포넌트를 가져옴
+                BattleAI potentialTarget = hitCol.GetComponent<BattleAI>();
+
+                if (potentialTarget != null && potentialTarget.currentHealth > 0)
                 {
-                    closestDistance = distanceToTarget;
-                    closestTarget = hitCol.transform;
+                    float distanceToTarget = Vector3.Distance(transform.position, hitCol.transform.position);
+                    if (distanceToTarget < closestDistance)
+                    {
+                        closestDistance = distanceToTarget;
+                        closestTarget = hitCol.transform;
+                    }
                 }
             }
         }
@@ -226,7 +232,7 @@ public class BattleAI : MonoBehaviour
     // 이동 지점 무작위로 지정
     private void RandomPositioning()
     {
-        Vector3 randomDirection = 
+        Vector3 randomDirection =
             new Vector3(Random.Range(mapMinBounds.x, mapMaxBounds.x),
                         transform.position.y,
                         Random.Range(mapMinBounds.z, mapMaxBounds.z));
@@ -268,7 +274,6 @@ public class BattleAI : MonoBehaviour
         while (Vector3.Distance(transform.position, targetPosition) > 0.2f)
         {
             Vector3 direction = (targetPosition - transform.position).normalized;
-            //direction.y = 0;
 
             Vector3 nextPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
@@ -298,7 +303,7 @@ public class BattleAI : MonoBehaviour
             }
             // 적이 시야 범위 내에 있고 최대 교전범위 밖에 있다면
             else if (distanceToTarget > MAX_EngageRange.radius && distanceToTarget < characterSight.radius)
-            {                
+            {
                 ChaseTarget(); // 추격 로직 실행
             }
             // 적이 최대 교전범위 안, 최소 교전범위 밖에 있다면
@@ -432,16 +437,31 @@ public class BattleAI : MonoBehaviour
     {
         // 현재 캐릭터의 장착된 장비 가져오기
         Gear equippedGear = null;
+        Character currentCharacter = null;
+
         if (teamManager != null && teamManager.team == TeamManager.Team.Ally) // 아군의 경우만
         {
             // BattleAI에 적용된 캐릭터의 장비를 가져옴
             int characterIndex = Player.Instance.ownedCharacter.FindIndex(character => character.name == this.gameObject.name);
             if (characterIndex >= 0)
             {
-                Character currentCharacter = Player.Instance.ownedCharacter[characterIndex];
+                currentCharacter = Player.Instance.ownedCharacter[characterIndex];
                 if (currentCharacter.eqiuppedGears != null && currentCharacter.eqiuppedGears.Count > 0)
                 {
                     string equippedGearName = currentCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
+                    equippedGear = GearDataLoader.GetGearByName(equippedGearName);
+                }
+            }
+        }
+        else if (teamManager.team == TeamManager.Team.Enemy) // 적군의 경우
+        {
+            int enemyIndex = Player.Instance.enemyCharacter.FindIndex(character => character.name == this.gameObject.name);
+            if (enemyIndex >= 0)
+            {
+                Character enemyCharacter = Player.Instance.enemyCharacter[enemyIndex];
+                if (enemyCharacter.eqiuppedGears != null && enemyCharacter.eqiuppedGears.Count > 0)
+                {
+                    string equippedGearName = enemyCharacter.eqiuppedGears[0]; // 첫 번째 장착된 장비의 이름 가져오기
                     equippedGear = GearDataLoader.GetGearByName(equippedGearName);
                 }
             }
@@ -467,11 +487,12 @@ public class BattleAI : MonoBehaviour
             {
                 bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
                 attackCooldownTimer = bulletController.ReloadTime;
+
+                ShipTypeSFX(currentCharacter.shipType);
             }
+
         }
     }
-
-
 
     // 후퇴 상태 처리
     void HandleRetreatState()
@@ -531,13 +552,68 @@ public class BattleAI : MonoBehaviour
     {
         if (target == null) return false;
 
-        // 1. 체력이 35% 미만인 경우
-        if (currentHealth < maxHealth * 0.35f) return true;
+        // 1. 체력이 25% 미만인 경우
+        if (currentHealth < maxHealth * 0.25f) return true;
 
-        // 2. 체력이 40% 미만이고, 전체 아군의 수가 전체 적군의 수보다 2명 이상 적은 경우
-        if (currentHealth < maxHealth * 0.4f /*&& GetAllyCount() + 2 < GetEnemyCount()*/) return true;
+        // 2. 체력이 40% 미만이고, 시야 범위 내의 적이 2명 이상인 경우
+        if (currentHealth < maxHealth * 0.4f && CountEnemyInSight() >= 2) return true;
 
         return false;
+    }
+
+    private int CountEnemyInSight()
+    {
+        int enemyCount = 0;
+
+        // 시야 범위 콜라이더를 이용하여 상대팀을 탐지
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, characterSight.radius);
+
+        foreach (var hitCol in hitColliders)
+        {
+            TeamManager otherTeamManager = hitCol.GetComponent<TeamManager>();
+
+            if (otherTeamManager != null)
+            {
+                // 각 팀을 적으로 인식하도록
+                if ((teamManager.team == TeamManager.Team.Ally && otherTeamManager.team == TeamManager.Team.Enemy) ||
+                    (teamManager.team == TeamManager.Team.Enemy && otherTeamManager.team == TeamManager.Team.Ally))
+                {
+                    enemyCount++;
+                }
+            }
+        }
+
+        return enemyCount;
+    }
+
+    private void ShipTypeSFX(string shipType)
+    {
+        int sfxIndex = -1; // 기본값은 재생되지 않도록 설정
+        float volume = 1f; // 기본 볼륨
+
+        switch (shipType)
+        {
+            case "DD":
+                sfxIndex = 3;
+                volume = 0.4f;
+                break;
+            case "CLCA":
+                sfxIndex = 4;
+                volume = 0.4f;
+                break;
+            case "BB":
+                sfxIndex = 5;
+                volume = 0.4f;
+                break;
+            default:
+                Debug.LogWarning($"Unknown ship type: {shipType}");
+                break;
+        }
+
+        if(sfxIndex >= 0)
+        {
+            SoundManager.Instance.PlaySFX(sfxIndex, volume);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -592,8 +668,15 @@ public class BattleAI : MonoBehaviour
     // 캐릭터 사망 처리
     private void OnDie()
     {
+        if (currentState == State.Dead) return;
+
         Debug.Log($"{gameObject.name} has died.");
         SetCharacterState("Dead");
+        
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+
         // 사망 애니메이션이 끝난 후 캐릭터를 비활성화
         skeletonAnimation.state.Complete += OnAnimationComplete;
     }

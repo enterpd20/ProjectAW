@@ -18,7 +18,7 @@ public class CharacterHealth : MonoBehaviour
             healthSlider.value = battleAI.currentHealth;
             healthSlider.interactable = false; // 체력바 드래그 비활성화
 
-            Debug.Log($"{gameObject.name} health: {battleAI.currentHealth} / {battleAI.maxHealth}, Slider value: {healthSlider.value}");
+            //Debug.Log($"{gameObject.name} health: {battleAI.currentHealth} / {battleAI.maxHealth}, Slider value: {healthSlider.value}");
         }
         else
         {
@@ -33,7 +33,7 @@ public class CharacterHealth : MonoBehaviour
             // 현재 체력을 Slider에 반영
             healthSlider.value = battleAI.currentHealth;
 
-            Debug.Log($"{gameObject.name} - Current Health: {battleAI.currentHealth}, Slider Value: {healthSlider.value}");
+            //Debug.Log($"{gameObject.name} - Current Health: {battleAI.currentHealth}, Slider Value: {healthSlider.value}");
         }
     }
 }

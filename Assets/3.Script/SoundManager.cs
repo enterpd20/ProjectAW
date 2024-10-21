@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance; // 싱글톤 패턴을 위한 static 인스턴스
 
     [SerializeField] private AudioSource bgmAudioSource;   // 배경 음악을 재생할 AudioSource
-    [SerializeField] private AudioClip[] musicClips;    // 각 씬에 맞는 배경 음악 클립들
+    [SerializeField] private AudioClip[] bgmClips;    // 각 씬에 맞는 배경 음악 클립들
 
     [SerializeField] private AudioSource sfxAudioSource;   // 배경 음악을 재생할 AudioSource
     [SerializeField] private AudioClip[] sfxClips;      // 버튼 클릭 시 사용할 SFX 배열
@@ -53,42 +53,42 @@ public class SoundManager : MonoBehaviour
         switch (sceneName)
         {
             case "00_Loading":
-                clipToPlay = musicClips[2]; // 03_SelectBattle
+                clipToPlay = bgmClips[2]; // 03_SelectBattle
                 break;
             case "00_Title":
-                clipToPlay = musicClips[0]; // 00_Title
+                clipToPlay = bgmClips[0]; // 00_Title
                 break;
             case "01_Lobby":
-                clipToPlay = musicClips[1]; // 01_Lobby
+                clipToPlay = bgmClips[1]; // 01_Lobby
                 break;
             case "02_Dock":
-                clipToPlay = musicClips[1]; // 01_Lobby
+                clipToPlay = bgmClips[1]; // 01_Lobby
                 break;
             case "02_DockDetail":
-                clipToPlay = musicClips[1]; // 01_Lobby
+                clipToPlay = bgmClips[1]; // 01_Lobby
                 break;
             case "02_Depot":
-                clipToPlay = musicClips[1]; // 01_Lobby
+                clipToPlay = bgmClips[1]; // 01_Lobby
                 break;
             case "02_Build":
-                clipToPlay = musicClips[1]; // 01_Lobby
+                clipToPlay = bgmClips[1]; // 01_Lobby
                 break;
             case "02_Lab":
-                clipToPlay = musicClips[1]; // 01_Lobby
+                clipToPlay = bgmClips[1]; // 01_Lobby
                 break;
             case "03_SelectBattle":
-                clipToPlay = musicClips[2]; // 03_SelectBattle
+                clipToPlay = bgmClips[2]; // 03_SelectBattle
                 break;
             case "03_SelectStage":
-                clipToPlay = musicClips[2]; // 03_SelectBattle
+                clipToPlay = bgmClips[2]; // 03_SelectBattle
                 break;
             case "04_Battle":
                 // 04_Battle 씬에서는 3개의 음악을 랜덤하게 선택
                 int randomIndex = Random.Range(3, 6); // 04_Battle01, 04_Battle02, 04_Battle03
-                clipToPlay = musicClips[randomIndex];
+                clipToPlay = bgmClips[randomIndex];
                 break;
             default:
-                clipToPlay = musicClips[0]; // 기본 음악
+                clipToPlay = bgmClips[0]; // 기본 음악
                 break;
         }
 
@@ -101,11 +101,11 @@ public class SoundManager : MonoBehaviour
     }
 
     // 버튼에 맞는 SFX를 재생
-    public void PlaySFX(int sfxIndex)
+    public void PlaySFX(int sfxIndex, float volume)
     {
         if (sfxIndex >= 0 && sfxIndex < sfxClips.Length)
         {
-            sfxAudioSource.PlayOneShot(sfxClips[sfxIndex]);
+            sfxAudioSource.PlayOneShot(sfxClips[sfxIndex], volume);
         }
     }
 

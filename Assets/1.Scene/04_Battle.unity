@@ -428,7 +428,7 @@ RectTransform:
   - {fileID: 82059206}
   - {fileID: 1418379790}
   m_Father: {fileID: 835435389}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1232,14 +1232,14 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658603633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -45}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children:
   - {fileID: 1383189859}
   - {fileID: 1757521342}
   - {fileID: 592561125}
   m_Father: {fileID: 835435389}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1467,8 +1467,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 137938137}
   - {fileID: 658603634}
+  - {fileID: 137938137}
   - {fileID: 2021132823}
   - {fileID: 1279960574}
   m_Father: {fileID: 0}
@@ -1491,6 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bab33f5e2d150438fb0b6306ce795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_tutorial: {fileID: 0}
 --- !u!1 &888015570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,7 +1871,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1054854812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 835435390}
+        m_TargetAssemblyTypeName: SceneChangingManager, Assembly-CSharp
+        m_MethodName: To_SelectStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1054854812
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bab33f5e2d150438fb0b6306ce795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_tutorial: {fileID: 0}
 --- !u!114 &789058981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmAudioSource: {fileID: 2134085670}
-  musicClips:
+  bgmClips:
   - {fileID: 8300000, guid: c1a21bf739d9d0a479c525260e56ff03, type: 3}
   - {fileID: 8300000, guid: 611fb30c6e594fb488a512e08afa2de2, type: 3}
   - {fileID: 8300000, guid: 195de616b171def49a4888d4d8c91e3e, type: 3}
@@ -910,6 +911,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e2aadfded1016c547aab750477b10fe2, type: 3}
   - {fileID: 8300000, guid: a25a9b3766e6b4742a8a9de957aff21d, type: 3}
   - {fileID: 8300000, guid: 49313a54f4b0f7244b5246acbf73704e, type: 3}
+  - {fileID: 8300000, guid: 7102aa84b43e30346bc5ffd26b2bc45a, type: 3}
+  - {fileID: 8300000, guid: 2d300ab99a6f8d3449aab27d91fb741d, type: 3}
+  - {fileID: 8300000, guid: 72c6f1f828b8dab408f1dd92f95a7013, type: 3}
   audioMixer: {fileID: 24100000, guid: 45dbe0c1562cf2748a222cacd1a7c2c6, type: 2}
 --- !u!82 &1562525487
 AudioSource:

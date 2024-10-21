@@ -41,6 +41,9 @@ TextureImporter:
   - first:
       213: 1909900317599615283
     second: Button_ScrollBarHorizontal
+  - first:
+      213: 1291896662182177503
+    second: UI_YellowArrow
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -422,6 +425,27 @@ TextureImporter:
       bones: []
       spriteID: 3394ee24834518a10800000000000000
       internalID: 1909900317599615283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YellowArrow
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 668
+        width: 77
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdaa1e36b2dbde110800000000000000
+      internalID: 1291896662182177503
       vertices: []
       indices: 
       edges: []

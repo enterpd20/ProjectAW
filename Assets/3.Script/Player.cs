@@ -109,8 +109,6 @@ public class Player : MonoBehaviour
         {
             Debug.LogWarning("No save data file found at: " + path);
 
-            //ownedCharacter = new List<Character>();
-            // 기본 캐릭터 추가
             ownedCharacter = new List<Character>
             {
                 new Character

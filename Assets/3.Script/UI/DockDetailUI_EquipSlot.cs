@@ -44,6 +44,7 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
                 Debug.LogWarning($"No matching gear found for name {gearName}");
             }
         }
+
         SetEquipSlots();
     }
 

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangingManager : MonoBehaviour
 {
+    public GameObject UI_tutorial;
+
     public void To_Title()
     {
         SceneManager.LoadScene("00_Title");
@@ -44,5 +46,15 @@ public class SceneChangingManager : MonoBehaviour
     public void To_Battle()
     {
         SceneManager.LoadScene("04_Battle");
+    }
+
+    public void Open_Tutorial()
+    {
+        UI_tutorial.transform.localScale = Vector3.one;
+    }
+
+    public void Close_Tutorial()
+    {
+        UI_tutorial.transform.localScale = Vector3.zero;
     }
 }
