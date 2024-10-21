@@ -56,7 +56,7 @@ public class CharacterButton : MonoBehaviour
             SceneManager.LoadScene("02_DockDetail");
 
             // DockDetailUI_Character에 캐릭터 데이터를 로드하는 메서드 호출
-            var dockDetailUI = GameObject.FindObjectOfType<DockDetailUI_Character>();
+            var dockDetailUI = FindObjectOfType<DockDetailUI_Character>();
             if (dockDetailUI != null)
             {
                 dockDetailUI.LoadCharacterData();
@@ -64,7 +64,7 @@ public class CharacterButton : MonoBehaviour
         }
         else if(currentScene == "03_SelectStage")
         {
-            var selectStageUI = GameObject.FindObjectOfType<SelectStageUI>();
+            var selectStageUI = FindObjectOfType<SelectStageUI>();
             if(selectStageUI != null)
             {
                 selectStageUI.SetSelectedCharacter(characterData);

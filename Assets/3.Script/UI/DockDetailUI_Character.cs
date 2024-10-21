@@ -73,7 +73,7 @@ public class DockDetailUI_Character : MonoBehaviour
         }
     }
 
-    private List<Gear> GetEquippedGears(/*string shipType*/ Character character)
+    private List<Gear> GetEquippedGears(Character character)
     {
         List<Gear> equippedGears = new List<Gear>();
 
