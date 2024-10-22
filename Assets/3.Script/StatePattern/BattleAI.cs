@@ -127,10 +127,14 @@ public class BattleAI : MonoBehaviour
         {
             CharacterStats battleStats = Player.Instance.ownedCharacter[selectedIndex].stats;
 
-            maxHealth = battleStats.HP;
-            currentHealth = maxHealth;
-            moveSpeed = battleStats.SPD * 0.3f;
+            //maxHealth = battleStats.HP;
+            //currentHealth = maxHealth;
+            //moveSpeed = battleStats.SPD * 0.3f;
             //Debug.Log($"{gameObject.name} - 체력 초기화: {currentHealth}/{maxHealth}");
+
+            maxHealth = stats.HP;
+            currentHealth = maxHealth;
+            moveSpeed = stats.SPD * 0.3f;
 
             // 장비 정보 캐싱
             string equippedGearName = Player.Instance.ownedCharacter[selectedIndex].eqiuppedGears[0];
