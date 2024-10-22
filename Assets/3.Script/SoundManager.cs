@@ -36,6 +36,9 @@ public class SoundManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로드 이벤트 구독
         PlayBGM(SceneManager.GetActiveScene().name); // 첫 씬의 음악 재생
+
+        // BGM 볼륨을 0.75로 초기 설정
+        OnBGMVolumeChange(0.75f);
     }
 
     // 씬이 로드될 때마다 호출

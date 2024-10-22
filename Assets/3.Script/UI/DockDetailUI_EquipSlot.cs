@@ -14,9 +14,6 @@ public class DockDetailUI_EquipSlot : MonoBehaviour
 
     private DockDetailUI_Character dockDetailUICharacter;
 
-    // JSON 데이터를 통해 로드된 장비 정보 리스트
-    private List<Gear> loadedGears;
-
     private Character currentCharacter;
     private List<Gear> equippedGears;   // 장비의 데이터를 담고 있는 리스트
 

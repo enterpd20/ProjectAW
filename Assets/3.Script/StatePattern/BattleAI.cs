@@ -161,7 +161,7 @@ public class BattleAI : MonoBehaviour
                 SetAnimation(move, true, 1f);
                 break;
             case "Attack":
-                SetAnimation(attack, true, 1f);
+                SetAnimation(attack, false, 1f);
                 break;
             case "Dead":
                 SetAnimation(dead, false, 1f);
@@ -473,24 +473,28 @@ public class BattleAI : MonoBehaviour
             return;
         }
 
-        // 총알 생성
-        GameObject bullet = BulletManager.Instance.GetPooledBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
-        if (bullet != null)
+        if (attackCooldownTimer <= 0)
         {
-            Vector3 bulletPosition = transform.position + transform.forward * 1f;
-            bulletPosition.y = 1.3f;
-            bullet.transform.position = bulletPosition;
-            bullet.SetActive(true);
-
-            BulletController bulletController = bullet.GetComponent<BulletController>();
-            if (bulletController != null)
+            SetCharacterState("Attack"); // 포탄을 발사할 때만 공격 애니메이션 재생
+                // 총알 생성
+            GameObject bullet = BulletManager.Instance.GetPooledBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
+            if (bullet != null)
             {
-                bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
-                attackCooldownTimer = bulletController.ReloadTime;
+                Vector3 bulletPosition = transform.position + transform.forward * 1f;
+                bulletPosition.y = 1.3f;
+                bullet.transform.position = bulletPosition;
+                bullet.SetActive(true);
 
-                ShipTypeSFX(currentCharacter.shipType);
+                BulletController bulletController = bullet.GetComponent<BulletController>();
+                if (bulletController != null)
+                {
+                    bulletController.InitializeBullet(equippedGear, teamManager, target, mapMinBounds, mapMaxBounds);
+                    attackCooldownTimer = bulletController.ReloadTime;
+
+                    ShipTypeSFX(currentCharacter.shipType);
+                }
+
             }
-
         }
     }
 
@@ -503,6 +507,13 @@ public class BattleAI : MonoBehaviour
         {
             // 적과 반대 방향으로 이동
             RetreatFromTarget();
+
+            // 교전 범위 내에 적이 있다면 공격 가능
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            if (distanceToTarget < MAX_EngageRange.radius && distanceToTarget > min_EngageRange.radius)
+            {
+                Attack(); // 교전 범위 내에서 공격
+            }
 
             // 후퇴 조건이 사라지면 정찰 상태로 전환
             if (!RetreatConditions())
@@ -657,7 +668,7 @@ public class BattleAI : MonoBehaviour
         }
 
         currentHealth -= damage;
-        //Debug.Log($"{gameObject.name} current health: {currentHealth}");
+        Debug.Log($"{gameObject.name} current health: {currentHealth}");
 
         if (currentHealth <= 0)
         {
@@ -687,7 +698,8 @@ public class BattleAI : MonoBehaviour
         // 사망 애니메이션이 끝났을 때만 비활성화
         if (trackEntry.Animation.Name == dead.name)
         {
-            gameObject.SetActive(false); // 캐릭터 비활성화 (사망)
+            gameObject.SetActive(false); // 캐릭터 비활성화 (사망)            
+            Destroy(GetComponent<TeamManager>()); // TeamManager 컴포넌트 제거
 
             // 애니메이션 완료 이벤트를 더 이상 감지하지 않도록 핸들러 제거
             skeletonAnimation.state.Complete -= OnAnimationComplete;
