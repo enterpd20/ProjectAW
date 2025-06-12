@@ -4,7 +4,9 @@
 
 ## 1. Project Overview [프로젝트 개요]
 
-**1인 개발 Unity 3D Personal Project** - Azur Lane 모작
+모바일 게임 Azur Lane의 모작입니다.
+
+Unity 3D로 1인 개발을 진행했습니다.
 
 개발 기간: 24.08.27 ~ 24.10.22
 
