@@ -32,3 +32,11 @@ Unity 3D Personal Project - Azur Lane 모작
 - **JSON 데이터 관리 방식**
 - **실시간 물결 셰이더**: 바다에 물결 효과가 적용된 커스텀 셰이더를 사용합니다.
 - **사운드 시스템**: 싱글톤 패턴을 사용하여 Master, BGM, SFX를 분리하여 조절 가능합니다.
+
+
+## 3. Tech Stack [기술 스택]
+- **C#**
+- **Unity 2020.3.36(URP 사용)**
+- **Shader Grapgh(물결 효과)**
+- **JSON(플레이어/캐릭터 데이터 관리)**
+- **Fork + Github(형상 관리)**
