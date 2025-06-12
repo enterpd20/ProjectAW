@@ -1,12 +1,12 @@
 ![Image](https://github.com/user-attachments/assets/9d5bd81b-f6f9-4362-a239-c82add5919c2)
 
-# Azur Lane: Another Wave [<img src="https://github.com/user-attachments/assets/a6a32091-a55b-4721-adbb-38c79cea22f3"  width="40" height="30"/>](https://youtu.be/ZQeOSHrXYPw)
+# Azur Lane: Another Wave [1인 개발 프로젝트] [<img src="https://github.com/user-attachments/assets/a6a32091-a55b-4721-adbb-38c79cea22f3"  width="40" height="30"/>](https://youtu.be/ZQeOSHrXYPw)
 
 ## 1. Project Overview [프로젝트 개요]
 
 모바일 게임 Azur Lane의 모작입니다.
 
-Unity 3D로 1인 개발을 진행했습니다.
+Unity 3D로 제작한 캐릭터 수집형 게임입니다.
 
 개발 기간: 24.08.27 ~ 24.10.22
 
