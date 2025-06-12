@@ -1,6 +1,6 @@
 ![Image](https://github.com/user-attachments/assets/9d5bd81b-f6f9-4362-a239-c82add5919c2)
 
-# Azur Lane: Another Wave [![YouTube](https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_social_white_square_(2017).svg)](https://youtu.be/ZQeOSHrXYPw)
+# Azur Lane: Another Wave [<img src="https://github.com/user-attachments/assets/a6a32091-a55b-4721-adbb-38c79cea22f3"  width="40" height="30"/>](https://youtu.be/ZQeOSHrXYPw)
 
 ## 1. Project Overview [프로젝트 개요]
 
