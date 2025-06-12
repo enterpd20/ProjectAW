@@ -39,6 +39,6 @@ Unity 3D로 1인 개발을 진행했습니다.
 ## 3. Tech Stack [기술 스택]
 - **C#**
 - **Unity 2020.3.36(URP 사용)**
-- **Shader Grapgh(물결 효과)**
+- **Shader Graph(물결 효과)**
 - **JSON(플레이어/캐릭터 데이터 관리)**
 - **Fork + Github(형상 관리)**
