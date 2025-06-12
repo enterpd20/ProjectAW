@@ -4,7 +4,7 @@
 
 ## 1. Project Overview [프로젝트 개요]
 
-Unity 3D Personal Project - Azur Lane 모작
+**1인 개발 Unity 3D Personal Project** - Azur Lane 모작
 
 개발 기간: 24.08.27 ~ 24.10.22
 
